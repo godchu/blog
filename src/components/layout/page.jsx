@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
 
-
-export function Page({
+function Page({
   children,
   toc,
   routeTree,
   meta,
   section,
   languages = null,
-}){
-  return <div>1</div>
+}) {
+  return <div>1</div>;
 }
+
+export {Page};

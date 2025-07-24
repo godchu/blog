@@ -1,14 +1,13 @@
-// app/scroll-restore.tsx
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import {useEffect} from 'react';
 
 export function ScrollRestoreFix() {
   useEffect(() => {
-    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const isSafari = /^(?:(?!chrome|android).)*safari/i.test(navigator.userAgent);
     if (isSafari) {
-      history.scrollRestoration = "auto";
+      // eslint-disable-next-line no-restricted-globals
+      history.scrollRestoration = 'auto';
     }
   }, []);
-  return null;
 }

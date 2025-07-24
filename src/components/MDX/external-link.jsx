@@ -1,13 +1,14 @@
-import React from "react";
+import React from 'react';
 
 export function ExternalLink({
   href,
   target,
   children,
-  ...props
+  ...properties
 }) {
   return (
-    <a href={href} target={target ?? '_blank'} rel="noopener" {...props}>
+    // eslint-disable-next-line react/jsx-no-target-blank
+    <a href={href} target={target ?? '_blank'} rel='noopener' {...properties}>
       {children}
     </a>
   );

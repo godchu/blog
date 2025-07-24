@@ -1,31 +1,28 @@
-import React from "react";
-import { HTMLAttributes } from 'react';
+import React from 'react';
 
 /**
- * @param {HTMLAttributes<HTMLParagraphElement>} p 
+ * @param {HTMLAttributes<HTMLParagraphElement>} p
  */
-const P = (p) => (
-  <p className="whitespace-pre-wrap my-4" {...p} />
-);
+function P(p) {
+  return <p className='whitespace-pre-wrap my-4' {...p}/>;
+}
 
 /**
- * @param {HTMLAttributes<HTMLElement>} strong 
+ * @param {HTMLAttributes<HTMLElement>} strong
  */
-const Strong = (strong) => (
-  <strong className="font-bold" {...strong} />
-);
-
+function Strong(strong) {
+  return <strong className='font-bold' {...strong}/>;
+}
 
 /**
- * @param {HTMLAttributes<HTMLUListElement>} p 
+ * @param {HTMLAttributes<HTMLUListElement>} p
  */
-const UL = (p) => (
-  <ul className="ms-6 my-3 list-disc" {...p} />
-);
-
+function UL(p) {
+  return <ul className='ms-6 my-3 list-disc' {...p}/>;
+}
 
 export const MDXComponents = {
   p: P,
   strong: Strong,
-  ul: UL
-}
+  ul: UL,
+};
