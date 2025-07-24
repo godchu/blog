@@ -4,6 +4,7 @@ import sortKeysFix from "eslint-plugin-sort-keys-fix";
 import noFunctionDeclareAfterReturn from "eslint-plugin-no-function-declare-after-return";
 import noOnlyTests from "eslint-plugin-no-only-tests";
 import importPlugin from "eslint-plugin-import";
+import reactCompilerPlugin from "eslint-plugin-react-compiler";
 
 /** @type {import('@typescript-eslint/utils/ts-eslint').FlatConfig.ConfigArray} */
 const eslintConfig = [
@@ -11,6 +12,7 @@ const eslintConfig = [
   ...shopifyEslintPlugin.configs.react,
   ...shopifyEslintPlugin.configs.prettier,
   {
+    name: "custom-plugin",
     files: ["**/*.{js,mjs,cjs}"],
     plugins: {
       "simple-import-sort": simpleImportSort,
@@ -18,19 +20,23 @@ const eslintConfig = [
       import: importPlugin,
       "no-function-declare-after-return": noFunctionDeclareAfterReturn,
       "no-only-tests": noOnlyTests,
+      "react-compiler": reactCompilerPlugin,
     },
 
     rules: {
-      "import-x/no-unresolved": "off",
+      // "import-x/no-unresolved": "off",
 
       // Disable prop-types check for React components
       "react/prop-types": "off",
       // Not needed with React 17+ and automatic JSX runtime
       "react/react-in-jsx-scope": "off",
-      // You can add more rules here as needed
+      ...reactCompilerPlugin.configs.recommended.rules,
     },
 
     settings: {
+      react: {
+        version: "detect",
+      },
       "import/resolver": {
         node: {
           extensions: [".js", ".jsx", ".ts", ".tsx"],
