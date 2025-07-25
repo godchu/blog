@@ -158,3 +158,43 @@ const config = {
 };
 
 export default config;
+
+// @theme {
+//   /* --breakpoint-*: initial; */
+//   /* betterhover: {raw: '(hover: hover)'}, */
+//   --breakpoint-xs: 374px;
+//   --breakpoint-3xl: 1919px;
+
+//   /*  */
+//   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+//   --shadow-DEFAULT: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+//   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+//   --shadow-lg: 0px 0.8px 2px rgba(0, 0, 0, 0.032), 0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08);
+//   --shadow-lg-dark: 0 0 0 1px rgba(255, 255, 255, .15), 0px 0.8px 2px rgba(0, 0, 0, 0.032), 0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08);
+//   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+//   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+//   --shadow-3xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
+//   --shadow-nav: 0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, .10);
+//   --shadow-nav-dark: 0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, .05);
+//   --shadow-inner: inset 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+//   --shadow-inner-border: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+//   --shadow-inner-border-dark: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+//   --shadow-outer-border: 0 0 0 1px rgba(0, 0, 0, 0.1);
+//   --shadow-outer-border-dark: 0 0 0 1px rgba(255, 255, 255, 0.1);
+//   --shadow-secondary-button-stroke: inset 0 0 0 1px #D9DBE3;
+//   --shadow-secondary-button-stroke-dark: inset 0 0 0 1px #404756;
+//   --shadow-none: none;
+
+//   /*  */
+//   --color-gradient-left-dark: conic-gradient(from 90deg at -10% 100%, #2B303B 0deg, #2B303B 90deg, #16181D 360deg);
+//   --color-gradient-right-dark: conic-gradient(from -90deg at 110% 100%, #2B303B 0deg, #16181D 90deg, #16181D 360deg);
+//   --color-gradient-left: conic-gradient(from 90deg at -10% 100%, #BCC1CD 0deg, #BCC1CD 90deg, #FFFFFF 360deg);
+//   --color-gradient-right: conic-gradient(from -90deg at 110% 100%, #FFFFFF 0deg, #EBECF0 90deg, #EBECF0 360deg);
+//   --color-meta-gradient: url(/images/meta-gradient.png);
+//   --color-meta-gradient-dark: url(/images/meta-gradient-dark.png);
+//   /*  */
+//   --spacing-custom-xs: 21rem;
+//   /*  */
+
+// }
+

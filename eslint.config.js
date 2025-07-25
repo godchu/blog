@@ -11,6 +11,7 @@ export default [
     rules: {
       'unicorn/better-regex': 'warn',
       'react/prop-types': 'off',
+      'capitalized-comments': 'off',
     },
   },
   {
