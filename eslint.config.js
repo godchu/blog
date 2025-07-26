@@ -12,6 +12,9 @@ export default [
       'unicorn/better-regex': 'warn',
       'react/prop-types': 'off',
       'capitalized-comments': 'off',
+      'react/no-array-index-key': 'off',
+      'unicorn/prevent-abbreviations': 'off',
+      'react/jsx-indent': 'off',
     },
   },
   {

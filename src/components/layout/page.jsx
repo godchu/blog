@@ -1,8 +1,12 @@
 /* eslint-disable complexity */
 import {useRouter} from 'next/router';
-import React from 'react';
+import React, {Suspense} from 'react';
 import {getRouteMeta} from './get-route-meta';
 import cn from 'classnames';
+import PageHeading from '../page-heading';
+import Head from 'next/head';
+import {TocContext} from '../MDX/toc-context';
+import {LanguagesContext} from '../MDX/languages-context';
 
 function Page({
   children,
@@ -26,7 +30,7 @@ function Page({
   const isBlogIndex = cleanedPath === '/blog';
 
   const content = isHomePage
-    ? <HomeContent/>
+    ? <div>Home page</div>
     : (
       <div className='ps-0'>
         <div
@@ -82,13 +86,13 @@ function Page({
 
   return (
     <>
-      <Seo
+      {/* <Seo
         title={title}
         titleForTitleTag={meta.titleForTitleTag}
         isHomePage={isHomePage}
         image={'/images/og-' + section + '.png'}
         searchOrder={searchOrder}
-      />
+      /> */}
       {(isHomePage || isBlogIndex)
         ? <Head>
           <link
@@ -97,8 +101,8 @@ function Page({
             title='React Blog RSS Feed'
             href='/rss.xml'
           />
-        </Head>
-        : null}
+          </Head>
+        : undefined}
       <SocialBanner/>
       <TopNav
         section={section}
@@ -121,7 +125,7 @@ function Page({
           </div>
         )}
         {/* No fallback UI so need to be careful not to suspend directly inside. */}
-        <Suspense fallback={null}>
+        <Suspense fallback={undefined}>
           <main className='min-w-0 isolate'>
             <article
               key={asPath}
@@ -152,7 +156,7 @@ function Page({
           </main>
         </Suspense>
         <div className='hidden -mt-16 lg:max-w-custom-xs 2xl:block'>
-          {showToc && toc.length > 0 ? <Toc key={asPath} headings={toc}/> : null}
+          {showToc && toc.length > 0 ? <Toc key={asPath} headings={toc}/> : undefined}
         </div>
       </div>
     </>
