@@ -10,7 +10,7 @@ export function UnloadEvent() {
       // eslint-disable-next-line no-undef
       gtag('event', 'timing', {
 
-        // eslint-disable-next-line camelcase
+         
         event_label: 'JS Dependencies',
         event: 'unload',
       });

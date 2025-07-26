@@ -1,9 +1,9 @@
 /* eslint-disable react/jsx-no-useless-fragment */
-/* eslint-disable react/jsx-no-target-blank */
-import React from 'react';
+ 
+import React, {Children, cloneElement} from 'react';
 import cn from 'classnames';
 import NextLink from 'next/link';
-import {Children, cloneElement} from 'react';
+
 import {ExternalLink} from './external-link';
 
 function Link({

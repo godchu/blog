@@ -1,4 +1,3 @@
-/* eslint-disable unicorn/prefer-global-this */
 const code = function () {
   window.__onThemeChange = function () {};
 
@@ -24,7 +23,6 @@ const code = function () {
 
   const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
 
-  // eslint-disable-next-line unicorn/prevent-abbreviations
   darkQuery.addEventListener('change', e => {
     window.__setPreferredTheme(e.matches ? 'dark' : 'light');
   });

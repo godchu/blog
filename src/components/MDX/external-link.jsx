@@ -7,8 +7,8 @@ export function ExternalLink({
   ...properties
 }) {
   return (
-    // eslint-disable-next-line react/jsx-no-target-blank
-    <a href={href} target={target ?? '_blank'} rel='noopener' {...properties}>
+     
+    <a href={href} target={target ?? '_blank'} rel="noopener" {...properties}>
       {children}
     </a>
   );

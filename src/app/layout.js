@@ -1,15 +1,15 @@
-/* eslint-disable no-undef */
+ 
+import React from 'react';
+import {cookies} from 'next/headers';
 import Script from 'next/script';
 
-import React from 'react';
 import {Analytics} from './analytics';
-
 import {UnloadEvent} from './unload-event';
+
 import '@docsearch/css';
 import '../assets/styles/algolia.css';
 import '../assets/styles/index.css';
 import '../assets/styles/sandpack.css';
-import {cookies} from 'next/headers';
 
 export const metadata = {
   title: 'Personal Blog',
@@ -23,21 +23,21 @@ export default async function RootLayout({children}) {
 
   return (
     <html
-      lang='en' dir='ltr'
+      lang="en" dir="ltr"
       className={theme?.value ?? 'dark'}
     >
-      <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#404756'/>
-      <meta name='msapplication-TileColor' content='#2b5797'/>
-      <meta name='theme-color' content='#23272f'/>
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#404756"/>
+      <meta name="msapplication-TileColor" content="#2b5797"/>
+      <meta name="theme-color" content="#23272f"/>
       {/* Google Analytics */}
       <Script
-        id='gtag-loader'
-        strategy='afterInteractive'
+        id="gtag-loader"
+        strategy="afterInteractive"
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
       />
       <Script
-        id='gtag-init'
-        strategy='afterInteractive'
+        id="gtag-init"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
               window.dataLayer = window.dataLayer || [];
@@ -47,7 +47,7 @@ export default async function RootLayout({children}) {
             `,
         }}
       />
-      <body className='font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base'>
+      <body className="font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base">
         <Analytics/>
         <UnloadEvent/>
         {children}

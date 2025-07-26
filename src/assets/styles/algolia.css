@@ -19,37 +19,44 @@
   --fds-animation-fade-in: cubic-bezier(0, 0, 1, 1);
   --fds-animation-fade-out: cubic-bezier(0, 0, 1, 1);
 }
+
 html.dark {
   --docsearch-modal-background: #23272f;
   --docsearch-hit-background: #23272f;
   --docsearch-highlight-color: #149eca;
 }
+
 .DocSearch--active #__next {
   -webkit-filter: blur(0px);
   filter: blur(0px);
 }
+
 .DocSearch-SearchBar {
   @apply py-3;
   @apply px-5;
 }
+
 .DocSearch-Form {
   @apply rounded-full;
   @apply shadow-none;
   @apply text-base;
   @apply text-tertiary;
   @apply bg-gray-10;
-  @apply focus:outline-link;
+  @apply focus: outline-link;
   @apply h-10;
-  @apply focus-within:outline-none;
+  @apply focus-within: outline-none;
 }
+
 html.dark .DocSearch-Form {
   @apply bg-gray-80;
 }
+
 .DocSearch-Dropdown {
   @apply px-0;
   @apply h-full;
   @apply max-h-full;
 }
+
 .DocSearch-Commands {
   @apply w-full;
   @apply justify-between;
@@ -57,24 +64,30 @@ html.dark .DocSearch-Form {
   @apply border-border;
   @apply pt-4;
 }
+
 html.dark .DocSearch-Commands {
   @apply border-border-dark;
 }
+
 .DocSearch-Commands-Key {
   @apply shadow-none me-[.4rem] ms-0;
   @apply bg-gray-10;
   @apply text-primary;
 }
+
 .DocSearch-Logo {
   @apply pt-4;
   @apply pb-2;
 }
+
 .DocSearch-Logo svg {
   @apply ms-2 me-0;
 }
+
 .DocSearch-Label {
   @apply text-xs;
 }
+
 .DocSearch-Footer {
   @apply bg-transparent;
   @apply flex-col-reverse;
@@ -84,26 +97,31 @@ html.dark .DocSearch-Commands {
   @apply px-5;
   @apply shadow-none;
 }
+
 html.dark .DocSearch-Footer {
   @apply bg-wash-dark;
 }
+
 .DocSearch-Input {
   @apply py-3 ps-2 pe-0;
   @apply text-base;
   @apply leading-tight;
   @apply text-primary;
   @apply appearance-none !important;
-  @apply focus:outline-link !important;
+  @apply focus: outline-link !important;
 }
+
 html.dark .DocSearch-Input {
   @apply text-primary-dark;
 }
+
 .DocSearch-Hit a {
   @apply rounded-e-lg;
   @apply rounded-s-none;
   @apply shadow-none;
   @apply ps-5;
 }
+
 .DocSearch-Hit-source {
   @apply uppercase;
   @apply tracking-wide;
@@ -114,12 +132,15 @@ html.dark .DocSearch-Input {
   @apply ps-5;
   @apply m-0;
 }
+
 html.dark .DocSearch-Hit-source {
   @apply text-secondary-dark;
 }
+
 .DocSearch-Dropdown ul {
   @apply me-5;
 }
+
 .DocSearch-Hit-title {
   @apply text-base;
   @apply text-primary;
@@ -128,12 +149,15 @@ html.dark .DocSearch-Hit-source {
   @apply whitespace-nowrap;
   @apply overflow-hidden;
 }
+
 html.dark .DocSearch-Hit-title {
   @apply text-primary-dark;
 }
+
 .DocSearch-Hit-path {
   @apply font-normal;
 }
+
 .DocSearch-LoadingIndicator svg,
 .DocSearch-MagnifierLabel svg {
   width: 15px;
@@ -141,10 +165,12 @@ html.dark .DocSearch-Hit-title {
   @apply text-gray-30;
   @apply mx-1;
 }
+
 .DocSearch-Container {
   @apply flex;
   @apply justify-center;
 }
+
 .DocSearch-Modal {
   margin: 0;
   @apply flex;
@@ -156,9 +182,11 @@ html.dark .DocSearch-Hit-title {
   @apply my-4;
   @apply shadow-nav;
 }
+
 html.dark .DocSearch-Modal {
   @apply shadow-nav-dark;
 }
+
 .DocSearch-Cancel {
   @apply ps-5;
   @apply ms-0;
@@ -166,29 +194,36 @@ html.dark .DocSearch-Modal {
   @apply text-link;
   @apply font-normal;
 }
+
 .DocSearch-Screen-Icon {
   @apply flex;
   @apply justify-center;
 }
+
 .DocSearch-Help {
   @apply text-center;
   @apply mt-4;
 }
+
 @media (max-width: 1024px) {
   .DocSearch-Modal {
     @apply max-w-full;
   }
+
   .DocSearch-Cancel {
     @apply inline-block;
   }
+
   .DocSearch-Commands {
     @apply hidden;
   }
+
   .DocSearch-Modal {
     @apply rounded-none;
     @apply my-0;
   }
 }
+
 .DocSearch-Search-Icon {
   height: 20px;
   width: 20px;

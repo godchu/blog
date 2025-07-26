@@ -1,28 +1,35 @@
 ---
-title: 'An Introduction to Next.js'
+title: 'Next.js MDX TOC Demo'
 author: 'chatGPT'
-date: May 23, 2024
+date: July 26, 2025
 summary: |
-  I prompted to chatGPT saying that write an article about "next.js" including markdown headings, 
-  inline codes, code fences, containers, bold, italic texts, blockquotes, lists etc.
+  This MDX file demonstrates how heading levels, code blocks, lists, quotes, and markdown elements
+  behave when parsed with next-mdx-remote-client to generate a table of contents.
 ---
 
-# Hello 👋 with MDX!
+# Introduction
 
-## headline 2nd level
+Welcome to the **Next.js MDX TOC demo**.
 
-_italic_
+## What is MDX?
 
-**bold**
+MDX allows you to write JSX in Markdown. It combines the simplicity of Markdown with the power of React components.
 
-**_bold and italic_**
+## Table of Contents Structure
 
-> a quote
+This document is structured to help you test TOC generation.
 
-[link to Next.js](https://nextjs.org)
+### Subsection A
 
-- foo
-- bar
-- baz
+Content under subsection A.
 
-![This is an octocat image](https://myoctocat.com/assets/images/base-octocat.svg "I'm the title of the octocat image")
+#### Sub-subsection A1
+
+Some `inline code` example.
+
+```js
+// Code fence block
+export default function Hello() {
+  return <p>Hello, world!</p>;
+}
+```

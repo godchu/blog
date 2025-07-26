@@ -97,10 +97,9 @@ html.dark .sp-wrapper {
   align-items: stretch;
   background-color: var(--sp-colors-surface2);
 
-  -webkit-mask-image: -webkit-radial-gradient(
-    var(--sp-colors-surface1),
-    var(--sp-colors-surface1)
-  ); /* safest way to make all corner rounded */
+  -webkit-mask-image: -webkit-radial-gradient(var(--sp-colors-surface1),
+      var(--sp-colors-surface1));
+  /* safest way to make all corner rounded */
 
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
@@ -117,13 +116,13 @@ html.dark .sp-wrapper {
 }
 
 @media screen and (max-width: 768px) {
-  .sandpack .sp-layout > .sp-stack {
+  .sandpack .sp-layout>.sp-stack {
     height: auto;
     min-width: 100% !important;
   }
 }
 
-.sandpack .sp-layout > .sp-stack {
+.sandpack .sp-layout>.sp-stack {
   flex: 1 1 0px;
   height: var(--sp-layout-height);
 }
@@ -207,7 +206,8 @@ html.dark .sp-wrapper {
 .sandpack .sp-code-editor .cm-gutters,
 .sandpack .sp-code-editor .cm-gutterElement {
   padding: 0;
-  -webkit-font-smoothing: auto; /* Improve the legibility */
+  -webkit-font-smoothing: auto;
+  /* Improve the legibility */
 }
 
 .sandpack .sp-code-editor .cm-content {
@@ -227,7 +227,8 @@ html.dark .sp-wrapper {
 
 .sandpack--playground .sp-code-editor .cm-line.cm-errorLine {
   @apply bg-red-400;
-  --tw-bg-opacity: 0.1; /* Background tweak: base color + opacity */
+  --tw-bg-opacity: 0.1;
+  /* Background tweak: base color + opacity */
   position: relative;
   padding-right: 2em;
   display: inline-block;
@@ -384,22 +385,27 @@ html.dark .sp-wrapper {
   transform: rotateX(90deg) translateZ(44px);
   transform-origin: 50% 50%;
 }
+
 .sandpack .sp-sides .bottom {
   transform: rotateX(-90deg) translateZ(44px);
   transform-origin: 50% 50%;
 }
+
 .sandpack .sp-sides .front {
   transform: rotateY(0deg) translateZ(44px);
   transform-origin: 50% 50%;
 }
+
 .sandpack .sp-sides .back {
   transform: rotateY(-180deg) translateZ(44px);
   transform-origin: 50% 50%;
 }
+
 .sandpack .sp-sides .left {
   transform: rotateY(-90deg) translateZ(44px);
   transform-origin: 50% 50%;
 }
+
 .sandpack .sp-sides .right {
   transform: rotateY(90deg) translateZ(44px);
   transform-origin: 50% 50%;
@@ -468,7 +474,7 @@ html.dark .sandpack--playground .sp-overlay {
   min-height: 216px;
 }
 
-.sandpack .sp-layout > .sp-stack:nth-child(1) {
+.sandpack .sp-layout>.sp-stack:nth-child(1) {
   /* Force vertical if there isn't enough space. */
   min-width: 431px;
   /* No min height on mobile because we know code in advance. */
@@ -476,7 +482,7 @@ html.dark .sandpack--playground .sp-overlay {
   max-height: 40vh;
 }
 
-.sandpack .sp-layout > .sp-stack:nth-child(2) {
+.sandpack .sp-layout>.sp-stack:nth-child(2) {
   /* Force vertical if there isn't enough space. */
   min-width: 431px;
   /* Keep preview a fixed size on mobile to avoid jumps. */
@@ -484,35 +490,39 @@ html.dark .sandpack--playground .sp-overlay {
   min-height: 40vh;
   max-height: 40vh;
 }
-.sandpack .sp-layout.sp-layout-expanded > .sp-stack:nth-child(1) {
+
+.sandpack .sp-layout.sp-layout-expanded>.sp-stack:nth-child(1) {
   /* Clicking "show more" lets mobile editor go full height. */
   max-height: unset;
   height: auto;
 }
 
-.sandpack .sp-layout.sp-layout-expanded > .sp-stack:nth-child(2) {
+.sandpack .sp-layout.sp-layout-expanded>.sp-stack:nth-child(2) {
   /* Clicking "show more" lets mobile preview go full height. */
   max-height: unset;
   height: auto;
 }
 
 @media (min-width: 1280px) {
-  .sandpack .sp-layout > .sp-stack:nth-child(1) {
+  .sandpack .sp-layout>.sp-stack:nth-child(1) {
     /* On desktop, clamp height by pixels instead. */
     height: auto;
     min-height: unset;
     max-height: 406px;
   }
-  .sandpack .sp-layout > .sp-stack:nth-child(2) {
+
+  .sandpack .sp-layout>.sp-stack:nth-child(2) {
     /* On desktop, clamp height by pixels instead. */
     height: auto;
     min-height: unset;
     max-height: 406px;
   }
-  .sandpack .sp-layout.sp-layout-expanded > .sp-stack:nth-child(1) {
+
+  .sandpack .sp-layout.sp-layout-expanded>.sp-stack:nth-child(1) {
     max-height: unset;
   }
-  .sandpack .sp-layout.sp-layout-expanded > .sp-stack:nth-child(2) {
+
+  .sandpack .sp-layout.sp-layout-expanded>.sp-stack:nth-child(2) {
     max-height: unset;
   }
 }
@@ -547,7 +557,7 @@ html.dark .sandpack--playground .sp-overlay {
 /**
  * Overwrite inline sty
  */
-.sandpack .sp-devtools > div {
+.sandpack .sp-devtools>div {
   --color-background: var(--sp-colors-surface1) !important;
   --color-background-inactive: var(--sp-colors-surface2) !important;
   --color-background-selected: var(--sp-colors-accent) !important;
@@ -572,7 +582,7 @@ html.dark .sandpack--playground .sp-overlay {
   --color-text: rgb(35, 39, 47) !important;
 }
 
-html.dark .sp-devtools > div {
+html.dark .sp-devtools>div {
   --color-text: var(--sp-colors-clickable) !important;
   --color-modal-background: #16181de0 !important;
 }
@@ -599,10 +609,12 @@ html.dark .sp-devtools > div {
  */
 @media screen and (max-width: 768px) {
   @supports (-webkit-overflow-scrolling: touch) {
+
     .sandpack--playground .cm-content,
     .sandpack--playground .sp-code-editor .sp-pre-placeholder {
       font-size: initial;
     }
+
     .DocSearch-Input {
       font-size: initial;
     }

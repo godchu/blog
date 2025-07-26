@@ -1,11 +1,10 @@
-
 export function getRouteMeta(cleanedPath, routeTree) {
   const breadcrumbs = getBreadcrumbs(cleanedPath, routeTree);
   const context = {
     currentIndex: 0,
   };
   buildRouteMeta(cleanedPath, routeTree, context);
-  const {currentIndex: _, ...meta} = context;
+  const { ...meta } = context;
   return {
     ...meta,
     breadcrumbs: breadcrumbs.length > 0 ? breadcrumbs : [routeTree],
@@ -13,14 +12,10 @@ export function getRouteMeta(cleanedPath, routeTree) {
 }
 
 // Performs a depth-first search to find the current route and its previous/next route
-function buildRouteMeta(
-  searchPath,
-  currentRoute,
-  context,
-) {
+function buildRouteMeta(searchPath, currentRoute, context) {
   context.currentIndex++;
 
-  const {routes} = currentRoute;
+  const { routes } = currentRoute;
 
   if (context.route && !context.nextRoute) {
     context.nextRoute = currentRoute;
@@ -49,11 +44,7 @@ function buildRouteMeta(
 }
 
 // iterates the route tree from the current route to find its ancestors for breadcrumbs
-function getBreadcrumbs(
-  path,
-  currentRoute,
-  breadcrumbs = [],
-) {
+function getBreadcrumbs(path, currentRoute, breadcrumbs = []) {
   if (currentRoute.path === path) {
     return breadcrumbs;
   }
@@ -63,10 +54,7 @@ function getBreadcrumbs(
   }
 
   for (const route of currentRoute.routes) {
-    const childRoute = getBreadcrumbs(path, route, [
-      ...breadcrumbs,
-      currentRoute,
-    ]);
+    const childRoute = getBreadcrumbs(path, route, [...breadcrumbs, currentRoute]);
     if (childRoute?.length) {
       return childRoute;
     }

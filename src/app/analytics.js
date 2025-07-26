@@ -1,7 +1,7 @@
 'use client';
 
-import {usePathname} from 'next/navigation';
 import {useEffect} from 'react';
+import {usePathname} from 'next/navigation';
 
 export function Analytics() {
   const pathname = usePathname();
@@ -12,7 +12,7 @@ export function Analytics() {
     // eslint-disable-next-line no-undef
     gtag('event', 'pageview', {
 
-      // eslint-disable-next-line camelcase
+       
       event_label: cleanedUrl,
     });
   }, [pathname]);

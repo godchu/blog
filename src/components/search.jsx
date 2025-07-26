@@ -1,0 +1,115 @@
+import { lazy, useEffect } from 'react';
+import * as React from 'react';
+import { createPortal } from 'react-dom';
+import Head from 'next/head';
+import Link from 'next/link';
+import Router from 'next/router';
+
+import { siteConfig } from '@/site-config';
+
+function Hit({ hit, children }) {
+  return <Link href={hit.url.replace()}>{children}</Link>;
+}
+
+// Copy-pasted from @docsearch/react to avoid importing the whole bundle.
+// Slightly trimmed to features we use.
+// (c) Algolia, Inc.
+function isEditingContent(event) {
+  let element = event.target;
+  let tagName = element.tagName;
+  return element.isContentEditable || tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA';
+}
+function useDocSearchKeyboardEvents({ isOpen, onOpen, onClose }) {
+  useEffect(() => {
+    function onKeyDown(event) {
+      function open() {
+        // We check that no other DocSearch modal is showing before opening
+        // another one.
+        if (!document.body.classList.contains('DocSearch--active')) {
+          onOpen();
+        }
+      }
+      if (
+        (event.keyCode === 27 && isOpen) ||
+        (event.key === 'k' && (event.metaKey || event.ctrlKey)) ||
+        (!isEditingContent(event) && event.key === '/' && !isOpen)
+      ) {
+        event.preventDefault();
+        if (isOpen) {
+          onClose();
+        } else if (!document.body.classList.contains('DocSearch--active')) {
+          open();
+        }
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown);
+    return function () {
+      window.removeEventListener('keydown', onKeyDown);
+    };
+  }, [isOpen, onOpen, onClose]);
+}
+
+const options = {
+  appId: siteConfig.algolia.appId,
+  apiKey: siteConfig.algolia.apiKey,
+  indexName: siteConfig.algolia.indexName,
+};
+
+const DocSearchModal = lazy(() =>
+  import('@docsearch/react/modal').then((mod) => ({
+    default: mod.DocSearchModal,
+  })),
+);
+
+export function Search({
+  isOpen,
+  onOpen,
+  onClose,
+  searchParameters = {
+    hitsPerPage: 30,
+    attributesToHighlight: [
+      'hierarchy.lvl0',
+      'hierarchy.lvl1',
+      'hierarchy.lvl2',
+      'hierarchy.lvl3',
+      'hierarchy.lvl4',
+      'hierarchy.lvl5',
+      'hierarchy.lvl6',
+      'content',
+    ],
+  },
+}) {
+  useDocSearchKeyboardEvents({ isOpen, onOpen, onClose });
+  return (
+    <>
+      <Head>
+        <link rel="preconnect" href={`https://${options.appId}-dsn.algolia.net`} />
+      </Head>
+      {isOpen &&
+        createPortal(
+          <DocSearchModal
+            {...options}
+            searchParameters={searchParameters}
+            onClose={onClose}
+            navigator={{
+              navigate({ itemUrl }) {
+                Router.push(itemUrl);
+              },
+            }}
+            transformItems={(items) => {
+              return items.map((item) => {
+                const url = new URL(item.url);
+                return {
+                  ...item,
+                  url: item.url.replace(url.origin, '').replace('#__next', ''),
+                };
+              });
+            }}
+            hitComponent={Hit}
+          />,
+          document.body,
+        )}
+    </>
+  );
+}

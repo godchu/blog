@@ -1,7 +1,8 @@
 
-import React, {useRef, useEffect} from 'react';
+import React, {useEffect,useRef} from 'react';
 import cn from 'classnames';
-import {ExternalLink} from './ExternalLink';
+
+import {ExternalLink} from './MDX/external-link';
 
 const bannerText = 'Join us for React Conf on Oct 7-8.';
 const bannerLink = 'https://conf.react.dev/';
@@ -32,9 +33,9 @@ export default function SocialBanner() {
       ref={ref}
       className={cn('h-[40px] hidden lg:flex w-full bg-gray-100 dark:bg-gray-700 text-base md:text-lg py-2 sm:py-0 items-center justify-center flex-col sm:flex-row z-[100]')}
     >
-      <div className='hidden sm:block'>{bannerText}</div>
+      <div className="hidden sm:block">{bannerText}</div>
       <ExternalLink
-        className='ms-0 sm:ms-1 text-link dark:text-link-dark hover:underline'
+        className="ms-0 sm:ms-1 text-link dark:text-link-dark hover:underline"
         href={bannerLink}
       >
         {bannerLinkText}

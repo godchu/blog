@@ -1,70 +1,61 @@
-/* eslint-disable complexity */
-import {useRouter} from 'next/router';
-import React, {Suspense} from 'react';
-import {getRouteMeta} from './get-route-meta';
-import cn from 'classnames';
-import PageHeading from '../page-heading';
-import Head from 'next/head';
-import {TocContext} from '../MDX/toc-context';
-import {LanguagesContext} from '../MDX/languages-context';
+'use client';
 
-function Page({
-  children,
-  toc,
-  routeTree,
-  meta,
-  section,
-  languages,
-}) {
-  const {asPath} = useRouter();
+/* eslint-disable complexity */
+import React, { Suspense } from 'react';
+import cn from 'classnames';
+import Head from 'next/head';
+import { usePathname } from 'next/navigation';
+
+import { LanguagesContext } from '../MDX/languages-context';
+import { TocContext } from '../MDX/toc-context';
+import PageHeading from '../page-heading';
+import SocialBanner from '../social-banner';
+
+import { getRouteMeta } from './get-route-meta';
+import { SidebarNav } from './sidebar-nav';
+import { Toc } from './toc';
+import { TopNav } from './top-nav';
+
+function Page({ children, toc, routeTree, meta, section, languages }) {
+  const asPath = usePathname();
   const cleanedPath = asPath.split(/[#?]/)[0];
-  const {route, nextRoute, prevRoute, breadcrumbs, order} = getRouteMeta(
-    cleanedPath,
-    routeTree,
-  );
+  const { route, nextRoute, prevRoute, breadcrumbs, order } = getRouteMeta(cleanedPath, routeTree);
 
   const title = meta.title || route?.title || '';
-  const {version} = meta;
+  const { version } = meta;
   const description = meta.description || route?.description || '';
   const isHomePage = cleanedPath === '/';
   const isBlogIndex = cleanedPath === '/blog';
 
-  const content = isHomePage
-    ? <div>Home page</div>
-    : (
-      <div className='ps-0'>
-        <div
-          className={cn(section === 'blog' && 'mx-auto px-0 lg:px-4 max-w-5xl')}
-        >
-          <PageHeading
-            title={title}
-            version={version}
-            description={description}
-            tags={route?.tags}
-            breadcrumbs={breadcrumbs}
-          />
+  const content = isHomePage ? (
+    <div>Home page</div>
+  ) : (
+    <div className="ps-0">
+      <div className={cn(section === 'blog' && 'mx-auto px-0 lg:px-4 max-w-5xl')}>
+        <PageHeading
+          title={title}
+          version={version}
+          description={description}
+          tags={route?.tags}
+          breadcrumbs={breadcrumbs}
+        />
+      </div>
+      <div className="px-5 sm:px-12">
+        <div className={cn('max-w-7xl mx-auto', section === 'blog' && 'lg:flex lg:flex-col lg:items-center')}>
+          <TocContext value={toc}>
+            <LanguagesContext value={languages}>{children}</LanguagesContext>
+          </TocContext>
         </div>
-        <div className='px-5 sm:px-12'>
-          <div
-            className={cn(
-              'max-w-7xl mx-auto',
-              section === 'blog' && 'lg:flex lg:flex-col lg:items-center',
-            )}
-          >
-            <TocContext value={toc}>
-              <LanguagesContext value={languages}>{children}</LanguagesContext>
-            </TocContext>
-          </div>
-          {!isBlogIndex && (
+        {/* {!isBlogIndex && (
             <DocsPageFooter
               route={route}
               nextRoute={nextRoute}
               prevRoute={prevRoute}
             />
-          )}
-        </div>
+          )} */}
       </div>
-    );
+    </div>
+  );
 
   let hasColumns = true;
   let showSidebar = true;
@@ -93,74 +84,49 @@ function Page({
         image={'/images/og-' + section + '.png'}
         searchOrder={searchOrder}
       /> */}
-      {(isHomePage || isBlogIndex)
-        ? <Head>
-          <link
-            rel='alternate'
-            type='application/rss+xml'
-            title='React Blog RSS Feed'
-            href='/rss.xml'
-          />
-          </Head>
-        : undefined}
-      <SocialBanner/>
-      <TopNav
-        section={section}
-        routeTree={routeTree}
-        breadcrumbs={breadcrumbs}
-      />
+      {isHomePage || isBlogIndex ? (
+        <Head>
+          <link rel="alternate" type="application/rss+xml" title="React Blog RSS Feed" href="/rss.xml" />
+        </Head>
+      ) : undefined}
+      <SocialBanner />
+      <TopNav section={section} routeTree={routeTree} breadcrumbs={breadcrumbs} />
       <div
-        className={cn(hasColumns
-        	&& 'grid grid-cols-only-content lg:grid-cols-sidebar-content 2xl:grid-cols-sidebar-content-toc')}
+        className={cn(
+          hasColumns && 'grid grid-cols-only-content lg:grid-cols-sidebar-content 2xl:grid-cols-sidebar-content-toc',
+        )}
       >
         {showSidebar && (
-          <div className='lg:-mt-16 z-10'>
-            <div className='fixed top-0 py-0 shadow lg:pt-16 lg:sticky start-0 end-0 lg:shadow-none'>
-              <SidebarNav
-                key={section}
-                routeTree={routeTree}
-                breadcrumbs={breadcrumbs}
-              />
+          <div className="lg:-mt-16 z-10">
+            <div className="fixed top-0 py-0 shadow lg:pt-16 lg:sticky start-0 end-0 lg:shadow-none">
+              <SidebarNav key={section} routeTree={routeTree} breadcrumbs={breadcrumbs} />
             </div>
           </div>
         )}
         {/* No fallback UI so need to be careful not to suspend directly inside. */}
         <Suspense fallback={undefined}>
-          <main className='min-w-0 isolate'>
-            <article
-              key={asPath}
-              className='font-normal break-words text-primary dark:text-primary-dark'
-            >
+          <main className="min-w-0 isolate">
+            <article key={asPath} className="font-normal break-words text-primary dark:text-primary-dark">
               {content}
             </article>
-            <div
-              className={cn(
-                'self-stretch w-full',
-                isHomePage && 'bg-wash dark:bg-gray-95 mt-[-1px]',
-              )}
-            >
+            <div className={cn('self-stretch w-full', isHomePage && 'bg-wash dark:bg-gray-95 mt-[-1px]')}>
               {!isHomePage && (
-                <div className='w-full px-5 pt-10 mx-auto sm:px-12 md:px-12 md:pt-12 lg:pt-10'>
-                  <hr className='mx-auto max-w-7xl border-border dark:border-border-dark'/>
+                <div className="w-full px-5 pt-10 mx-auto sm:px-12 md:px-12 md:pt-12 lg:pt-10">
+                  <hr className="mx-auto max-w-7xl border-border dark:border-border-dark" />
                 </div>
               )}
-              <div
-                className={cn(
-                  'py-12 px-5 sm:px-12 md:px-12 sm:py-12 md:py-16 lg:py-14',
-                  isHomePage && 'lg:pt-0',
-                )}
-              >
-                <Footer/>
+              <div className={cn('py-12 px-5 sm:px-12 md:px-12 sm:py-12 md:py-16 lg:py-14', isHomePage && 'lg:pt-0')}>
+                {/* <Footer/> */}
               </div>
             </div>
           </main>
         </Suspense>
-        <div className='hidden -mt-16 lg:max-w-custom-xs 2xl:block'>
-          {showToc && toc.length > 0 ? <Toc key={asPath} headings={toc}/> : undefined}
+        <div className="hidden -mt-16 lg:max-w-custom-xs 2xl:block">
+          {showToc && toc.length > 0 ? <Toc key={asPath} headings={toc} /> : undefined}
         </div>
       </div>
     </>
   );
 }
 
-export {Page};
+export { Page };
