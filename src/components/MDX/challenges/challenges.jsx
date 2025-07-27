@@ -1,3 +1,5 @@
+'use client';
+
 import React, { Children, useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
 import { usePathname } from 'next/navigation';

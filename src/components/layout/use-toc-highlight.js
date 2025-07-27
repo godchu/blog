@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ */
+
 import { useEffect, useRef, useState } from 'react';
 
 const TOP_OFFSET = 85;
@@ -12,6 +16,9 @@ export function getHeaderAnchors() {
   });
 }
 
+/**
+ * Sets up Table of Contents highlighting.
+ */
 export function useTocHighlight() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const timeoutRef = useRef(null);
@@ -57,7 +64,7 @@ export function useTocHighlight() {
     updateActiveLink();
 
     return () => {
-      if (timeoutRef.current !== undefined) {
+      if (timeoutRef.current !== null) {
         clearTimeout(timeoutRef.current);
         timeoutRef.current = null;
       }

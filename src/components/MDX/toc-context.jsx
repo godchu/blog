@@ -1,8 +1,4 @@
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- */
-
-import {createContext} from 'react';
+import { createContext } from 'react';
 
 // export type TocItem = {
 //   url: string;

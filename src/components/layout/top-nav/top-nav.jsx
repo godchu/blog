@@ -2,7 +2,6 @@ import { startTransition, Suspense, useCallback, useEffect, useRef, useState } f
 import * as React from 'react';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import cn from 'classnames';
-import Image from 'next/image';
 import NextLink from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -11,7 +10,6 @@ import { IconHamburger } from '@/components/icon/icon-hamburger';
 import { IconSearch } from '@/components/icon/icon-search';
 import { Logo } from '@/components/logo';
 import { Search } from '@/components/search';
-import { siteConfig } from '@/site-config';
 
 import { Feedback } from '../feedback';
 import { SidebarRouteTree } from '../sidebar';
@@ -52,15 +50,6 @@ const lightIcon = (
       </g>
       <polygon points="444 228 468 228 468 204 444 204" />
     </g>
-  </svg>
-);
-
-const languageIcon = (
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path
-      fill="currentColor"
-      d=" M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z "
-    />
   </svg>
 );
 
@@ -220,7 +209,7 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
               </button>
               <BrandMenu>
                 <div className="flex items-center">
-                  <div className="uwu-visible flex items-center justify-center h-full">
+                  {/* <div className="uwu-visible flex items-center justify-center h-full">
                     <NextLink href="/" className="active:scale-95 transition-transform">
                       <Image
                         alt="logo by @sawaratsuki1004"
@@ -232,7 +221,7 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                         src="/images/uwu.png"
                       />
                     </NextLink>
-                  </div>
+                  </div> */}
                   <div className="uwu-hidden">
                     <NextLink
                       href="/"
@@ -243,19 +232,11 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                           'text-sm me-0 w-10 h-10 text-brand dark:text-brand-dark flex origin-center transition-all ease-in-out',
                         )}
                       />
-                      <span className="sr-only 3xl:not-sr-only">React</span>
+                      <span className="sr-only 3xl:not-sr-only">Lê Xuân Tiến</span>
                     </NextLink>
                   </div>
                 </div>
               </BrandMenu>
-              <div className="flex flex-column justify-center items-center">
-                <NextLink
-                  href="/versions"
-                  className=" flex py-2 flex-column justify-center items-center text-gray-50 dark:text-gray-30 hover:text-link hover:dark:text-link-dark hover:underline text-sm ms-1 cursor-pointer"
-                >
-                  v{siteConfig.version}
-                </NextLink>
-              </div>
             </div>
             <div className="items-center justify-center flex-1 hidden w-full md:flex 3xl:w-auto 3xl:shrink-0 3xl:justify-center">
               <button
@@ -326,15 +307,6 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                   >
                     {lightIcon}
                   </button>
-                </div>
-                <div className="flex">
-                  <Link
-                    href="/community/translations"
-                    aria-label="Translations"
-                    className="active:scale-95 transition-transform flex w-12 h-12 rounded-full items-center justify-center hover:bg-primary/5 hover:dark:bg-primary-dark/5 outline-link"
-                  >
-                    {languageIcon}
-                  </Link>
                 </div>
                 <div className="flex">
                   <Link

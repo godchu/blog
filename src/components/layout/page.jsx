@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation';
 import { LanguagesContext } from '../MDX/languages-context';
 import { TocContext } from '../MDX/toc-context';
 import PageHeading from '../page-heading';
+import { Seo } from '../seo';
 import SocialBanner from '../social-banner';
 
 import { getRouteMeta } from './get-route-meta';
@@ -77,13 +78,13 @@ function Page({ children, toc, routeTree, meta, section, languages }) {
 
   return (
     <>
-      {/* <Seo
+      <Seo
         title={title}
         titleForTitleTag={meta.titleForTitleTag}
         isHomePage={isHomePage}
         image={'/images/og-' + section + '.png'}
         searchOrder={searchOrder}
-      /> */}
+      />
       {isHomePage || isBlogIndex ? (
         <Head>
           <link rel="alternate" type="application/rss+xml" title="React Blog RSS Feed" href="/rss.xml" />

@@ -1,23 +1,16 @@
 import React from 'react';
 
-import {IconCanary} from './icon/icon-canary';
-import {IconExperimental} from './icon/icon-experimental';
-import {H1} from './MDX/heading';
+import { IconCanary } from './icon/icon-canary';
+import { IconExperimental } from './icon/icon-experimental';
+import { H1 } from './MDX/heading';
 import Breadcrumbs from './breadcrumbs';
 import Tag from './tag';
 
-function PageHeading({
-  title,
-  status,
-  version,
-   
-  tags = [],
-  breadcrumbs,
-}) {
+function PageHeading({ title, status, version, tags = [], breadcrumbs }) {
   return (
     <div className="px-5 sm:px-12 pt-3.5">
       <div className="max-w-4xl ms-0 2xl:mx-auto">
-        {breadcrumbs ? <Breadcrumbs breadcrumbs={breadcrumbs}/> : undefined}
+        {breadcrumbs ? <Breadcrumbs breadcrumbs={breadcrumbs} /> : undefined}
         <H1 className="mt-0 text-primary dark:text-primary-dark -mx-.5 break-words">
           {title}
           {version === 'canary' && (
@@ -36,8 +29,8 @@ function PageHeading({
         </H1>
         {tags?.length > 0 && (
           <div className="mt-4">
-            {tags.map(tag => (
-              <Tag key={tag} variant={tag}/>
+            {tags.map((tag) => (
+              <Tag key={tag} variant={tag} />
             ))}
           </div>
         )}

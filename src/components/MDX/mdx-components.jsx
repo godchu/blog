@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-pascal-case */
-import React, { Children, useContext, useMemo } from 'react';
+import React from 'react';
 import cn from 'classnames';
 
 import { finishedTranslations } from '@/utils/finished-translations';
@@ -16,15 +16,17 @@ import DiagramGroup from './diagram-group';
 import ExpandableCallout from './expandable-callout';
 import ExpandableExample from './expandable-example';
 import { H1, H2, H3, H4, H5 } from './heading';
+import { Illustration, IllustrationBlock } from './illustration';
+import { InlineToc } from './inline-toc';
 import Intro from './intro';
 import { LanguagesContext } from './languages-context';
 import Link from './link';
+import { LI, OL, UL } from './list';
 import { PackageImport } from './package-import';
 import Recap from './recap';
 import Sandpack from './sandpack';
 import SandpackWithHTMLOutput from './sandpack-with-HTML-output';
 import SimpleCallout from './simple-callout';
-import { TocContext } from './toc-context';
 import YouWillLearnCard from './you-will-learn-card';
 
 function CodeStep({ children, step }) {
@@ -46,13 +48,9 @@ function CodeStep({ children, step }) {
   );
 }
 
-const P = (p) => <p className="whitespace-pre-wrap my-4" {...p} />;
+const P = (p) => <p className="font-text whitespace-pre-wrap my-4" {...p} />;
 
 const Strong = (strong) => <strong className="font-bold" {...strong} />;
-
-const OL = (p) => <ol className="ms-6 my-3 list-decimal" {...p} />;
-const LI = (p) => <li className="leading-relaxed mb-1" {...p} />;
-const UL = (p) => <ul className="ms-6 my-3 list-disc" {...p} />;
 
 const Divider = () => <hr className="my-6 block border-b border-t-0 border-border dark:border-border-dark" />;
 const Wip = ({ children }) => <ExpandableCallout type="wip">{children}</ExpandableCallout>;
@@ -182,121 +180,6 @@ function YouWillLearn({ children, isChapter }) {
 // TODO: typing.
 function Recipes(props) {
   return <Challenges {...props} isRecipes={true} />;
-}
-
-function AuthorCredit({ author = 'Rachel Lee Nabors', authorLink = 'https://nearestnabors.com/' }) {
-  return (
-    <div className="sr-only group-hover:not-sr-only group-focus-within:not-sr-only hover:sr-only">
-      <p className="bg-card dark:bg-card-dark text-center text-sm text-secondary dark:text-secondary-dark leading-tight p-2 rounded-lg absolute start-1/2 -top-4 -translate-x-1/2 -translate-y-full group-hover:flex group-hover:opacity-100 after:content-[''] after:absolute after:start-1/2 after:top-[95%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-card after:dark:border-t-card-dark opacity-0 transition-opacity duration-300">
-        <cite>
-          Illustrated by{' '}
-          {authorLink ? (
-            <a target="_blank" rel="noreferrer" className="text-link dark:text-link-dark" href={authorLink}>
-              {author}
-            </a>
-          ) : (
-            author
-          )}
-        </cite>
-      </p>
-    </div>
-  );
-}
-
-const IllustrationContext = React.createContext({
-  isInBlock: false,
-});
-
-function Illustration({ caption, src, alt, author, authorLink }) {
-  const { isInBlock } = React.useContext(IllustrationContext);
-
-  return (
-    <div className="relative group before:absolute before:-inset-y-16 before:inset-x-0 my-16 mx-0 2xl:mx-auto max-w-4xl 2xl:max-w-6xl">
-      <figure className="my-8 flex justify-center">
-        <img src={src} alt={alt} style={{ maxHeight: 300 }} className="rounded-lg" />
-        {caption ? <figcaption className="text-center leading-tight mt-4">{caption}</figcaption> : null}
-      </figure>
-      {!isInBlock && <AuthorCredit author={author} authorLink={authorLink} />}
-    </div>
-  );
-}
-
-const isInBlockTrue = { isInBlock: true };
-
-function IllustrationBlock({ sequential, author, authorLink, children }) {
-  const imageInfos = Children.toArray(children).map((child) => child.props);
-  const images = imageInfos.map((info, index) => (
-    <figure key={index}>
-      <div className="bg-white rounded-lg p-4 flex-1 flex xl:p-6 justify-center items-center my-4">
-        <img className="text-primary" src={info.src} alt={info.alt} height={info.height} />
-      </div>
-      {info.caption ? (
-        <figcaption className="text-secondary dark:text-secondary-dark text-center leading-tight mt-4">
-          {info.caption}
-        </figcaption>
-      ) : null}
-    </figure>
-  ));
-  return (
-    <IllustrationContext value={isInBlockTrue}>
-      <div className="relative group before:absolute before:-inset-y-16 before:inset-x-0 my-16 mx-0 2xl:mx-auto max-w-4xl 2xl:max-w-6xl">
-        {sequential ? (
-          <ol className="mdx-illustration-block flex">
-            {images.map((x, i) => (
-              <li className="flex-1" key={i}>
-                {x}
-              </li>
-            ))}
-          </ol>
-        ) : (
-          <div className="mdx-illustration-block">{images}</div>
-        )}
-        <AuthorCredit author={author} authorLink={authorLink} />
-      </div>
-    </IllustrationContext>
-  );
-}
-
-function calculateNestedToc(toc) {
-  const currentAncestors = new Map();
-  const root = {
-    item: null,
-    children: [],
-  };
-  const startIndex = 1; // Skip "Overview"
-  for (let i = startIndex; i < toc.length; i++) {
-    const item = toc[i];
-    const currentParent = currentAncestors.get(item.depth - 1) || root;
-    const node = {
-      item,
-      children: [],
-    };
-    currentParent.children.push(node);
-    currentAncestors.set(item.depth, node);
-  }
-  return root;
-}
-
-function InlineToc() {
-  const toc = useContext(TocContext);
-  const root = useMemo(() => calculateNestedToc(toc), [toc]);
-  if (root.children.length < 2) {
-    return null;
-  }
-  return <InlineTocItem items={root.children} />;
-}
-
-function InlineTocItem({ items }) {
-  return (
-    <UL>
-      {items.map((node) => (
-        <LI key={node.item.url}>
-          <Link href={node.item.url}>{node.item.text}</Link>
-          {node.children.length > 0 && <InlineTocItem items={node.children} />}
-        </LI>
-      ))}
-    </UL>
-  );
 }
 
 function LanguageList({ progress }) {

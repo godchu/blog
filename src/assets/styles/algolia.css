@@ -42,9 +42,9 @@ html.dark {
   @apply text-base;
   @apply text-tertiary;
   @apply bg-gray-10;
-  @apply focus: outline-link;
+  /* @apply focus: outline-link; */
   @apply h-10;
-  @apply focus-within: outline-none;
+  /* @apply focus-within: outline-none; */
 }
 
 html.dark .DocSearch-Form {
@@ -108,7 +108,7 @@ html.dark .DocSearch-Footer {
   @apply leading-tight;
   @apply text-primary;
   @apply appearance-none !important;
-  @apply focus: outline-link !important;
+  /* @apply focus: outline-link !important; */
 }
 
 html.dark .DocSearch-Input {

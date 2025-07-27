@@ -1,24 +1,26 @@
+// eslint-disable-next-line import/no-unresolved
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 import colors from './colors';
 
-/** @type {import('tailwindcss').Config} */
-const config = {
+export default {
   content: [
-    './src/**/*.{js,ts,jsx,tsx}',
+    './src/components/**/*.{js,ts,jsx,tsx}',
+    './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/styles/**/*.{js,ts,jsx,tsx}',
   ],
   darkMode: 'class',
   theme: {
+    // Override base screen sizes
     screens: {
       ...defaultTheme.screens,
-      betterhover: {raw: '(hover: hover)'},
+      betterhover: { raw: '(hover: hover)' },
       xs: '374px',
       '3xl': '1919px',
     },
     boxShadow: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
-      DEFAULT:
-        '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
+      DEFAULT: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
       md: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
       lg: '0px 0.8px 2px rgba(0, 0, 0, 0.032), 0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08)',
       'lg-dark':
@@ -27,8 +29,7 @@ const config = {
       '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
       '3xl': '0 35px 60px -15px rgba(0, 0, 0, 0.3)',
       nav: '0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0,0,0,.10)',
-      'nav-dark':
-        '0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255,255,255,.05)',
+      'nav-dark': '0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255,255,255,.05)',
       inner: 'inset 0 1px 4px 0 rgba(0, 0, 0, 0.05)',
       'inner-border': 'inset 0 0 0 1px rgba(0, 0, 0, 0.08)',
       'inner-border-dark': 'inset 0 0 0 1px rgba(255, 255, 255, 0.08)',
@@ -40,38 +41,26 @@ const config = {
     },
     extend: {
       backgroundImage: {
-        'gradient-left-dark':
-          'conic-gradient(from 90deg at -10% 100%, #2B303B 0deg, #2B303B 90deg, #16181D 360deg)',
-        'gradient-right-dark':
-          'conic-gradient(from -90deg at 110% 100%, #2B303B 0deg, #16181D 90deg, #16181D 360deg)',
-        'gradient-left':
-          'conic-gradient(from 90deg at -10% 100%, #BCC1CD 0deg, #BCC1CD 90deg, #FFFFFF 360deg)',
-        'gradient-right':
-          'conic-gradient(from -90deg at 110% 100%, #FFFFFF 0deg, #EBECF0 90deg, #EBECF0 360deg)',
-        'meta-gradient': 'url(\'/images/meta-gradient.png\')',
-        'meta-gradient-dark': 'url(\'/images/meta-gradient-dark.png\')',
+        'gradient-left-dark': 'conic-gradient(from 90deg at -10% 100%, #2B303B 0deg, #2B303B 90deg, #16181D 360deg)',
+        'gradient-right-dark': 'conic-gradient(from -90deg at 110% 100%, #2B303B 0deg, #16181D 90deg, #16181D 360deg)',
+        'gradient-left': 'conic-gradient(from 90deg at -10% 100%, #BCC1CD 0deg, #BCC1CD 90deg, #FFFFFF 360deg)',
+        'gradient-right': 'conic-gradient(from -90deg at 110% 100%, #FFFFFF 0deg, #EBECF0 90deg, #EBECF0 360deg)',
+        'meta-gradient': "url('/images/meta-gradient.png')",
+        'meta-gradient-dark': "url('/images/meta-gradient-dark.png')",
       },
       maxWidth: {
         ...defaultTheme.maxWidth,
         'custom-xs': '21rem',
       },
       outline: {
-        blue: [`1px auto ${colors.link}`, '3px'],
+        blue: ['1px auto ' + colors.link, '3px'],
       },
       opacity: {
         8: '0.08',
       },
       fontFamily: {
-        display: [
-          'Optimistic Display',
-          '-apple-system',
-          ...defaultTheme.fontFamily.sans,
-        ],
-        text: [
-          'Optimistic Text',
-          '-apple-system',
-          ...defaultTheme.fontFamily.sans,
-        ],
+        display: ['Optimistic Display', '-apple-system', ...defaultTheme.fontFamily.sans],
+        text: ['Optimistic Text', '-apple-system', ...defaultTheme.fontFamily.sans],
         mono: ['"Source Code Pro"', ...defaultTheme.fontFamily.mono],
       },
       lineHeight: {
@@ -106,34 +95,34 @@ const config = {
           },
         },
         rotate: {
-          from: {transform: 'rotate(0deg)'},
-          to: {transform: 'rotate(180deg)'},
+          from: { transform: 'rotate(0deg)' },
+          to: { transform: 'rotate(180deg)' },
         },
         scale: {
-          from: {transform: 'scale(0.8)'},
-          '90%': {transform: 'scale(1.05)'},
-          to: {transform: 'scale(1)'},
+          from: { transform: 'scale(0.8)' },
+          '90%': { transform: 'scale(1.05)' },
+          to: { transform: 'scale(1)' },
         },
         circle: {
-          from: {transform: 'scale(0)', strokeWidth: '16px'},
-          '50%': {transform: 'scale(0.5)', strokeWidth: '16px'},
-          to: {transform: 'scale(1)', strokeWidth: '0px'},
+          from: { transform: 'scale(0)', strokeWidth: '16px' },
+          '50%': { transform: 'scale(0.5)', strokeWidth: '16px' },
+          to: { transform: 'scale(1)', strokeWidth: '0px' },
         },
         marquee: {
-          '0%': {transform: 'translateX(0%)'},
-          '100%': {transform: 'translateX(-400%)'},
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-400%)' },
         },
         marquee2: {
-          '0%': {transform: 'translateX(400%)'},
-          '100%': {transform: 'translateX(0%)'},
+          '0%': { transform: 'translateX(400%)' },
+          '100%': { transform: 'translateX(0%)' },
         },
         'large-marquee': {
-          '0%': {transform: 'translateX(0%)'},
-          '100%': {transform: 'translateX(-200%)'},
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-200%)' },
         },
         'large-marquee2': {
-          '0%': {transform: 'translateX(200%)'},
-          '100%': {transform: 'translateX(0%)'},
+          '0%': { transform: 'translateX(200%)' },
+          '100%': { transform: 'translateX(0%)' },
         },
         'fade-up': {
           '0%': {
@@ -156,45 +145,3 @@ const config = {
   },
   plugins: [],
 };
-
-export default config;
-
-// @theme {
-//   /* --breakpoint-*: initial; */
-//   /* betterhover: {raw: '(hover: hover)'}, */
-//   --breakpoint-xs: 374px;
-//   --breakpoint-3xl: 1919px;
-
-//   /*  */
-//   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-//   --shadow-DEFAULT: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-//   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-//   --shadow-lg: 0px 0.8px 2px rgba(0, 0, 0, 0.032), 0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08);
-//   --shadow-lg-dark: 0 0 0 1px rgba(255, 255, 255, .15), 0px 0.8px 2px rgba(0, 0, 0, 0.032), 0px 2.7px 6.7px rgba(0, 0, 0, 0.048), 0px 12px 30px rgba(0, 0, 0, 0.08);
-//   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-//   --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-//   --shadow-3xl: 0 35px 60px -15px rgba(0, 0, 0, 0.3);
-//   --shadow-nav: 0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, .10);
-//   --shadow-nav-dark: 0 16px 32px -16px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(255, 255, 255, .05);
-//   --shadow-inner: inset 0 1px 4px 0 rgba(0, 0, 0, 0.05);
-//   --shadow-inner-border: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
-//   --shadow-inner-border-dark: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-//   --shadow-outer-border: 0 0 0 1px rgba(0, 0, 0, 0.1);
-//   --shadow-outer-border-dark: 0 0 0 1px rgba(255, 255, 255, 0.1);
-//   --shadow-secondary-button-stroke: inset 0 0 0 1px #D9DBE3;
-//   --shadow-secondary-button-stroke-dark: inset 0 0 0 1px #404756;
-//   --shadow-none: none;
-
-//   /*  */
-//   --color-gradient-left-dark: conic-gradient(from 90deg at -10% 100%, #2B303B 0deg, #2B303B 90deg, #16181D 360deg);
-//   --color-gradient-right-dark: conic-gradient(from -90deg at 110% 100%, #2B303B 0deg, #16181D 90deg, #16181D 360deg);
-//   --color-gradient-left: conic-gradient(from 90deg at -10% 100%, #BCC1CD 0deg, #BCC1CD 90deg, #FFFFFF 360deg);
-//   --color-gradient-right: conic-gradient(from -90deg at 110% 100%, #FFFFFF 0deg, #EBECF0 90deg, #EBECF0 360deg);
-//   --color-meta-gradient: url(/images/meta-gradient.png);
-//   --color-meta-gradient-dark: url(/images/meta-gradient-dark.png);
-//   /*  */
-//   --spacing-custom-xs: 21rem;
-//   /*  */
-
-// }
-

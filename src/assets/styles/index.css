@@ -2,9 +2,9 @@
  * Copyright (c) Facebook, Inc. and its affiliates.
  */
 
-@import 'tailwindcss';
-@config "../../../tailwind.config.js";
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
   @font-face {
@@ -471,9 +471,9 @@
   }
 
   /*
-   * Hopefully when scrollbar-color lands everywhere,
-   * (and not just in FF), we'll be able to keep just this.
-   */
+    * Hopefully when scrollbar-color lands everywhere,
+    * (and not just in FF), we'll be able to keep just this.
+    */
   html .no-bg-scrollbar {
     scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
   }
@@ -483,16 +483,16 @@
   }
 
   /*
-   * Until then, we have ... this.
-   * If you're changing this, make sure you've tested:
-   * - Different browsers (Chrome, Safari, FF)
-   * - Dark and light modes
-   * - System scrollbar settings ("always on" vs "when scrolling")
-   * - Switching between modes should never jump width
-   * - When you interact with a sidebar, it should always be visible
-   * - For each combination, test overflowing and non-overflowing sidebar
-   * I've spent hours picking these so I expect no less diligence from you.
-   */
+    * Until then, we have ... this.
+    * If you're changing this, make sure you've tested:
+    * - Different browsers (Chrome, Safari, FF)
+    * - Dark and light modes
+    * - System scrollbar settings ("always on" vs "when scrolling")
+    * - Switching between modes should never jump width
+    * - When you interact with a sidebar, it should always be visible
+    * - For each combination, test overflowing and non-overflowing sidebar
+    * I've spent hours picking these so I expect no less diligence from you.
+    */
   html .no-bg-scrollbar::-webkit-scrollbar,
   html .no-bg-scrollbar::-webkit-scrollbar-track {
     background-color: transparent;
@@ -526,11 +526,11 @@
   }
 }
 
-/* @layer utilities {
-  [class*='space-x-'] {
+@layer utilities {
+  /* [class*='space-x-'] {
     @apply rtl: space-x-reverse;
-  }
-} */
+  } */
+}
 
 .code-step * {
   color: inherit !important;
@@ -570,7 +570,7 @@ html.dark .code-step * {
 
 .mdx-heading .mdx-header-anchor {
   /* Prevent the anchor from
-     overflowing to its own line */
+      overflowing to its own line */
   height: 0px;
   width: 0px;
 }

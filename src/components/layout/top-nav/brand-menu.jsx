@@ -100,12 +100,12 @@ export default function BrandMenu({ children }) {
               </span>
               <span>Turn off</span>
             </MenuItem>
-            <DownloadMenuItem fileName="react_uwu_png" href="/images/uwu.png">
+            {/* <DownloadMenuItem fileName="react_uwu_png" href="/images/uwu.png">
               <span className="w-8">
                 <IconDownload />
               </span>
               <span>Logo PNG</span>
-            </DownloadMenuItem>
+            </DownloadMenuItem> */}
 
             <ExternalLink className="flex items-center" href="https://github.com/SAWARATSUKI/KawaiiLogos">
               <MenuItem>

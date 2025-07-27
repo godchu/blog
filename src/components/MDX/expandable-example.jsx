@@ -1,11 +1,9 @@
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- */
+'use client';
 
 import * as React from 'react';
 import { useEffect, useRef, useState } from 'react';
 import cn from 'classnames';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 import Button from '../button';
 import { IconChevron } from '../icon/icon-chevron';
@@ -22,7 +20,7 @@ function ExpandableExample({ children, excerpt, type }) {
   const isExample = type === 'Example';
   const id = children[0].props.id;
 
-  const { asPath } = useRouter();
+  const asPath = usePathname();
   const shouldAutoExpand = id === asPath.split('#')[1];
   const queuedExpandRef = useRef(shouldAutoExpand);
   const [isExpanded, setIsExpanded] = useState(false);

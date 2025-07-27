@@ -1,10 +1,10 @@
- 
 import React from 'react';
-import {cookies} from 'next/headers';
+import { cookies } from 'next/headers';
 import Script from 'next/script';
 
-import {Analytics} from './analytics';
-import {UnloadEvent} from './unload-event';
+import { Analytics } from './analytics';
+import { ThemeScript } from './theme-script';
+import { UnloadEvent } from './unload-event';
 
 import '@docsearch/css';
 import '../assets/styles/algolia.css';
@@ -17,18 +17,15 @@ export const metadata = {
     'Personal blog of a software engineer, sharing insights on web development, programming, and technology.',
 };
 
-export default async function RootLayout({children}) {
+export default async function RootLayout({ children }) {
   const cookieStore = await cookies();
   const theme = cookieStore.get('theme');
 
   return (
-    <html
-      lang="en" dir="ltr"
-      className={theme?.value ?? 'dark'}
-    >
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#404756"/>
-      <meta name="msapplication-TileColor" content="#2b5797"/>
-      <meta name="theme-color" content="#23272f"/>
+    <html lang="en" dir="ltr" className={theme?.value ?? 'dark'}>
+      {/* <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#404756" /> */}
+      <meta name="msapplication-TileColor" content="#2b5797" />
+      <meta name="theme-color" content="#23272f" />
       {/* Google Analytics */}
       <Script
         id="gtag-loader"
@@ -47,9 +44,11 @@ export default async function RootLayout({children}) {
             `,
         }}
       />
+
       <body className="font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base">
-        <Analytics/>
-        <UnloadEvent/>
+        <ThemeScript />
+        <Analytics />
+        <UnloadEvent />
         {children}
       </body>
     </html>

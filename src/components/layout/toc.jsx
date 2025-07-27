@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ */
+
 import cx from 'classnames';
 
 import { useTocHighlight } from './use-toc-highlight';
