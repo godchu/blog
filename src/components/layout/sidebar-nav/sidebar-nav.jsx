@@ -1,51 +1,35 @@
-
-import {Suspense} from 'react';
+import { Suspense } from 'react';
 import * as React from 'react';
 import cn from 'classnames';
 
-import {Feedback} from '../feedback';
-import {SidebarRouteTree} from '../sidebar/sidebar-route-tree';
+import { SidebarRouteTree } from '../sidebar/sidebar-route-tree';
 
-export default function SidebarNav({
-  routeTree,
-  breadcrumbs,
-}) {
+export default function SidebarNav({ routeTree, breadcrumbs }) {
   // HACK. Fix up the data structures instead.
-  if ((routeTree).routes.length === 1) {
-    routeTree = (routeTree).routes[0];
+  if (routeTree.routes.length === 1) {
+    routeTree = routeTree.routes[0];
   }
 
   return (
-    <div
-      className={cn(
-        'sticky top-0 lg:bottom-0 lg:h-[calc(100vh-4rem)] flex flex-col'
-      )}>
+    <div className={cn('sticky top-0 lg:bottom-0 lg:h-[calc(100vh-4rem)] flex flex-col')}>
       <div
         className="overflow-y-scroll no-bg-scrollbar lg:w-[342px] grow bg-wash dark:bg-wash-dark"
         style={{
           overscrollBehavior: 'contain',
-        }}>
-        <aside
-          className={cn(
-            `lg:grow flex-col w-full pb-8 lg:pb-0 lg:max-w-custom-xs z-10 hidden lg:block`
-          )}>
+        }}
+      >
+        <aside className={cn(`lg:grow flex-col w-full pb-8 lg:pb-0 lg:max-w-custom-xs z-10 hidden lg:block`)}>
           <nav
             role="navigation"
-            style={{'--bg-opacity': '.2'} } // Need to cast here because CSS vars aren't considered valid in TS types (cuz they could be anything)
-            className="w-full pt-6 scrolling-touch lg:h-auto grow pe-0 lg:pe-5 lg:pb-16 md:pt-4 lg:pt-4 scrolling-gpu">
+            style={{ '--bg-opacity': '.2' }} // Need to cast here because CSS vars aren't considered valid in TS types (cuz they could be anything)
+            className="w-full pt-6 scrolling-touch lg:h-auto grow pe-0 lg:pe-5 lg:pb-16 md:pt-4 lg:pt-4 scrolling-gpu"
+          >
             {/* No fallback UI so need to be careful not to suspend directly inside. */}
             <Suspense fallback={null}>
-              <SidebarRouteTree
-                routeTree={routeTree}
-                breadcrumbs={breadcrumbs}
-                isForceExpanded={false}
-              />
+              <SidebarRouteTree routeTree={routeTree} breadcrumbs={breadcrumbs} isForceExpanded={false} />
             </Suspense>
             <div className="h-20" />
           </nav>
-          <div className="fixed bottom-0 hidden lg:block">
-            <Feedback />
-          </div>
         </aside>
       </div>
     </div>

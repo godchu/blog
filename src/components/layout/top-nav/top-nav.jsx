@@ -11,7 +11,6 @@ import { IconSearch } from '@/components/icon/icon-search';
 import { Logo } from '@/components/logo';
 import { Search } from '@/components/search';
 
-import { Feedback } from '../feedback';
 import { SidebarRouteTree } from '../sidebar';
 
 import BrandMenu from './brand-menu';
@@ -209,19 +208,6 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
               </button>
               <BrandMenu>
                 <div className="flex items-center">
-                  {/* <div className="uwu-visible flex items-center justify-center h-full">
-                    <NextLink href="/" className="active:scale-95 transition-transform">
-                      <Image
-                        alt="logo by @sawaratsuki1004"
-                        title="logo by @sawaratsuki1004"
-                        className="h-8"
-                        priority
-                        width={63}
-                        height={32}
-                        src="/images/uwu.png"
-                      />
-                    </NextLink>
-                  </div> */}
                   <div className="uwu-hidden">
                     <NextLink
                       href="/"
@@ -259,16 +245,10 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
             </div>
             <div className="text-base justify-center items-center gap-1.5 flex 3xl:flex-1 flex-row 3xl:justify-end">
               <div className="mx-2.5 gap-1.5 hidden lg:flex">
-                <NavItem isActive={section === 'learn'} url="/learn">
+                <NavItem isActive={section === 'learn'} url="/docs/learn/react">
                   Learn
                 </NavItem>
-                <NavItem isActive={section === 'reference'} url="/reference/react">
-                  Reference
-                </NavItem>
-                <NavItem isActive={section === 'community'} url="/community">
-                  Community
-                </NavItem>
-                <NavItem isActive={section === 'blog'} url="/blog">
+                <NavItem isActive={section === 'blog'} url="/docs/blog">
                   Blog
                 </NavItem>
               </div>
@@ -310,7 +290,7 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                 </div>
                 <div className="flex">
                   <Link
-                    href="https://github.com/facebook/react/releases"
+                    href="https://github.com/tienlx97"
                     target="_blank"
                     rel="noreferrer noopener"
                     aria-label="Open on GitHub"
@@ -343,16 +323,10 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                 {/* No fallback UI so need to be careful not to suspend directly inside. */}
                 <Suspense fallback={null}>
                   <div className="ps-3 xs:ps-5 xs:gap-0.5 xs:text-base overflow-x-auto flex flex-row lg:hidden text-base font-bold text-secondary dark:text-secondary-dark">
-                    <NavItem isActive={section === 'learn'} url="/learn">
+                    <NavItem isActive={section === 'learn'} url="/docs/learn">
                       Learn
                     </NavItem>
-                    <NavItem isActive={section === 'reference'} url="/reference/react">
-                      Reference
-                    </NavItem>
-                    <NavItem isActive={section === 'community'} url="/community">
-                      Community
-                    </NavItem>
-                    <NavItem isActive={section === 'blog'} url="/blog">
+                    <NavItem isActive={section === 'blog'} url="/docs/blog">
                       Blog
                     </NavItem>
                   </div>
@@ -368,9 +342,6 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                 </Suspense>
                 <div className="h-16" />
               </nav>
-              <div className="fixed bottom-0 hidden lg:block">
-                <Feedback />
-              </div>
             </aside>
           </div>
         )}

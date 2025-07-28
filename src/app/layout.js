@@ -2,6 +2,8 @@ import React from 'react';
 import { cookies } from 'next/headers';
 import Script from 'next/script';
 
+import TopNavV2 from '@/components/layout/top-nav/top-nav.v2';
+
 import { Analytics } from './analytics';
 import { ThemeScript } from './theme-script';
 import { UnloadEvent } from './unload-event';
@@ -49,6 +51,7 @@ export default async function RootLayout({ children }) {
         <ThemeScript />
         <Analytics />
         <UnloadEvent />
+        <TopNavV2 />
         {children}
       </body>
     </html>

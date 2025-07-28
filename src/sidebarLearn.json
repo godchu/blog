@@ -1,237 +1,465 @@
 {
-  "title": "Learn React",
-  "path": "/learn",
+  "title": "Learn Technology",
+  "path": "/docs/learn/react",
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "GET STARTED"
+      "sectionHeader": "react@{{version}}"
     },
     {
-      "title": "Quick Start",
-      "path": "/learn",
+      "title": "Overview",
+      "path": "/docs/learn/react"
+    },
+    {
+      "title": "Hooks",
+      "path": "/docs/learn/react/hooks",
       "routes": [
         {
-          "title": "Tutorial: Tic-Tac-Toe",
-          "path": "/learn/tutorial-tic-tac-toe"
+          "title": "useActionState",
+          "path": "/docs/learn/react/useActionState"
         },
         {
-          "title": "Thinking in React",
-          "path": "/learn/thinking-in-react"
+          "title": "useCallback",
+          "path": "/docs/learn/react/useCallback"
+        },
+        {
+          "title": "useContext",
+          "path": "/docs/learn/react/useContext"
+        },
+        {
+          "title": "useDebugValue",
+          "path": "/docs/learn/react/useDebugValue"
+        },
+        {
+          "title": "useDeferredValue",
+          "path": "/docs/learn/react/useDeferredValue"
+        },
+        {
+          "title": "useEffect",
+          "path": "/docs/learn/react/useEffect"
+        },
+        {
+          "title": "useId",
+          "path": "/docs/learn/react/useId"
+        },
+        {
+          "title": "useImperativeHandle",
+          "path": "/docs/learn/react/useImperativeHandle"
+        },
+        {
+          "title": "useInsertionEffect",
+          "path": "/docs/learn/react/useInsertionEffect"
+        },
+        {
+          "title": "useLayoutEffect",
+          "path": "/docs/learn/react/useLayoutEffect"
+        },
+        {
+          "title": "useMemo",
+          "path": "/docs/learn/react/useMemo"
+        },
+        {
+          "title": "useOptimistic",
+          "path": "/docs/learn/react/useOptimistic"
+        },
+        {
+          "title": "useReducer",
+          "path": "/docs/learn/react/useReducer"
+        },
+        {
+          "title": "useRef",
+          "path": "/docs/learn/react/useRef"
+        },
+        {
+          "title": "useState",
+          "path": "/docs/learn/react/useState"
+        },
+        {
+          "title": "useSyncExternalStore",
+          "path": "/docs/learn/react/useSyncExternalStore"
+        },
+        {
+          "title": "useTransition",
+          "path": "/docs/learn/react/useTransition"
         }
       ]
     },
     {
-      "title": "Installation",
-      "path": "/learn/installation",
+      "title": "Components",
+      "path": "/docs/learn/react/components",
       "routes": [
         {
-          "title": "Creating a React App",
-          "path": "/learn/creating-a-react-app"
+          "title": "<Fragment> (<>)",
+          "path": "/docs/learn/react/Fragment"
         },
         {
-          "title": "Build a React App from Scratch",
-          "path": "/learn/build-a-react-app-from-scratch"
+          "title": "<Profiler>",
+          "path": "/docs/learn/react/Profiler"
         },
         {
-          "title": "Add React to an Existing Project",
-          "path": "/learn/add-react-to-an-existing-project"
+          "title": "<StrictMode>",
+          "path": "/docs/learn/react/StrictMode"
+        },
+        {
+          "title": "<Suspense>",
+          "path": "/docs/learn/react/Suspense"
+        },
+        {
+          "title": "<Activity>",
+          "path": "/docs/learn/react/Activity",
+          "version": "experimental"
+        },
+        {
+          "title": "<ViewTransition>",
+          "path": "/docs/learn/react/ViewTransition",
+          "version": "experimental"
         }
       ]
     },
     {
-      "title": "Setup",
-      "path": "/learn/setup",
+      "title": "APIs",
+      "path": "/docs/learn/react/apis",
       "routes": [
         {
-          "title": "Editor Setup",
-          "path": "/learn/editor-setup"
+          "title": "act",
+          "path": "/docs/learn/react/act"
         },
         {
-          "title": "Using TypeScript",
-          "path": "/learn/typescript"
+          "title": "cache",
+          "path": "/docs/learn/react/cache"
         },
         {
-          "title": "React Developer Tools",
-          "path": "/learn/react-developer-tools"
-        }
-      ]
-    },
-    {
-      "title": "React Compiler",
-      "path": "/learn/react-compiler",
-      "canary": true,
-      "routes": [
-        {
-          "title": "Introduction",
-          "path": "/learn/react-compiler/introduction"
+          "title": "captureOwnerStack",
+          "path": "/docs/learn/react/captureOwnerStack"
         },
         {
-          "title": "Installation",
-          "path": "/learn/react-compiler/installation"
+          "title": "createContext",
+          "path": "/docs/learn/react/createContext"
         },
         {
-          "title": "Incremental Adoption",
-          "path": "/learn/react-compiler/incremental-adoption"
+          "title": "lazy",
+          "path": "/docs/learn/react/lazy"
         },
         {
-          "title": "Debugging and Troubleshooting",
-          "path": "/learn/react-compiler/debugging"
+          "title": "memo",
+          "path": "/docs/learn/react/memo"
+        },
+        {
+          "title": "startTransition",
+          "path": "/docs/learn/react/startTransition"
+        },
+        {
+          "title": "use",
+          "path": "/docs/learn/react/use"
+        },
+        {
+          "title": "experimental_taintObjectReference",
+          "path": "/docs/learn/react/experimental_taintObjectReference",
+          "version": "experimental"
+        },
+        {
+          "title": "experimental_taintUniqueValue",
+          "path": "/docs/learn/react/experimental_taintUniqueValue",
+          "version": "experimental"
+        },
+        {
+          "title": "unstable_addTransitionType",
+          "path": "/docs/learn/react/addTransitionType",
+          "version": "experimental"
         }
       ]
     },
     {
       "hasSectionHeader": true,
-      "sectionHeader": "LEARN REACT"
+      "sectionHeader": "react-dom@{{version}}"
     },
     {
-      "title": "Describing the UI",
-      "tags": [],
-      "path": "/learn/describing-the-ui",
+      "title": "Hooks",
+      "path": "/docs/learn/react-dom/hooks",
       "routes": [
         {
-          "title": "Your First Component",
-          "path": "/learn/your-first-component"
-        },
-        {
-          "title": "Importing and Exporting Components",
-          "path": "/learn/importing-and-exporting-components"
-        },
-        {
-          "title": "Writing Markup with JSX",
-          "path": "/learn/writing-markup-with-jsx"
-        },
-        {
-          "title": "JavaScript in JSX with Curly Braces",
-          "path": "/learn/javascript-in-jsx-with-curly-braces"
-        },
-        {
-          "title": "Passing Props to a Component",
-          "path": "/learn/passing-props-to-a-component"
-        },
-        {
-          "title": "Conditional Rendering",
-          "path": "/learn/conditional-rendering"
-        },
-        {
-          "title": "Rendering Lists",
-          "path": "/learn/rendering-lists"
-        },
-        {
-          "title": "Keeping Components Pure",
-          "path": "/learn/keeping-components-pure"
-        },
-        {
-          "title": "Your UI as a Tree",
-          "path": "/learn/understanding-your-ui-as-a-tree"
+          "title": "useFormStatus",
+          "path": "/docs/learn/react-dom/hooks/useFormStatus"
         }
       ]
     },
     {
-      "title": "Adding Interactivity",
-      "path": "/learn/adding-interactivity",
-      "tags": [],
+      "title": "Components",
+      "path": "/docs/learn/react-dom/components",
       "routes": [
         {
-          "title": "Responding to Events",
-          "path": "/learn/responding-to-events"
+          "title": "Common (e.g. <div>)",
+          "path": "/docs/learn/react-dom/components/common"
         },
         {
-          "title": "State: A Component's Memory",
-          "path": "/learn/state-a-components-memory"
+          "title": "<form>",
+          "path": "/docs/learn/react-dom/components/form"
         },
         {
-          "title": "Render and Commit",
-          "path": "/learn/render-and-commit"
+          "title": "<input>",
+          "path": "/docs/learn/react-dom/components/input"
         },
         {
-          "title": "State as a Snapshot",
-          "path": "/learn/state-as-a-snapshot"
+          "title": "<option>",
+          "path": "/docs/learn/react-dom/components/option"
         },
         {
-          "title": "Queueing a Series of State Updates",
-          "path": "/learn/queueing-a-series-of-state-updates"
+          "title": "<progress>",
+          "path": "/docs/learn/react-dom/components/progress"
         },
         {
-          "title": "Updating Objects in State",
-          "path": "/learn/updating-objects-in-state"
+          "title": "<select>",
+          "path": "/docs/learn/react-dom/components/select"
         },
         {
-          "title": "Updating Arrays in State",
-          "path": "/learn/updating-arrays-in-state"
+          "title": "<textarea>",
+          "path": "/docs/learn/react-dom/components/textarea"
+        },
+        {
+          "title": "<link>",
+          "path": "/docs/learn/react-dom/components/link"
+        },
+        {
+          "title": "<meta>",
+          "path": "/docs/learn/react-dom/components/meta"
+        },
+        {
+          "title": "<script>",
+          "path": "/docs/learn/react-dom/components/script"
+        },
+        {
+          "title": "<style>",
+          "path": "/docs/learn/react-dom/components/style"
+        },
+        {
+          "title": "<title>",
+          "path": "/docs/learn/react-dom/components/title"
         }
       ]
     },
     {
-      "title": "Managing State",
-      "path": "/learn/managing-state",
-      "tags": ["intermediate"],
+      "title": "APIs",
+      "path": "/docs/learn/react-dom",
       "routes": [
         {
-          "title": "Reacting to Input with State",
-          "path": "/learn/reacting-to-input-with-state"
+          "title": "createPortal",
+          "path": "/docs/learn/react-dom/createPortal"
         },
         {
-          "title": "Choosing the State Structure",
-          "path": "/learn/choosing-the-state-structure"
+          "title": "flushSync",
+          "path": "/docs/learn/react-dom/flushSync"
         },
         {
-          "title": "Sharing State Between Components",
-          "path": "/learn/sharing-state-between-components"
+          "title": "preconnect",
+          "path": "/docs/learn/react-dom/preconnect"
         },
         {
-          "title": "Preserving and Resetting State",
-          "path": "/learn/preserving-and-resetting-state"
+          "title": "prefetchDNS",
+          "path": "/docs/learn/react-dom/prefetchDNS"
         },
         {
-          "title": "Extracting State Logic into a Reducer",
-          "path": "/learn/extracting-state-logic-into-a-reducer"
+          "title": "preinit",
+          "path": "/docs/learn/react-dom/preinit"
         },
         {
-          "title": "Passing Data Deeply with Context",
-          "path": "/learn/passing-data-deeply-with-context"
+          "title": "preinitModule",
+          "path": "/docs/learn/react-dom/preinitModule"
         },
         {
-          "title": "Scaling Up with Reducer and Context",
-          "path": "/learn/scaling-up-with-reducer-and-context"
+          "title": "preload",
+          "path": "/docs/learn/react-dom/preload"
+        },
+        {
+          "title": "preloadModule",
+          "path": "/docs/learn/react-dom/preloadModule"
         }
       ]
     },
     {
-      "title": "Escape Hatches",
-      "path": "/learn/escape-hatches",
-      "tags": ["advanced"],
+      "title": "Client APIs",
+      "path": "/docs/learn/react-dom/client",
       "routes": [
         {
-          "title": "Referencing Values with Refs",
-          "path": "/learn/referencing-values-with-refs"
+          "title": "createRoot",
+          "path": "/docs/learn/react-dom/client/createRoot"
         },
         {
-          "title": "Manipulating the DOM with Refs",
-          "path": "/learn/manipulating-the-dom-with-refs"
+          "title": "hydrateRoot",
+          "path": "/docs/learn/react-dom/client/hydrateRoot"
+        }
+      ]
+    },
+    {
+      "title": "Server APIs",
+      "path": "/docs/learn/react-dom/server",
+      "routes": [
+        {
+          "title": "renderToPipeableStream",
+          "path": "/docs/learn/react-dom/server/renderToPipeableStream"
         },
         {
-          "title": "Synchronizing with Effects",
-          "path": "/learn/synchronizing-with-effects"
+          "title": "renderToReadableStream",
+          "path": "/docs/learn/react-dom/server/renderToReadableStream"
         },
         {
-          "title": "You Might Not Need an Effect",
-          "path": "/learn/you-might-not-need-an-effect"
+          "title": "renderToStaticMarkup",
+          "path": "/docs/learn/react-dom/server/renderToStaticMarkup"
         },
         {
-          "title": "Lifecycle of Reactive Effects",
-          "path": "/learn/lifecycle-of-reactive-effects"
+          "title": "renderToString",
+          "path": "/docs/learn/react-dom/server/renderToString"
+        }
+      ]
+    },
+    {
+      "title": "Static APIs",
+      "path": "/docs/learn/react-dom/static",
+      "routes": [
+        {
+          "title": "prerender",
+          "path": "/docs/learn/react-dom/static/prerender"
         },
         {
-          "title": "Separating Events from Effects",
-          "path": "/learn/separating-events-from-effects"
+          "title": "prerenderToNodeStream",
+          "path": "/docs/learn/react-dom/static/prerenderToNodeStream"
+        }
+      ]
+    },
+    {
+      "hasSectionHeader": true,
+      "sectionHeader": "React Compiler"
+    },
+    {
+      "title": "Configuration",
+      "path": "/docs/learn/react-compiler/configuration",
+      "routes": [
+        {
+          "title": "compilationMode",
+          "path": "/docs/learn/react-compiler/compilationMode"
         },
         {
-          "title": "Removing Effect Dependencies",
-          "path": "/learn/removing-effect-dependencies"
+          "title": "gating",
+          "path": "/docs/learn/react-compiler/gating"
         },
         {
-          "title": "Reusing Logic with Custom Hooks",
-          "path": "/learn/reusing-logic-with-custom-hooks"
+          "title": "logger",
+          "path": "/docs/learn/react-compiler/logger"
+        },
+        {
+          "title": "panicThreshold",
+          "path": "/docs/learn/react-compiler/panicThreshold"
+        },
+        {
+          "title": "target",
+          "path": "/docs/learn/react-compiler/target"
+        }
+      ]
+    },
+    {
+      "title": "Directives",
+      "path": "/docs/learn/react-compiler/directives",
+      "routes": [
+        {
+          "title": "\"use memo\"",
+          "path": "/docs/learn/react-compiler/directives/use-memo"
+        },
+        {
+          "title": "\"use no memo\"",
+          "path": "/docs/learn/react-compiler/directives/use-no-memo"
+        }
+      ]
+    },
+    {
+      "title": "Compiling Libraries",
+      "path": "/docs/learn/react-compiler/compiling-libraries"
+    },
+    {
+      "hasSectionHeader": true,
+      "sectionHeader": "Rules of React"
+    },
+    {
+      "title": "Overview",
+      "path": "/docs/learn/rules",
+      "routes": [
+        {
+          "title": "Components and Hooks must be pure",
+          "path": "/docs/learn/rules/components-and-hooks-must-be-pure"
+        },
+        {
+          "title": "React calls Components and Hooks",
+          "path": "/docs/learn/rules/react-calls-components-and-hooks"
+        },
+        {
+          "title": "Rules of Hooks",
+          "path": "/docs/learn/rules/rules-of-hooks"
+        }
+      ]
+    },
+    {
+      "hasSectionHeader": true,
+      "sectionHeader": "React Server Components"
+    },
+    {
+      "title": "Server Components",
+      "path": "/docs/learn/rsc/server-components"
+    },
+    {
+      "title": "Server Functions",
+      "path": "/docs/learn/rsc/server-functions"
+    },
+    {
+      "title": "Directives",
+      "path": "/docs/learn/rsc/directives",
+      "routes": [
+        {
+          "title": "'use client'",
+          "path": "/docs/learn/rsc/use-client"
+        },
+        {
+          "title": "'use server'",
+          "path": "/docs/learn/rsc/use-server"
+        }
+      ]
+    },
+    {
+      "hasSectionHeader": true,
+      "sectionHeader": "Legacy APIs"
+    },
+    {
+      "title": "Legacy React APIs",
+      "path": "/docs/learn/react/legacy",
+      "routes": [
+        {
+          "title": "Children",
+          "path": "/docs/learn/react/Children"
+        },
+        {
+          "title": "cloneElement",
+          "path": "/docs/learn/react/cloneElement"
+        },
+        {
+          "title": "Component",
+          "path": "/docs/learn/react/Component"
+        },
+        {
+          "title": "createElement",
+          "path": "/docs/learn/react/createElement"
+        },
+        {
+          "title": "createRef",
+          "path": "/docs/learn/react/createRef"
+        },
+        {
+          "title": "forwardRef",
+          "path": "/docs/learn/react/forwardRef"
+        },
+        {
+          "title": "isValidElement",
+          "path": "/docs/learn/react/isValidElement"
+        },
+        {
+          "title": "PureComponent",
+          "path": "/docs/learn/react/PureComponent"
         }
       ]
     }

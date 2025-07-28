@@ -1,5 +1,5 @@
 export const siteConfig = {
-  version: '19.1',
+  version: '1.0',
   // --------------------------------------
   // Translations should replace these lines:
   languageCode: 'en',
@@ -7,11 +7,10 @@ export const siteConfig = {
   isRTL: false,
   // --------------------------------------
   copyright: `Copyright © ${new Date().getFullYear()}`,
-  repoUrl: 'https://github.com/facebook/react',
-  twitterUrl: 'https://twitter.com/reactjs',
+  repoUrl: 'https://github.com/godchu/blog',
   algolia: {
-    appId: '1FCF9AYYAT',
-    apiKey: '1b7ad4e1c89e645e351e59d40544eda1',
-    indexName: 'beta-react',
+    appId: '5YX659QBL4',
+    apiKey: '842ef6e0c139ffcf7ff63702c41efefe',
+    indexName: 'beta-blog',
   },
 };

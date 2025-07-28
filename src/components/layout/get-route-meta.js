@@ -1,3 +1,4 @@
+// { cleanedPath: '/docs/learn/first-mdx-page' }
 export function getRouteMeta(cleanedPath, routeTree) {
   const breadcrumbs = getBreadcrumbs(cleanedPath, routeTree);
   const context = {
