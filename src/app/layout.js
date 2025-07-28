@@ -14,7 +14,7 @@ import '../assets/styles/index.css';
 import '../assets/styles/sandpack.css';
 
 export const metadata = {
-  title: 'Personal Blog',
+  title: 'Lê Xuân Tiến',
   description:
     'Personal blog of a software engineer, sharing insights on web development, programming, and technology.',
 };

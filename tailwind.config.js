@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-unresolved
 import defaultTheme from 'tailwindcss/defaultTheme';
 
 import colors from './colors';
@@ -62,6 +61,8 @@ export default {
         display: ['Optimistic Display', '-apple-system', ...defaultTheme.fontFamily.sans],
         text: ['Optimistic Text', '-apple-system', ...defaultTheme.fontFamily.sans],
         mono: ['"Source Code Pro"', ...defaultTheme.fontFamily.mono],
+        sfMono: ['"SF Mono"', ...defaultTheme.fontFamily.mono],
+        sans: ['"Calibre"', ...defaultTheme.fontFamily.sans],
       },
       lineHeight: {
         base: '30px',

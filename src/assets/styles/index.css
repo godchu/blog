@@ -7,6 +7,27 @@
 @tailwind utilities;
 
 @layer base {
+
+
+
+  @font-face {
+    font-family: 'Calibre';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/calibrib.woff2') format('woff2');
+  }
+
+
+  /* @font-face {
+    font-family: 'Calibre';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('/fonts/Calibre-Semibold.woff2') format('woff2');
+  }
+ */
+
   @font-face {
     font-family: 'Source Code Pro';
     font-style: normal;

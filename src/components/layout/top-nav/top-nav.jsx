@@ -218,7 +218,7 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                           'text-sm me-0 w-10 h-10 text-brand dark:text-brand-dark flex origin-center transition-all ease-in-out',
                         )}
                       />
-                      <span className="sr-only 3xl:not-sr-only">Lê Xuân Tiến</span>
+                      {/* <span className="sr-only 3xl:not-sr-only">Lê Xuân Tiến</span> */}
                     </NextLink>
                   </div>
                 </div>

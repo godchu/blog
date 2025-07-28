@@ -1,18 +1,18 @@
 export function Logo(props) {
   return (
     <svg
-      width="100%"
-      height="100%"
-      viewBox="-10.5 -9.45 21 18.9"
-      fill="none"
+      id="Layer_1"
+      enableBackground="new 0 0 152 152"
+      height="512"
+      viewBox="0 0 152 152"
+      width="512"
       xmlns="http://www.w3.org/2000/svg"
+      fill="currentColor"
       {...props}
     >
-      <circle cx="0" cy="0" r="2" fill="currentColor" />
-      <g stroke="currentColor" strokeWidth="1" fill="none">
-        <ellipse rx="10" ry="4.5" />
-        <ellipse rx="10" ry="4.5" transform="rotate(60)" />
-        <ellipse rx="10" ry="4.5" transform="rotate(120)" />
+      <g id="Icon">
+        <path d="m79.3 11c15.3 8.8 30.6 17.6 45.9 26.4 1.7.9 3.4 2 4.9 3.2 1 .7 1.5 1.9 1.2 3-.3 1.8-4.5 1.6-5.4 1.6h-77.7c-8 0-13.3 6.6-11.1 13.8 1.4 4.6 5.7 7.6 10.5 7.5 4.7.1 9.5 0 14.2 0 6.8.1 10 5.4 6.9 11.5-7.3 14.1-14.6 28.1-21.9 42.1-1.8 3.5-3.2 3.8-6.5 1.9-4.8-2.7-9.5-5.6-14.3-8.1-3.7-2-7.6-4.5-7.9-8.7v-57c0-2.2.8-4.4 2.3-6.1 3.6-3.7 36.6-22 52.3-31.1z" />
+        <path d="m72.7 141-9.9-5.6c4-7.7 7.9-15.3 11.8-22.7l16.7-32.1c4.8-9.2 12.3-13.7 22.6-13.7h19.6c.1 1.2.2 24.6.3 35.4.3 4.4-2 8.6-5.8 10.7-15.5 8.9-31 17.8-46.5 26.8-.9.6-2 1-2.9 1.4z" />
       </g>
     </svg>
   );

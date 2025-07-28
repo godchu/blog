@@ -8,10 +8,8 @@ import { memo, useEffect, useRef, useState } from 'react';
 import * as React from 'react';
 import cn from 'classnames';
 
-import ButtonLink from '../button-link';
-import { BiLogoGithub } from '../icon/bo/BiLogoGithub';
-import { Logo } from '../logo';
 import Link from '../MDX/link';
+import { LI } from '../MDX/list';
 
 function Section({ children, background = null }) {
   return (
@@ -41,95 +39,70 @@ function Header({ children }) {
   );
 }
 
-function Para({ children }) {
-  return (
-    <p className="max-w-3xl mx-auto text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-      {children}
-    </p>
-  );
-}
-
-function Center({ children }) {
-  return (
-    <div className="px-5 lg:px-0 max-w-4xl lg:text-center text-white text-opacity-80 flex flex-col items-center justify-center">
-      {children}
-    </div>
-  );
-}
-
 export function HomeContent() {
   return (
     <div className="ps-0">
-      <Section>
-        <div className="px-5 lg:px-0">
-          <div style={{ opacity: 1, transform: 'none' }}>
-            <div>
-              <h2 className="leading-xl font-display text-primary dark:text-primary-dark font-semibold text-5xl lg:text-6xl -mt-4 mb-7 w-full max-w-3xl">
-                Software engineer, technical writer & open-source maintainer
-              </h2>
-              <Para>
-                I'm Le Xuan Tien, an experienced frontend developer passionate about learning and building open-source
-                software that is beneficial to developers and the world at large.
-              </Para>
-            </div>
-          </div>
-          <div style={{ opacity: 1, transform: 'none' }}>
-            <div>
-              <ul className="flex items-center flex-wrap gap-x-5 gap-y-4 my-10">
-                <li>
-                  <Link
-                    className="flex items-center border-b dark:border-b-zinc-800 border-zinc-200 group"
-                    href="https://github.com/tienlx97"
-                  >
-                    Next.js
-                  </Link>
-                </li>
-              </ul>
-            </div>
+      <div className="mx-auto flex flex-col w-full max-w-7xl">
+        <div className="flex-col gap-2 flex grow w-full my-20 lg:my-32 mx-auto items-center">
+          <div className="px-5 lg:px-0 w-full h-auto max-w-4xl">
+            <h1 className="font-display text-[clamp(14px,5vw,16px)] md:mb-[30px] md:ml-[4px] mb-[15px] ml-[2px] text-link dark:text-link-dark leading-normal">
+              Hi, my name is
+            </h1>
+            <h2 className="font-sans text-primary dark:text-primary-dark font-semibold text-[clamp(40px,8vw,80px)] m-0 leading-[1.1]">
+              Lê Xuân Tiến.
+            </h2>
+            <h3 className="font-sans font-semibold text-[clamp(40px,8vw,80px)] m-0 mt-[5px] leading-[0.9]">
+              I build software and handle exports.
+            </h3>
+            <p className="mt-5 max-w-[540px] ">
+              I’m a <b>Full‑stack</b> developer and <b>import–export</b> documentation specialist at{' '}
+              <Link href="https://dainghiasteel.com/">Dai Nghia Steel</Link>, where I create accessible digital products
+              and handle customs paperwork for the company’s shipments.
+            </p>
           </div>
         </div>
-      </Section>
+      </div>
       <Section background="left-card">
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl">
-            <Center>
-              <Header>
-                Join a community <br className="hidden lg:inline" />
-                of millions
-              </Header>
-              <Para>
-                You’re not alone. Two million developers from all over the world visit the React docs every month. React
-                is something that people and teams can agree on.
-              </Para>
-            </Center>
+            <div className="px-5 lg:px-0 w-full h-auto max-w-4xl">
+              <Header>About Me</Header>
+              <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+                Hello! My name is Tiến and I build things for the web. My interest in web development started when I
+                began experimenting with small projects — and over time, that curiosity grew into building scalable,
+                user‑friendly web applications.
+              </p>
+            </div>
           </div>
           <CommunityGallery />
           <div className="mx-auto flex flex-col max-w-4xl">
-            <Center>
-              <Para>
-                This is why React is more than a library, an architecture, or even an ecosystem. React is a community.
-                It’s a place where you can ask for help, find opportunities, and meet new friends. You will meet both
-                developers and designers, beginners and experts, researchers and artists, teachers and students. Our
-                backgrounds may be very different, but React lets us all create user interfaces together.
-              </Para>
-            </Center>
-          </div>
-        </div>
+            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+              Fast‑forward to today, my main focus is building scalable, accessible, and user‑friendly web applications
+              as a full‑stack developer. Over the years, I’ve explored various aspects of development, from front‑end
+              frameworks to back‑end systems, constantly improving my skills.
+            </p>
+            <br />
+            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+              In my spare time, I enjoy <b className="text-link dark:text-link-dark">reverse engineering</b> Facebook’s
+              UI as a personal challenge and a way to explore modern front‑end architecture.
+            </p>
+            <br />
+            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+              Here are a few technologies I’ve been working with recently:
+            </p>
 
-        <div className="mt-20 px-5 lg:px-0 mb-6 max-w-4xl text-center text-opacity-80">
-          <Logo className="uwu-hidden text-brand dark:text-brand-dark w-24 lg:w-28 mb-10 lg:mb-8 mt-12 h-auto mx-auto self-start" />
-          <Header>
-            Welcome to the <br className="hidden lg:inline" />
-            React community
-          </Header>
-          <ButtonLink href="/learn" type="primary" size="lg" label="Take the Tutorial">
-            Get Started
-          </ButtonLink>
+            <ul className="ms-6 my-3 grid grid-cols-2 gap-x-[10px] gap-y-0 p-0 mt-5 mb-0  max-w-[400px] list-disc">
+              {/* eslint-disable-next-line react/jsx-pascal-case */}
+              {skills && skills.map((skill, i) => <LI key={i}>{skill}</LI>)}
+            </ul>
+          </div>
         </div>
       </Section>
     </div>
   );
 }
+
+const skills = ['JavaScript', 'TypeScript', 'Node.js', 'Golang', 'React', 'React Native'];
 
 const communityImages = [
   {
@@ -268,125 +241,3 @@ const CommunityImages = memo(({ isLazy }) => {
 });
 
 //
-
-const socialLinks = [
-  {
-    id: 1,
-    name: 'GitHub',
-    url: 'https://github.com/Evavic44',
-    icon: BiLogoGithub,
-    status: 'social',
-  },
-  {
-    id: 2,
-    name: 'X',
-    url: 'https://twitter.com/victorekea',
-    icon: FaSquareXTwitter,
-    status: 'social',
-  },
-  {
-    id: 3,
-    name: 'Linkedin',
-    url: 'https://linkedin.com/in/victorekeawa',
-    icon: BiLogoLinkedinSquare,
-    status: 'social',
-  },
-  {
-    id: 4,
-    name: 'Codepen',
-    url: 'https://codepen.io/evavic44',
-    icon: BiLogoCodepen,
-    status: 'social',
-  },
-  {
-    id: 5,
-    name: 'Dribbble',
-    url: 'https://dribbble.com/victoreke',
-    icon: BiLogoDribbble,
-    status: 'social',
-  },
-  {
-    id: 6,
-    name: 'Instagram',
-    url: 'https://instagram.com/victorekea',
-    icon: BiLogoInstagram,
-    status: 'social',
-  },
-  {
-    id: 7,
-    name: 'Steam',
-    url: 'https://steamcommunity.com/id/victoreke/',
-    icon: BiLogoSteam,
-    status: 'social',
-  },
-  {
-    id: 8,
-    name: 'Unsplash',
-    url: 'https://unsplash.com/@victoreke',
-    icon: BiLogoUnsplash,
-    status: 'social',
-  },
-  {
-    id: 9,
-    name: 'FreeCodeCamp',
-    url: 'https://freecodecamp.org/news/author/victoreke/',
-    icon: FaFreeCodeCamp,
-    status: 'publication',
-  },
-  {
-    id: 10,
-    name: 'Hashnode',
-    url: 'https://eke.hashnode.dev',
-    icon: FaHashnode,
-    status: 'publication',
-  },
-  {
-    id: 11,
-    name: 'Sanity',
-    url: 'https://www.sanity.io/exchange/community/victoreke',
-    icon: FaHashtag,
-    status: 'publication',
-  },
-  {
-    id: 12,
-    name: 'Youtube',
-    url: 'https://youtube.com/@victorekea',
-    icon: BiLogoYoutube,
-    status: 'social',
-  },
-  {
-    id: 13,
-    name: 'Daily.dev',
-    url: 'https://app.daily.dev/eke',
-    icon: BiLinkExternal,
-    status: 'social',
-  },
-  {
-    id: 14,
-    name: 'Producthunt',
-    url: 'https://www.producthunt.com/@victorekea',
-    icon: FaProductHunt,
-    status: 'social',
-  },
-  {
-    id: 15,
-    name: 'Stackoverflow',
-    url: 'https://stackoverflow.com/users/14021166/victor-eke',
-    icon: BiLogoStackOverflow,
-    status: 'social',
-  },
-  {
-    id: 16,
-    name: 'Codewars',
-    url: 'https://www.codewars.com/users/victoreke',
-    icon: SiCodewars,
-    status: 'social',
-  },
-  {
-    id: 17,
-    name: 'Gitlab',
-    url: 'https://gitlab.com/victoreke',
-    icon: BiLogoGitlab,
-    status: 'social',
-  },
-];
