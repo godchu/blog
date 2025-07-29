@@ -5,7 +5,7 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Router from 'next/router';
 
-import { siteConfig } from '@/site-config';
+import { siteConfig } from '@/configs/site-config';
 
 function Hit({ hit, children }) {
   return <Link href={hit.url.replace()}>{children}</Link>;

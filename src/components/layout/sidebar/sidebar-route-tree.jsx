@@ -7,8 +7,8 @@ import { useCollapse } from 'react-collapsed';
 import cn from 'classnames';
 import { usePathname } from 'next/navigation';
 
+import { siteConfig } from '@/configs/site-config';
 import usePendingRoute from '@/hooks/use-pending-route';
-import { siteConfig } from '@/site-config';
 
 import { SidebarLink } from './sidebar-link';
 

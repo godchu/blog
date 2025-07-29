@@ -6,11 +6,11 @@ import { usePathname } from 'next/navigation';
 
 import { finishedTranslations } from '@/utils/finished-translations';
 
-import { siteConfig } from '../site-config';
+import { siteConfig } from '../configs/site-config';
 
 function getDomain(languageCode) {
   const subdomain = languageCode === 'en' ? '' : `${languageCode}.`;
-  return `${subdomain}react.dev`;
+  return `${subdomain}tienlx97.io.vn`;
 }
 
 export function Seo({ title, titleForTitleTag, image = '/images/og-default.png', children, isHomePage, searchOrder }) {
@@ -50,7 +50,7 @@ export function Seo({ title, titleForTitleTag, image = '/images/og-default.png',
       {title && <meta key="twitter:title" name="twitter:title" content={twitterTitle} />}
       {description && <meta key="twitter:description" name="twitter:description" content={description} />}
       <meta key="twitter:image" name="twitter:image" content={`https://${siteDomain}${image}`} />
-      <meta name="google-site-verification" content="sIlAGs48RulR4DdP95YSWNKZIEtCqQmRjzn-Zq-CcD0" />
+      {/* <meta name="google-site-verification" content="sIlAGs48RulR4DdP95YSWNKZIEtCqQmRjzn-Zq-CcD0" /> */}
       {searchOrder !== undefined && <meta name="algolia-search-order" content={String(searchOrder)} />}
       {/* Font preloads */}
       {[
