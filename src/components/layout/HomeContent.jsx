@@ -76,28 +76,39 @@ export function HomeContent() {
           </div>
           <CommunityGallery />
           <div className="mx-auto flex flex-col max-w-4xl">
-            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-              Fast‑forward to today, my main focus is building scalable, accessible, and user‑friendly web applications
-              as a full‑stack developer. Over the years, I’ve explored various aspects of development, from front‑end
-              frameworks to back‑end systems, constantly improving my skills.
-            </p>
-            <br />
-            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-              In my spare time, I enjoy <b className="text-link dark:text-link-dark">reverse engineering</b> Facebook’s
-              UI as a personal challenge and a way to explore modern front‑end architecture.
-            </p>
-            <br />
-            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-              Here are a few technologies I’ve been working with recently:
-            </p>
+            <div className="px-5 lg:px-0 w-full h-auto max-w-4xl">
+              <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+                Fast‑forward to today, my main focus is building scalable, accessible, and user‑friendly web
+                applications as a full‑stack developer. Over the years, I’ve explored various aspects of development,
+                from front‑end frameworks to back‑end systems, constantly improving my skills.
+              </p>
+              <br />
+              <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+                In my spare time, I enjoy <b className="text-link dark:text-link-dark">reverse engineering</b>{' '}
+                Facebook’s UI as a personal challenge and a way to explore modern front‑end architecture.
+              </p>
+              <br />
+              <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+                Here are a few technologies I’ve been working with recently:
+              </p>
 
-            <ul className="ms-6 my-3 grid grid-cols-2 gap-x-[10px] gap-y-0 p-0 mt-5 mb-0  max-w-[400px] list-disc">
-              {/* eslint-disable-next-line react/jsx-pascal-case */}
-              {skills && skills.map((skill, i) => <LI key={i}>{skill}</LI>)}
-            </ul>
+              <ul className="ms-6 my-3 grid grid-cols-2 gap-x-[10px] gap-y-0 p-0 px-2 mt-5 mb-0  max-w-[400px] list-disc">
+                {/* eslint-disable-next-line react/jsx-pascal-case */}
+                {skills && skills.map((skill, i) => <LI key={i}>{skill}</LI>)}
+              </ul>
+            </div>
           </div>
         </div>
       </Section>
+      {/* <Section background="right-card">
+        <div className="w-full">
+          <div className="mx-auto flex flex-col max-w-4xl">
+            <div className="px-5 lg:px-0 w-full h-auto max-w-4xl">
+              <Header>About Me</Header>
+            </div>
+          </div>
+        </div>
+      </Section> */}
     </div>
   );
 }

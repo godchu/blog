@@ -31,6 +31,8 @@ export function useActiveSection() {
     section = 'home';
   } else if (sectionPath.startsWith('/learn')) {
     section = 'learn';
+  } else if (sectionPath.startsWith('/nikki')) {
+    section = 'nikki';
   } else if (sectionPath.startsWith('/blog')) {
     section = 'blog';
   } else {
@@ -41,6 +43,9 @@ export function useActiveSection() {
   switch (section) {
     case 'home':
     case 'unknown':
+      routeTree = sidebarLearn;
+      break;
+    case 'nikki':
       routeTree = sidebarLearn;
       break;
     case 'learn':

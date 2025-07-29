@@ -1,3 +1,4 @@
+/* eslint-disable complexity */
 'use client';
 
 import React, { Suspense } from 'react';
@@ -26,18 +27,23 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
   const { version } = meta;
   const description = meta.description || route?.description || '';
   const isBlogIndex = cleanedPath === '/docs/blog';
+  const isNikkiIndex = cleanedPath === '/docs/nikki';
 
   let hasColumns = true;
   let showSidebar = true;
   let showToc = true;
-  if (isBlogIndex) {
+  if (isBlogIndex || isNikkiIndex) {
     hasColumns = false;
     showSidebar = false;
     showToc = false;
+  } else if (section === 'nikki') {
+    showToc = false;
+    hasColumns = false;
+    showSidebar = false;
   }
 
   let searchOrder;
-  if (section === 'learn' || (section === 'blog' && !isBlogIndex)) {
+  if (section === 'learn' || (section === 'blog' && !isBlogIndex) || (section === 'nikki' && !isNikkiIndex)) {
     searchOrder = order;
   }
 
@@ -55,7 +61,6 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
           <link rel="alternate" type="application/rss+xml" title="React Blog RSS Feed" href="/rss.xml" />
         </Head>
       ) : undefined}
-      {/* <TopNav section={section} routeTree={routeTree} breadcrumbs={breadcrumbs} /> */}
       <div
         className={cn(
           hasColumns && 'grid grid-cols-only-content lg:grid-cols-sidebar-content 2xl:grid-cols-sidebar-content-toc',
@@ -88,7 +93,9 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
                       <LanguagesContext value={languages}>{children}</LanguagesContext>
                     </TocContext>
                   </div>
-                  {!isBlogIndex && <DocsPageFooter route={route} nextRoute={nextRoute} prevRoute={prevRoute} />}
+                  {(!isBlogIndex || !isNikkiIndex) && (
+                    <DocsPageFooter route={route} nextRoute={nextRoute} prevRoute={prevRoute} />
+                  )}
                 </div>
               </div>
             </article>

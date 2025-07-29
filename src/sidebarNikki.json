@@ -1,0 +1,45 @@
+{
+  "title": "Nikki",
+  "path": "/docs/nikki",
+  "routes": [
+    {
+      "title": "My Nikki",
+      "path": "/docs/community",
+      "skipBreadcrumb": true,
+      "routes": [
+        {
+          "title": "React Conferences",
+          "path": "/docs/community/conferences"
+        },
+        {
+          "title": "React Meetups",
+          "path": "/docs/community/meetups"
+        },
+        {
+          "title": "React Videos",
+          "path": "/docs/community/videos"
+        },
+        {
+          "title": "Meet the Team",
+          "path": "/docs/community/team"
+        },
+        {
+          "title": "Docs Contributors",
+          "path": "/docs/community/docs-contributors"
+        },
+        {
+          "title": "Translations",
+          "path": "/docs/community/translations"
+        },
+        {
+          "title": "Acknowledgements",
+          "path": "/docs/community/acknowledgements"
+        },
+        {
+          "title": "Versioning Policy",
+          "path": "/docs/community/versioning-policy"
+        }
+      ]
+    }
+  ]
+}
