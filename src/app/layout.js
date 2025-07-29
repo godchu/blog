@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import Script from 'next/script';
 
 import TopNavV2 from '@/components/layout/top-nav/top-nav.v2';
+import { customMetaDataGenerator } from '@/lib/custom-meta-data-generator';
 
 import { Analytics } from './analytics';
 import { ThemeScript } from './theme-script';
@@ -13,11 +14,11 @@ import '../assets/styles/algolia.css';
 import '../assets/styles/index.css';
 import '../assets/styles/sandpack.css';
 
-export const metadata = {
+export const metadata = customMetaDataGenerator({
   title: 'Lê Xuân Tiến',
   description:
     'Personal blog of a software engineer, sharing insights on web development, programming, and technology.',
-};
+});
 
 export default async function RootLayout({ children }) {
   const cookieStore = await cookies();
