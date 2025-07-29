@@ -115,38 +115,46 @@ export function HomeContent() {
 
 const skills = ['JavaScript', 'TypeScript', 'Node.js', 'Golang', 'React', 'React Native'];
 
-const communityImages = [
+const communityMedia = [
   {
-    src: '/images/home/community/react_conf_fun.webp',
-    alt: 'People singing karaoke at React Conf',
+    src: '/images/home/hero/1.jpg',
+    alt: 'Le Xuan Tien',
+    type: 'image',
   },
   {
-    src: '/images/home/community/react_india_sunil.webp',
-    alt: 'Sunil Pai speaking at React India',
+    src: '/images/home/hero/2.jpg',
+    alt: 'Le Xuan Tien',
+    type: 'image',
   },
   {
-    src: '/images/home/community/react_conf_hallway.webp',
-    alt: 'A hallway conversation between two people at React Conf',
+    src: '/images/home/hero/v1.mp4',
+    alt: 'Le Xuan Tien',
+    type: 'video',
   },
   {
-    src: '/images/home/community/react_india_hallway.webp',
-    alt: 'A hallway conversation at React India',
+    src: '/images/home/hero/4.jpg',
+    alt: 'Le Xuan Tien',
+    type: 'image',
   },
   {
-    src: '/images/home/community/react_conf_elizabet.webp',
-    alt: 'Elizabet Oliveira speaking at React Conf',
+    src: '/images/home/hero/6.jpg',
+    alt: 'Le Xuan Tien',
+    type: 'image',
   },
   {
-    src: '/images/home/community/react_india_selfie.webp',
-    alt: 'People taking a group selfie at React India',
+    src: '/images/home/hero/5.jpg',
+    alt: 'Le Xuan Tien',
+    type: 'image',
   },
   {
-    src: '/images/home/community/react_conf_nat.webp',
-    alt: 'Nat Alison speaking at React Conf',
+    src: '/images/home/hero/3.jpg',
+    alt: 'Le Xuan Tien',
+    type: 'image',
   },
   {
-    src: '/images/home/community/react_india_team.webp',
-    alt: 'Organizers greeting attendees at React India',
+    src: '/images/home/hero/7.jpg',
+    alt: 'Le Xuan Tien',
+    type: 'image',
   },
 ];
 
@@ -228,8 +236,8 @@ function CommunityGallery() {
 const CommunityImages = memo(({ isLazy }) => {
   return (
     <>
-      {communityImages.map(({ src, alt }, i) => (
-        <div key={i} className={cn(`group flex justify-center px-5 min-w-[50%] lg:min-w-[25%] rounded-2xl relative`)}>
+      {communityMedia.map(({ type, src, alt }, i) => (
+        <div key={i} className={cn('group flex justify-center px-5 min-w-[50%] lg:min-w-[25%] rounded-2xl relative')}>
           <div
             className={cn(
               'h-auto relative rounded-2xl overflow-hidden before:-skew-x-12 before:absolute before:inset-0 before:-translate-x-full group-hover:before:animate-[shimmer_1s_forwards] before:bg-gradient-to-r before:from-transparent before:via-white/10 before:to-transparent transition-all ease-in-out duration-300',
@@ -238,12 +246,24 @@ const CommunityImages = memo(({ isLazy }) => {
                 : 'group-hover:rotate-1 group-hover:scale-110 group-hover:shadow-lg lg:group-hover:shadow-2xl rotate-[-2deg]',
             )}
           >
-            <img
-              loading={isLazy ? 'lazy' : 'eager'}
-              src={src}
-              alt={alt}
-              className="aspect-[4/3] h-full w-full flex object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
-            />
+            {type === 'image' ? (
+              <img
+                loading={isLazy ? 'lazy' : 'eager'}
+                src={src}
+                alt={alt}
+                className="aspect-[4/3] h-full w-full object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
+              />
+            ) : (
+              <video
+                src={src}
+                muted
+                loop
+                playsInline
+                autoPlay={!isLazy}
+                preload={isLazy ? 'none' : 'auto'}
+                className="aspect-[4/3] h-full w-full object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
+              />
+            )}
           </div>
         </div>
       ))}

@@ -259,6 +259,9 @@ export const MDXComponents = {
   MaxWidth({ children }) {
     return <div className="max-w-4xl ms-0 2xl:mx-auto">{children}</div>;
   },
+  BlogWrapper({ children }) {
+    return <div className="sm:-mx-5 flex flex-col gap-5 mt-12">{children}</div>;
+  },
   Pitfall,
   Deprecated,
   Wip,

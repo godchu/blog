@@ -32,14 +32,13 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
   let hasColumns = true;
   let showSidebar = true;
   let showToc = true;
-  if (isBlogIndex || isNikkiIndex) {
+
+  if (isBlogIndex) {
     hasColumns = false;
     showSidebar = false;
     showToc = false;
   } else if (section === 'nikki') {
     showToc = false;
-    hasColumns = false;
-    showSidebar = false;
   }
 
   let searchOrder;

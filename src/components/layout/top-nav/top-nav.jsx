@@ -236,7 +236,7 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
             </div>
             <div className="text-base justify-center items-center gap-1.5 flex 3xl:flex-1 flex-row 3xl:justify-end">
               <div className="mx-2.5 gap-1.5 hidden lg:flex">
-                <NavItem isActive={section === 'learn'} url="/docs/learn/react">
+                <NavItem isActive={section === 'learn'} url="/docs/learn">
                   Learn
                 </NavItem>
                 <NavItem isActive={section === 'blog'} url="/docs/blog">

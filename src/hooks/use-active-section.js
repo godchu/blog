@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 
 import sidebarBlog from '../sidebarBlog.json';
 import sidebarLearn from '../sidebarLearn.json';
+import sidebarNikki from '../sidebarNikki.json';
 
 export function useActiveSection() {
   const pathname = usePathname();
@@ -46,7 +47,7 @@ export function useActiveSection() {
       routeTree = sidebarLearn;
       break;
     case 'nikki':
-      routeTree = sidebarLearn;
+      routeTree = sidebarNikki;
       break;
     case 'learn':
       routeTree = sidebarLearn;
