@@ -1,6 +1,6 @@
 {
-  "title": "Learn Technology",
-  "path": "/docs/learn/react",
+  "title": "Something Fun",
+  "path": "/docs/fun",
   "routes": [
     {
       "hasSectionHeader": true,

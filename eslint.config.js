@@ -4,6 +4,7 @@ import js from '@eslint/js';
 // import typescriptEslint from '@typescript-eslint/eslint-plugin';
 // import tsParser from '@typescript-eslint/parser';
 import importPlugin from 'eslint-plugin-import';
+import * as mdxPlugin from 'eslint-plugin-mdx';
 import noFunctionDeclareAfterReturn from 'eslint-plugin-no-function-declare-after-return';
 import noOnlyTests from 'eslint-plugin-no-only-tests';
 import reactPlugin from 'eslint-plugin-react';
@@ -226,6 +227,27 @@ export default [
           ],
         },
       ],
+    },
+  },
+  {
+    name: 'custom/mdx/recommended',
+    files: ['**/*.mdx'],
+    ...mdxPlugin.flat,
+    processor: mdxPlugin.createRemarkProcessor({
+      // I disabled linting code blocks
+      // as I was having performance issues
+      lintCodeBlocks: false,
+      languageMapper: {},
+    }),
+  },
+  {
+    name: 'custom/mdx/code-blocks',
+    files: ['**/*.mdx'],
+    ...mdxPlugin.flatCodeBlocks,
+    rules: {
+      ...mdxPlugin.flatCodeBlocks.rules,
+      'no-var': 'error',
+      'prefer-const': 'error',
     },
   },
 ];

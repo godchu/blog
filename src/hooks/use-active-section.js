@@ -2,9 +2,9 @@
 
 import { usePathname } from 'next/navigation';
 
-import sidebarBlog from '../sidebarBlog.json';
-import sidebarLearn from '../sidebarLearn.json';
-import sidebarNikki from '../sidebarNikki.json';
+import sidebarBlog from '../configs/sidebarBlog.json';
+import sidebarFun from '../configs/sidebarFunny.json';
+import sidebarNikki from '../configs/sidebarNikki.json';
 
 export function useActiveSection() {
   const pathname = usePathname();
@@ -15,23 +15,10 @@ export function useActiveSection() {
 
   let section;
 
-  // if (cleanedPath === '/' || sectionPath === '') {
-  //   return 'home';
-  // } else if (sectionPath.startsWith('/reference')) {
-  //   return 'reference';
-  // } else if (sectionPath.startsWith('/learn')) {
-  //   return 'learn';
-  // } else if (sectionPath.startsWith('/community')) {
-  //   return 'community';
-  // } else if (sectionPath.startsWith('/blog')) {
-  //   return 'blog';
-  // } else {
-  //   return 'unknown';
-
   if (cleanedPath === '/' || sectionPath === '') {
     section = 'home';
-  } else if (sectionPath.startsWith('/learn')) {
-    section = 'learn';
+  } else if (sectionPath.startsWith('/fun')) {
+    section = 'fun';
   } else if (sectionPath.startsWith('/nikki')) {
     section = 'nikki';
   } else if (sectionPath.startsWith('/blog')) {
@@ -44,13 +31,13 @@ export function useActiveSection() {
   switch (section) {
     case 'home':
     case 'unknown':
-      routeTree = sidebarLearn;
+      routeTree = sidebarNikki;
       break;
     case 'nikki':
       routeTree = sidebarNikki;
       break;
-    case 'learn':
-      routeTree = sidebarLearn;
+    case 'fun':
+      routeTree = sidebarFun;
       break;
     case 'blog':
       routeTree = sidebarBlog;

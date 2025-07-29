@@ -22,7 +22,8 @@ export function Footer() {
           <div className="flex flex-col">
             <FooterLink isHeader={true}>More</FooterLink>
             <FooterLink href="/docs/blog">Blog</FooterLink>
-            <FooterLink href="/docs/learn">Learn</FooterLink>
+            <FooterLink href="/docs/fun">Fun</FooterLink>
+            <FooterLink href="/docs/nikki">Nikki</FooterLink>
             <FooterLink href="/privacy">Privacy</FooterLink>
             <FooterLink href="/terms">Terms</FooterLink>
           </div>
