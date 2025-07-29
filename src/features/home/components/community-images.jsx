@@ -22,13 +22,30 @@ export const CommunityImages = memo(({ isLazy, communityMedia }) => {
                 className="aspect-[4/3] h-full w-full object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
               />
             ) : (
+              // <video
+              //   src={src}
+              //   muted
+              //   loop
+              //   playsInline
+              //   autoPlay={!isLazy}
+              //   preload={isLazy ? 'none' : 'auto'}
+              //   className="aspect-[4/3] h-full w-full object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
+              // />
               <video
                 src={src}
                 muted
-                loop
                 playsInline
-                autoPlay={!isLazy}
+                loop
+                autoPlay
                 preload={isLazy ? 'none' : 'auto'}
+                poster="/images/home/hero/video-poster.png"
+                onLoadedData={(e) => {
+                  const video = e.currentTarget;
+                  // Safari sometimes needs explicit play call
+                  if (video.paused) {
+                    video.play().catch(() => {});
+                  }
+                }}
                 className="aspect-[4/3] h-full w-full object-cover rounded-2xl bg-gray-10 dark:bg-gray-80"
               />
             )}

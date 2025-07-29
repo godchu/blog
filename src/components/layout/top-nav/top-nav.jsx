@@ -236,14 +236,14 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
             </div>
             <div className="text-base justify-center items-center gap-1.5 flex 3xl:flex-1 flex-row 3xl:justify-end">
               <div className="mx-2.5 gap-1.5 hidden lg:flex">
-                <NavItem isActive={section === 'learn'} url="/docs/learn">
-                  Learn
+                <NavItem isActive={section === 'nikki'} url="/docs/nikki">
+                  Nikki
                 </NavItem>
                 <NavItem isActive={section === 'blog'} url="/docs/blog">
                   Blog
                 </NavItem>
-                <NavItem isActive={section === 'nikki'} url="/docs/nikki">
-                  Nikki
+                <NavItem isActive={section === 'learn'} url="/docs/learn">
+                  Learn
                 </NavItem>
               </div>
               <div className="flex w-full md:hidden" />
@@ -306,14 +306,14 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                 {/* No fallback UI so need to be careful not to suspend directly inside. */}
                 <Suspense fallback={null}>
                   <div className="ps-3 xs:ps-5 xs:gap-0.5 xs:text-base overflow-x-auto flex flex-row lg:hidden text-base font-bold text-secondary dark:text-secondary-dark">
-                    <NavItem isActive={section === 'learn'} url="/docs/learn">
-                      Learn
+                    <NavItem isActive={section === 'nikki'} url="/docs/nikki">
+                      Nikki
                     </NavItem>
                     <NavItem isActive={section === 'blog'} url="/docs/blog">
                       Blog
                     </NavItem>
-                    <NavItem isActive={section === 'nikki'} url="/docs/nikki">
-                      Nikki
+                    <NavItem isActive={section === 'learn'} url="/docs/learn">
+                      Learn
                     </NavItem>
                   </div>
                   <div role="separator" className="mt-4 mb-2 border-b ms-5 border-border dark:border-border-dark" />

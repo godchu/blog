@@ -19,15 +19,11 @@ export function Seo({ title, titleForTitleTag, image = '/images/og-default.png',
   const canonicalUrl = `https://${siteDomain}${pathname.split(/[#?]/)[0]}`;
   const pageTitle = (titleForTitleTag ?? title) + (isHomePage ? '' : ' – React');
   const twitterTitle = pageTitle.replaceAll(/[<>]/g, '');
-  const description = isHomePage
-    ? 'React is the library for web and native user interfaces. Build user interfaces out of individual pieces called components written in JavaScript. React is designed to let you seamlessly combine components written by independent people, teams, and organizations.'
-    : 'The library for web and native user interfaces';
 
   return (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       {title !== undefined && <title key="title">{pageTitle}</title>}
-      {isHomePage && <meta key="description" name="description" content={description} />}
       <link rel="canonical" href={canonicalUrl} />
       <link rel="alternate" href={canonicalUrl.replace(siteDomain, getDomain('en'))} hrefLang="x-default" />
       {finishedTranslations.map((languageCode) => (
@@ -42,13 +38,11 @@ export function Seo({ title, titleForTitleTag, image = '/images/og-default.png',
       <meta key="og:type" property="og:type" content="website" />
       <meta key="og:url" property="og:url" content={canonicalUrl} />
       {title && <meta key="og:title" property="og:title" content={pageTitle} />}
-      {description && <meta key="og:description" property="og:description" content={description} />}
       <meta key="og:image" property="og:image" content={`https://${siteDomain}${image}`} />
       <meta key="twitter:card" name="twitter:card" content="summary_large_image" />
       <meta key="twitter:site" name="twitter:site" content="@reactjs" />
       <meta key="twitter:creator" name="twitter:creator" content="@reactjs" />
       {title && <meta key="twitter:title" name="twitter:title" content={twitterTitle} />}
-      {description && <meta key="twitter:description" name="twitter:description" content={description} />}
       <meta key="twitter:image" name="twitter:image" content={`https://${siteDomain}${image}`} />
       {/* <meta name="google-site-verification" content="sIlAGs48RulR4DdP95YSWNKZIEtCqQmRjzn-Zq-CcD0" /> */}
       {searchOrder !== undefined && <meta name="algolia-search-order" content={String(searchOrder)} />}

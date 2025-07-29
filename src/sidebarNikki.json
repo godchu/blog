@@ -4,40 +4,20 @@
   "routes": [
     {
       "title": "My Nikki",
-      "path": "/docs/community",
+      "path": "/docs/nikki",
       "skipBreadcrumb": true,
       "routes": [
         {
-          "title": "React Conferences",
-          "path": "/docs/community/conferences"
+          "title": "29/07/2025: Sick",
+          "path": "/docs/nikki/29-07-2025"
         },
         {
-          "title": "React Meetups",
-          "path": "/docs/community/meetups"
+          "title": "28/07/2025: Personal Milestone",
+          "path": "/docs/nikki/28-07-2025"
         },
         {
-          "title": "React Videos",
-          "path": "/docs/community/videos"
-        },
-        {
-          "title": "Meet the Team",
-          "path": "/docs/community/team"
-        },
-        {
-          "title": "Docs Contributors",
-          "path": "/docs/community/docs-contributors"
-        },
-        {
-          "title": "Translations",
-          "path": "/docs/community/translations"
-        },
-        {
-          "title": "Acknowledgements",
-          "path": "/docs/community/acknowledgements"
-        },
-        {
-          "title": "Versioning Policy",
-          "path": "/docs/community/versioning-policy"
+          "title": "27/07/2025: Heavy Day",
+          "path": "/docs/nikki/27-07-2025"
         }
       ]
     }

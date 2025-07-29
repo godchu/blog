@@ -17,6 +17,7 @@ import ExpandableCallout from './expandable-callout';
 import ExpandableExample from './expandable-example';
 import { H1, H2, H3, H4, H5 } from './heading';
 import { Illustration, IllustrationBlock } from './illustration';
+import InlineCode from './inline-code';
 import { InlineToc } from './inline-toc';
 import Intro from './intro';
 import { LanguagesContext } from './languages-context';
@@ -244,7 +245,7 @@ export const MDXComponents = {
   a: Link,
   img: Image,
   BlogCard,
-  // code: InlineCode,
+  code: InlineCode,
   // pre: CodeBlock,
   // CodeDiagram,
   ConsoleBlock,

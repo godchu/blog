@@ -1,12 +1,13 @@
 ---
-title: My Nikki
+title: 'My Nikki'
 ---
 
 <Intro>
 
-This blog is the official source for the updates from the React team. Anything important, including release notes or deprecation notices, will be posted here first.
+Welcome to **My Nikki** — a personal log of thoughts, progress, and life updates.  
+This is where I share milestones, reflections, and moments that matter.
 
-You can also follow the [@react.dev](https://bsky.app/profile/react.dev) account on Bluesky, or [@reactjs](https://twitter.com/reactjs) account on Twitter, but you won’t miss anything essential if you only read this blog.
+You won’t find release notes here, but you might catch glimpses of projects, daily logs, and personal insights.  
+If you follow along, you’ll see the journey unfold — one entry at a time.
 
 </Intro>
-
