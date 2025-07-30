@@ -1,6 +1,6 @@
 'use client';
 
-import {useEffect} from 'react';
+import { useEffect } from 'react';
 
 export function UnloadEvent() {
   useEffect(() => {
@@ -9,8 +9,6 @@ export function UnloadEvent() {
       // @ts-ignore
       // eslint-disable-next-line no-undef
       gtag('event', 'timing', {
-
-         
         event_label: 'JS Dependencies',
         event: 'unload',
       });

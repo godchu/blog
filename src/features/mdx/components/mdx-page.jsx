@@ -2,13 +2,10 @@
 
 import React, { Suspense } from 'react';
 
+import { PageV2 } from '@/components/layout/page.v2';
 import { useActiveSection } from '@/hooks/use-active-section';
 
-import { PageV2 } from './page.v2';
-
 export const MdxPage = ({ markdownPath, content, toc, meta, languages = undefined }) => {
-  console.log({ content });
-
   const { routeTree } = useActiveSection();
 
   return (

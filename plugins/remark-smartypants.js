@@ -1,6 +1,4 @@
-/* eslint-disable unicorn/prefer-ternary */
-/* eslint-disable no-undef */
-/*!
+/* !
  * Based on 'silvenon/remark-smartypants'
  * https://github.com/silvenon/remark-smartypants/pull/80
  */
@@ -21,7 +19,6 @@ function check(parent) {
   return true;
 }
 
-// eslint-disable-next-line func-names
 module.exports = function remarkSmartypants(options) {
   const processor = retext().use(smartypants, {
     ...options,
