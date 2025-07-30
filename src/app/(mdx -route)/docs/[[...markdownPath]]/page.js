@@ -8,7 +8,7 @@ import { compiledMDX } from '@/features/mdx/lib';
 // ========================================================
 // BlogPost Page
 // ========================================================
-export default async function BlogPost({ params }) {
+export default async function MarkdownPage({ params }) {
   const { markdownPath } = await params;
   const rootDir = process.cwd() + '/content/';
   const path = (markdownPath || []).join('/') || 'index';

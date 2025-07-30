@@ -48,8 +48,7 @@
     "remark-smartypants": "3.0.2",
     "remark-images": "4.1.0",
     "rehype-external-links": "3.0.0",
-    "remark-gfm": "4.0.1",
-    "metro-cache": "0.83.1"
+    "remark-gfm": "4.0.1"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.0",

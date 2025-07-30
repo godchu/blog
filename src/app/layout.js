@@ -10,10 +10,7 @@ import { Analytics } from './analytics';
 import { ThemeScript } from './theme-script';
 import { UnloadEvent } from './unload-event';
 
-import '@docsearch/css';
-import '../assets/styles/algolia.css';
-import '../assets/styles/index.css';
-import '../assets/styles/sandpack.css';
+import '../assets/styles/global.css';
 
 export const metadata = customMetaDataGenerator({
   title: 'Lê Xuân Tiến',

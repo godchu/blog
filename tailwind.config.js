@@ -3,11 +3,7 @@ import defaultTheme from 'tailwindcss/defaultTheme';
 import colors from './colors';
 
 export default {
-  content: [
-    './src/components/**/*.{js,ts,jsx,tsx}',
-    './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/styles/**/*.{js,ts,jsx,tsx}',
-  ],
+  content: ['./src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
   theme: {
     // Override base screen sizes
