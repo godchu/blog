@@ -8,7 +8,7 @@ export function customMetaDataGenerator({
   twitterCard = 'https://tienlx97.io.vn/images/og-home.jpg',
 }) {
   // Create Site Title
-  const siteTitle = 'Your Website Name';
+  const siteTitle = 'Personal blog';
   const fullTitle = `${title} | ${siteTitle}`;
 
   return {
