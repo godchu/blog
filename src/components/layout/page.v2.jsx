@@ -6,6 +6,7 @@ import cn from 'classnames';
 import Head from 'next/head';
 import { usePathname } from 'next/navigation';
 
+import { Giscus } from '../common/comment/giscus';
 import { DocsPageFooter } from '../docs-footer';
 import { LanguagesContext } from '../MDX/languages-context';
 import { TocContext } from '../MDX/toc-context';
@@ -92,9 +93,13 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
                       <LanguagesContext value={languages}>{children}</LanguagesContext>
                     </TocContext>
                   </div>
+
                   {(!isBlogIndex || !isNikkiIndex) && (
                     <DocsPageFooter route={route} nextRoute={nextRoute} prevRoute={prevRoute} />
                   )}
+                  <div className=" py-4 mx-auto max-w-4xl ms-0 2xl:mx-auto">
+                    <Giscus />
+                  </div>
                 </div>
               </div>
             </article>
