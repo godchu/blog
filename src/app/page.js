@@ -1,4 +1,4 @@
-import { HomeContent } from '@/components/layout/HomeContent';
+import { HomeContent } from '@/features/home';
 import { customMetaDataGenerator } from '@/lib/custom-meta-data-generator';
 
 export const metadata = customMetaDataGenerator({

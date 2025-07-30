@@ -1,7 +1,7 @@
 'use client';
 
-import {useEffect} from 'react';
-import {usePathname} from 'next/navigation';
+import { useEffect } from 'react';
+import { usePathname } from 'next/navigation';
 
 export function Analytics() {
   const pathname = usePathname();
@@ -11,8 +11,6 @@ export function Analytics() {
     // @ts-ignore
     // eslint-disable-next-line no-undef
     gtag('event', 'pageview', {
-
-       
       event_label: cleanedUrl,
     });
   }, [pathname]);

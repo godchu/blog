@@ -1,4 +1,3 @@
-/* eslint-disable complexity */
 'use client';
 
 import React, { Suspense } from 'react';
@@ -10,8 +9,8 @@ import { DocsPageFooter } from '../docs-footer';
 import { LanguagesContext } from '../MDX/languages-context';
 import { TocContext } from '../MDX/toc-context';
 import PageHeading from '../page-heading';
-import { Seo } from '../seo';
 
+// import { Seo } from '../seo';
 import { Footer } from './footer';
 import { getRouteMeta } from './get-route-meta';
 import { SidebarNav } from './sidebar-nav';
@@ -41,20 +40,20 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
     showToc = false;
   }
 
-  let searchOrder;
-  if (section === 'learn' || (section === 'blog' && !isBlogIndex) || (section === 'nikki' && !isNikkiIndex)) {
-    searchOrder = order;
-  }
+  // let searchOrder;
+  // if (section === 'learn' || (section === 'blog' && !isBlogIndex) || (section === 'nikki' && !isNikkiIndex)) {
+  //   searchOrder = order;
+  // }
 
   return (
     <>
-      <Seo
+      {/* <Seo
         title={title}
         titleForTitleTag={meta.titleForTitleTag}
         isHomePage={false}
         image={'/images/og-' + section + '.png'}
         searchOrder={searchOrder}
-      />
+      /> */}
       {isBlogIndex ? (
         <Head>
           <link rel="alternate" type="application/rss+xml" title="React Blog RSS Feed" href="/rss.xml" />

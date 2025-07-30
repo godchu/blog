@@ -8,15 +8,15 @@
       "skipBreadcrumb": true,
       "routes": [
         {
-          "title": "29/07/2025: Sick",
+          "title": "July 29, 2025: Sick",
           "path": "/docs/nikki/29-07-2025"
         },
         {
-          "title": "28/07/2025: Personal Milestone",
+          "title": "July 28, 2025: Personal Milestone",
           "path": "/docs/nikki/28-07-2025"
         },
         {
-          "title": "27/07/2025: Heavy Day",
+          "title": "July 27, 2025: Heavy Day",
           "path": "/docs/nikki/27-07-2025"
         }
       ]

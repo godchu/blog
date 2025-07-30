@@ -242,8 +242,8 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                 <NavItem isActive={section === 'blog'} url="/docs/blog">
                   Blog
                 </NavItem>
-                <NavItem isActive={section === 'learn'} url="/docs/learn">
-                  Learn
+                <NavItem isActive={section === 'fun'} url="/docs/fun">
+                  Fun
                 </NavItem>
               </div>
               <div className="flex w-full md:hidden" />
@@ -312,8 +312,8 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                     <NavItem isActive={section === 'blog'} url="/docs/blog">
                       Blog
                     </NavItem>
-                    <NavItem isActive={section === 'learn'} url="/docs/learn">
-                      Learn
+                    <NavItem isActive={section === 'fun'} url="/docs/fun">
+                      Fun
                     </NavItem>
                   </div>
                   <div role="separator" className="mt-4 mb-2 border-b ms-5 border-border dark:border-border-dark" />

@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import Script from 'next/script';
 
 import TopNavV2 from '@/components/layout/top-nav/top-nav.v2';
+import { siteConfig } from '@/configs/site-config';
 import { customMetaDataGenerator } from '@/lib/custom-meta-data-generator';
 
 import { Analytics } from './analytics';
@@ -33,7 +34,7 @@ export default async function RootLayout({ children }) {
       <Script
         id="gtag-loader"
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_TRACKING_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.Gtag}`}
       />
       <Script
         id="gtag-init"
@@ -43,7 +44,7 @@ export default async function RootLayout({ children }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${process.env.NEXT_PUBLIC_GA_TRACKING_ID}');
+              gtag('config', '${siteConfig.Gtag}');
             `,
         }}
       />
