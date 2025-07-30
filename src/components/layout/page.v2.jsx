@@ -97,6 +97,7 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
                   {(!isBlogIndex || !isNikkiIndex) && (
                     <DocsPageFooter route={route} nextRoute={nextRoute} prevRoute={prevRoute} />
                   )}
+
                   <div className=" py-4 mx-auto max-w-4xl ms-0 2xl:mx-auto">
                     <Giscus />
                   </div>

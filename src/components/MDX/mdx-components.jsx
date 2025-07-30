@@ -8,6 +8,10 @@ import ButtonLink from '../button-link';
 import { IconCanary } from '../icon/icon-canary';
 import { IconNavArrow } from '../icon/icon-nav-arrow';
 
+import { NCTIframe } from './embed/nct-iframe';
+import { Spotify } from './embed/spotify';
+import { YouTubeIframe } from './embed/youtube-iframe';
+import { ZingIframe } from './embed/zing-iframe';
 import BlogCard from './blog-card';
 import { Challenges, Hint, Solution } from './challenges';
 import { ConsoleBlock, ConsoleBlockMulti, ConsoleLogLine } from './console-block';
@@ -208,22 +212,6 @@ function LanguageList({ progress }) {
   );
 }
 
-function YouTubeIframe(props) {
-  return (
-    <div className="relative h-0 overflow-hidden pt-[56.25%]">
-      {/* eslint-disable-next-line react/iframe-missing-sandbox */}
-      <iframe
-        className="absolute inset-0 w-full h-full"
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        title="YouTube video player"
-        {...props}
-      />
-    </div>
-  );
-}
-
 function Image(props) {
   const { alt, ...rest } = props;
   return <img alt={alt} className="max-w-[calc(min(700px,100%))]" {...rest} />;
@@ -299,6 +287,11 @@ export const MDXComponents = {
   CodeStep,
   YouTubeIframe,
   // ErrorDecoder,
+
+  // embed
+  Spotify,
+  ZingIframe,
+  NCTIframe,
 };
 
 for (let key in MDXComponents) {

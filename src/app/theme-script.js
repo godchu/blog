@@ -17,6 +17,24 @@ export function ThemeScript() {
               } else if (newTheme === 'light') {
                 document.documentElement.classList.remove('dark');
               }
+
+               // 🔄 Also notify Giscus iframe if it exists
+              var iframe = document.querySelector('iframe.giscus-frame');
+              if (iframe) {
+                iframe.contentWindow.postMessage(
+                  {
+                    giscus: {
+                      setConfig: {
+                        theme: newTheme === 'dark'
+                          ? '/themes/dark_dimmed.css'
+                          : '/themes/light.css'
+                      }
+                    }
+                  },
+                  'https://giscus.app'
+                );
+              }
+
             }
 
             var preferredTheme;

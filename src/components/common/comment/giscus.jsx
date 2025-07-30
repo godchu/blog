@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Cookies from 'js-cookie';
 
 import { siteConfig } from '@/configs/site-config';
 
@@ -24,7 +25,7 @@ export const Giscus = () => {
     script.setAttribute('data-emit-metadata', siteConfig.Giscus.metadata);
     script.setAttribute('data-input-position', siteConfig.Giscus.inputPosition);
     script.setAttribute('data-lang', siteConfig.Giscus.lang);
-    script.setAttribute('data-theme', 'light');
+    script.setAttribute('data-theme', Cookies.get('theme') === 'dark' ? 'dark_dimmed' : 'light');
     script.setAttribute('crossorigin', 'anonymous');
     script.async = true;
 

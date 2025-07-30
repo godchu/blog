@@ -8,6 +8,10 @@
       "skipBreadcrumb": true,
       "routes": [
         {
+          "title": "July 30, 2025: Muziccc",
+          "path": "/docs/nikki/30-07-2025"
+        },
+        {
           "title": "July 29, 2025: Sick",
           "path": "/docs/nikki/29-07-2025"
         },
