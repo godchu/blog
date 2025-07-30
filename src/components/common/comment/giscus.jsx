@@ -17,8 +17,14 @@ export const Giscus = () => {
     script.src = 'https://giscus.app/client.js';
     script.setAttribute('data-repo', siteConfig.Giscus.repo);
     script.setAttribute('data-repo-id', siteConfig.Giscus.repositoryId);
-    script.setAttribute('data-category', siteConfig.Giscus.category);
-    script.setAttribute('data-category-id', siteConfig.Giscus.categoryId);
+    script.setAttribute(
+      'data-category',
+      process.env.NODE_ENV === 'development' ? 'General' : siteConfig.Giscus.category,
+    );
+    script.setAttribute(
+      'data-category-id',
+      process.env.NODE_ENV === 'development' ? 'DIC_kwDOPR9q-84CtkuW' : siteConfig.Giscus.categoryId,
+    );
     script.setAttribute('data-mapping', siteConfig.Giscus.mapping);
     script.setAttribute('data-strict', siteConfig.Giscus.strict);
     script.setAttribute('data-reactions-enabled', siteConfig.Giscus.reactions);

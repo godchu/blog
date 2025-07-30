@@ -18,8 +18,8 @@ export const siteConfig = {
   Giscus: {
     repo: 'godchu/blog',
     repositoryId: 'R_kgDOPR9q-w',
-    category: 'blog',
-    categoryId: 'DIC_kwDOPR9q-84Ctkun',
+    category: 'Announcements',
+    categoryId: 'DIC_kwDOPR9q-84CtkuV',
     mapping: 'pathname',
     strict: '0',
     reactions: '1',
