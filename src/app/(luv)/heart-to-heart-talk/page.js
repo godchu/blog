@@ -37,8 +37,8 @@ export default function Talk() {
                   <p className="whitespace-pre-wrap my-4">
                     <b>ANH THẬT SỰ XIN LỖI EM</b>. Chắc gia đình em đã la mắng em nhiều nhiều lắm. Khoảng cách 11 tuổi
                     vốn đã là điều vô lý ngay từ đầu. Đôi khi trong tin nhắn anh còn lỡ dùng những từ ngữ không phù hợp
-                    với tuổi em.. Anh không biết chị em có đọc những tin nhắn đó hay không, nếu có thì chắc em sẽ bị
-                    chửi nhiều lắm.
+                    với tuổi em. Anh không biết chị em có đọc những tin nhắn đó hay không, nếu có thì chắc em sẽ bị chửi
+                    nhiều lắm.
                   </p>
                   <p className="whitespace-pre-wrap my-4">
                     Anh không muốn nói lời xin lỗi ở đây đâu, anh muốn nói trực tiếp qua điện thoại cơ. Nhưng giờ anh
@@ -47,12 +47,11 @@ export default function Talk() {
                   </p>
                   <p className="whitespace-pre-wrap my-4">
                     Anh đã bỏ lỡ nhiều lần rồi. Lần này anh không muốn lại ngồi im một chỗ, chấp nhận sự thật và bước
-                    qua đời nhau như hai người xa lạ. Anh không giỏi giao tiếp, Thứ mà anh giỏi nhất, thứ anh giỏi nhất
-                    là code một trang web rồi viết những lời tâm sự lên đó. Anh hy vọng chúng ta có thể quay lại làm
-                    bạn, như trước kia. Thỉnh thoảng, chỉ thỉnh thoảng thôi, nhắn tin hỏi thăm tình hình của nhau, chúc
-                    ngủ ngon, động viên nhau. Không gọi điện, không nhắn tin lan man, không dùng từ ngữ vượt quá giới
-                    hạn. Chỉ là những tin nhắn kute của một thanh niên 2k7 và một thiếu nữ 2k8 cùng động viên nhau tiến
-                    lên.
+                    qua đời nhau như hai người xa lạ. Anh không giỏi giao tiếp, Thứ mà anh giỏi nhất là code một trang
+                    web rồi viết những lời tâm sự lên đó. Anh hy vọng chúng ta có thể quay lại làm bạn, như trước kia.
+                    Thỉnh thoảng, chỉ thỉnh thoảng thôi, nhắn tin hỏi thăm tình hình của nhau, chúc ngủ ngon, động viên
+                    nhau. Không gọi điện, không nhắn tin lan man, không dùng từ ngữ vượt quá giới hạn. Chỉ là những tin
+                    nhắn kute của một thanh niên 2k7 và một thiếu nữ 2k8 cùng động viên nhau tiến lên.
                   </p>
                   <p className="whitespace-pre-wrap my-4">
                     Văn của của anh không có được trôi chảy cho lắm, anh chỉ biết diễn tả như thế này à. Anh không biết
