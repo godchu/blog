@@ -1,7 +1,7 @@
 import { Giscus } from '@/components/common/comment/giscus';
 import Intro from '@/components/MDX/intro';
-import Link from '@/components/MDX/link';
 import PageHeading from '@/components/page-heading';
+import { FlipCountDown } from '@/features/until-i-met-you/components/flip-count-down';
 
 export default function Talk() {
   return (
@@ -68,13 +68,18 @@ export default function Talk() {
                     <b>Tết Nguyên Đán</b> để chúc Tết, hoặc vào ngày <b>01/09/2026</b> như đã hứa. (Liệu lúc này em có
                     nhớ tới anh không ?)
                   </p>
-                  <Link href="https://until-i-met-you.vercel.app/">https://until-i-met-you.vercel.app/</Link>
+
+                  <FlipCountDown
+                    title="UNTIL I MET YOU"
+                    startTime={new Date()}
+                    endTime={new Date('2026-09-02T00:00:00')}
+                  />
                 </div>
               </div>
 
-              <div className=" py-4 mx-auto max-w-4xl ms-0 2xl:mx-auto">
+              {/* <div className=" py-4 mx-auto max-w-4xl ms-0 2xl:mx-auto">
                 <Giscus />
-              </div>
+              </div> */}
             </div>
           </div>
         </article>
