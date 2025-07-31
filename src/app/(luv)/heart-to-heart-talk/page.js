@@ -77,9 +77,9 @@ export default function Talk() {
                 </div>
               </div>
 
-              {/* <div className=" py-4 mx-auto max-w-4xl ms-0 2xl:mx-auto">
+              <div className=" py-4 mx-auto max-w-4xl ms-0 2xl:mx-auto">
                 <Giscus />
-              </div> */}
+              </div>
             </div>
           </div>
         </article>
