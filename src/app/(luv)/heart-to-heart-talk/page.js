@@ -56,8 +56,8 @@ export default function Talk() {
                   </p>
                   <p className="whitespace-pre-wrap my-4">
                     Văn của của anh không có được trôi chảy cho lắm, anh chỉ biết diễn tả như thế này à. Anh không biết
-                    em có đọc tin nhắn này không. (Chỉ sợ không hiểu ý khi mình đăng trên Locket). Nếu có, thì phản hổi
-                    cho anh biết nhé. Dưới bài anh có thêm cái mục bình luận á.
+                    em có đọc tin nhắn này không. (Chỉ sợ bạn không hiểu ý khi mình đăng trên Locket). Nếu có, thì phản
+                    hổi cho anh biết nhé. Dưới bài anh có thêm cái mục bình luận á.
                   </p>
                   <p className="whitespace-pre-wrap my-4">
                     Hay là em gửi mail cho anh nha: <b className="text-link dark:text-link-dark">tienlx97@gmail.com</b>
