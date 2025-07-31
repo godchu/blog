@@ -42,7 +42,7 @@ export default async function RootLayout({ children }) {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '${siteConfig.Gtag}');
+              gtag('config', '${siteConfig.Gtag}', { send_page_view: false });
             `,
         }}
       />
