@@ -29,8 +29,6 @@ export const Giscus = () => {
       theme = 'light';
     }
 
-    console.log({ theme });
-
     const script = document.createElement('script');
     script.src = 'https://giscus.app/client.js';
     script.setAttribute('data-repo', siteConfig.Giscus.repo);

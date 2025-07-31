@@ -33,4 +33,10 @@ export const siteConfig = {
     lang: 'en',
     commentsTheme: 'dark',
   },
+
+  Social: {
+    Facebook: 'https://www.facebook.com/tienlx97',
+    Github: 'https://github.com/tienlx97',
+    Youtube: 'https://youtube.com/@tienlx97',
+  },
 };

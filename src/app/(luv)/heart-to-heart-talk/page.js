@@ -21,10 +21,11 @@ export default function Talk() {
 
                   <Intro>
                     Chúc Thảo có một ngày mới thật là vui nhé! Anh đã suy nghĩ rất nhiều để viết ra mấy dòng này. Đây là
-                    lời thật lòng của anh chứ không phải đoạn văn mẫu mà anh đã dùng ChatGPT chỉnh sửa hôm chủ nhật đâu.
+                    lời thật lòng của anh (không chỉnh sửa) chứ không phải đoạn văn mẫu mà anh đã dùng ChatGPT chỉnh sửa
+                    hôm chủ nhật đâu.
                   </Intro>
                   <p className="whitespace-pre-wrap my-4">
-                    Từ lúc nhận tin nhắn của em tới giờ, cảm giác khó chịu có cứ bám lấy anh hoài. Nó y như cái cảm giác
+                    Từ lúc nhận tin nhắn của em tới giờ, cảm giác khó chịu nó cứ bám lấy anh hoài. Nó y như cái cảm giác
                     hồi cấp 3 mà anh từng kể với em – bồn chồn, tim đập nhanh. Anh cảm giác như mình dần quay lại con
                     người trước 2024: ít nói, mất tự tin, chỉ muốn làm gì đó thật nhanh để rồi lánh vào phòng. Đến cả
                     cầu lông, thứ anh thích – anh cũng chẳng muốn chơi.
@@ -55,8 +56,8 @@ export default function Talk() {
                   </p>
                   <p className="whitespace-pre-wrap my-4">
                     Văn của của anh không có được trôi chảy cho lắm, anh chỉ biết diễn tả như thế này à. Anh không biết
-                    em có đọc tin nhắn này không. Nếu có, thì phản hổi cho anh biết nhé. Dưới bài anh có thêm cái mục
-                    bình luận á.
+                    em có đọc tin nhắn này không. (Chỉ sợ không hiểu ý khi mình đăng trên Locket). Nếu có, thì phản hổi
+                    cho anh biết nhé. Dưới bài anh có thêm cái mục bình luận á.
                   </p>
                   <p className="whitespace-pre-wrap my-4">
                     Hay là em gửi mail cho anh nha: <b className="text-link dark:text-link-dark">tienlx97@gmail.com</b>

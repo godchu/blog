@@ -2,6 +2,8 @@ import * as React from 'react';
 import cn from 'classnames';
 import NextLink from 'next/link';
 
+import { siteConfig } from '@/configs/site-config';
+
 import { IconFacebookCircle } from '../icon/icon-facebook-circle';
 import { IconGitHub } from '../icon/icon-gitHub';
 import { IconYoutube } from '../icon/icon-youtube';
@@ -32,21 +34,21 @@ export function Footer() {
             <div className="flex flex-row items-center gap-x-2">
               <ExternalLink
                 aria-label="Le Xuan Tien on Facebook"
-                href="https://www.facebook.com/tienlx97"
+                href={siteConfig.Social.Facebook}
                 className={socialLinkClasses}
               >
                 <IconFacebookCircle />
               </ExternalLink>
               <ExternalLink
                 aria-label="Le Xuan Tien on Github"
-                href="https://github.com/tienlx97"
+                href={siteConfig.Social.Github}
                 className={socialLinkClasses}
               >
                 <IconGitHub />
               </ExternalLink>
               <ExternalLink
                 aria-label="Le Xuan Tien on Youtube"
-                href="https://youtube.com/tienlx97"
+                href={siteConfig.Social.Youtube}
                 className={socialLinkClasses}
               >
                 <IconYoutube />
@@ -59,12 +61,6 @@ export function Footer() {
   );
 }
 
-/*
-- 9tr: nha`
-- 3tr: com
-- 500: xang
-- 1tr: chill
-*/
 function FooterLink({ href, children, isHeader = false }) {
   const classes = cn('border-b inline-block border-transparent', {
     'text-sm text-primary dark:text-primary-dark': !isHeader,
