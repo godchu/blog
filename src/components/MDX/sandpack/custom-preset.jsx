@@ -9,10 +9,10 @@ import { IconChevron } from '@/components/icon/icon-chevron';
 
 import { NavigationBar } from './navigation-bar';
 import { Preview } from './preview';
-// import { useSandpackLint } from './use-sandpack-lint';
+import { useSandpackLint } from './use-sandpack-lint';
 
 export const CustomPreset = memo(({ providedFiles }) => {
-  // const { lintErrors, lintExtensions } = useSandpackLint();
+  const { lintErrors, lintExtensions } = useSandpackLint();
   const { sandpack } = useSandpack();
   const { code } = useActiveCode();
   const { activeFile } = sandpack;
@@ -25,8 +25,8 @@ export const CustomPreset = memo(({ providedFiles }) => {
   return (
     <SandboxShell
       providedFiles={providedFiles}
-      // lintErrors={lintErrors}
-      // lintExtensions={lintExtensions}
+      lintErrors={lintErrors}
+      lintExtensions={lintExtensions}
       isExpandable={isExpandable}
     />
   );

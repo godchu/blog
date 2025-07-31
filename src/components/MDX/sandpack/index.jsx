@@ -1,6 +1,4 @@
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- */
+'use client';
 
 import { Children, lazy, memo, Suspense } from 'react';
 
@@ -46,6 +44,8 @@ const SandpackGlimmer = ({ code }) => (
 
 export default memo((props) => {
   const codeSnippet = createFileMap(Children.toArray(props.children));
+
+  console.log({ props: props.children });
 
   // To set the active file in the fallback we have to find the active file first.
   // If there are no active files we fallback to App.js as default.

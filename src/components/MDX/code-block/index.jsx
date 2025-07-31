@@ -1,6 +1,4 @@
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- */
+'use client';
 
 import * as React from 'react';
 import { lazy, memo, Suspense } from 'react';
@@ -10,6 +8,7 @@ const CodeBlock = lazy(() => import('./code-block'));
 
 export default memo((props) => {
   const { children, isFromPackageImport } = props;
+
   return (
     <Suspense
       fallback={

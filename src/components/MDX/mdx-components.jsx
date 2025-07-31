@@ -14,9 +14,11 @@ import { YouTubeIframe } from './embed/youtube-iframe';
 import { ZingIframe } from './embed/zing-iframe';
 import BlogCard from './blog-card';
 import { Challenges, Hint, Solution } from './challenges';
+import CodeBlock from './code-block';
 import { ConsoleBlock, ConsoleBlockMulti, ConsoleLogLine } from './console-block';
 import Diagram from './diagram';
 import DiagramGroup from './diagram-group';
+import ErrorDecoder from './error-decoder';
 import ExpandableCallout from './expandable-callout';
 import ExpandableExample from './expandable-example';
 import { H1, H2, H3, H4, H5 } from './heading';
@@ -32,6 +34,8 @@ import Recap from './recap';
 import Sandpack from './sandpack';
 import SandpackWithHTMLOutput from './sandpack-with-HTML-output';
 import SimpleCallout from './simple-callout';
+import { TeamMember } from './team-member';
+import TerminalBlock from './terminal-block';
 import YouWillLearnCard from './you-will-learn-card';
 
 function CodeStep({ children, step }) {
@@ -234,7 +238,7 @@ export const MDXComponents = {
   img: Image,
   BlogCard,
   code: InlineCode,
-  // pre: CodeBlock,
+  pre: CodeBlock,
   // CodeDiagram,
   ConsoleBlock,
   ConsoleBlockMulti,
@@ -277,8 +281,8 @@ export const MDXComponents = {
   Recipes,
   Sandpack,
   SandpackWithHTMLOutput,
-  // TeamMember,
-  // TerminalBlock,
+  TeamMember,
+  TerminalBlock,
   YouWillLearn,
   YouWillLearnCard,
   Challenges,
@@ -286,7 +290,7 @@ export const MDXComponents = {
   Solution,
   CodeStep,
   YouTubeIframe,
-  // ErrorDecoder,
+  ErrorDecoder,
 
   // embed
   Spotify,

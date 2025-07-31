@@ -1,18 +1,12 @@
 /* eslint-disable complexity */
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- */
 
-import { html } from '@codemirror/lang-html';
-import { javascript } from '@codemirror/lang-javascript';
-import { HighlightStyle } from '@codemirror/language';
-import { highlightTree, tags } from '@lezer/highlight';
+'use client';
+
 import cn from 'classnames';
 import rangeParser from 'parse-numeric-range';
 
+import { css, HighlightStyle, highlightTree, html, javascript, tags } from '../CLIENT';
 import { CustomTheme } from '../sandpack/themes';
-
-import { css } from '@codemirror/lang-css';
 
 const jsxLang = javascript({ jsx: true, typescript: false });
 const cssLang = css();

@@ -11,6 +11,7 @@ import { ThemeScript } from './theme-script';
 import { UnloadEvent } from './unload-event';
 
 import '../assets/styles/global.css';
+import '../components/MDX/mdx-components.module.css';
 
 export const metadata = customMetaDataGenerator({
   title: 'Lê Xuân Tiến',
