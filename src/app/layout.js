@@ -1,14 +1,12 @@
 import React from 'react';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { cookies } from 'next/headers';
-import Script from 'next/script';
 
 import TopNavV2 from '@/components/layout/top-nav/top-nav.v2';
 import { siteConfig } from '@/configs/site-config';
 import { customMetaDataGenerator } from '@/lib/custom-meta-data-generator';
 
-import { Analytics } from './analytics';
 import { ThemeScript } from './theme-script';
-import { UnloadEvent } from './unload-event';
 
 import '../assets/styles/global.css';
 import '../components/MDX/mdx-components.module.css';
@@ -28,37 +26,10 @@ export default async function RootLayout({ children }) {
       {/* <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#404756" /> */}
       <meta name="msapplication-TileColor" content="#2b5797" />
       <meta name="theme-color" content="#23272f" />
-      {/* Google Analytics */}
-      {process.env.NODE_ENV === 'production' && (
-        <>
-          <Script
-            id="gtag-loader"
-            strategy="afterInteractive"
-            src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.Gtag}`}
-          />
-          <Script
-            id="gtag-init"
-            strategy="afterInteractive"
-            dangerouslySetInnerHTML={{
-              __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', '${siteConfig.Gtag}', { send_page_view: false });
-            `,
-            }}
-          />
-        </>
-      )}
 
       <body className="font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base">
         <ThemeScript />
-        {process.env.NODE_ENV === 'production' && (
-          <>
-            <Analytics />
-            <UnloadEvent />
-          </>
-        )}
+        {process.env.NODE_ENV === 'production' && <GoogleAnalytics gaId={siteConfig.Gtag} />}
         <TopNavV2 />
         {children}
       </body>
