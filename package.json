@@ -53,7 +53,9 @@
     "remark-images": "4.1.0",
     "remark-smartypants": "3.0.2",
     "unist-util-visit": "5.0.0",
-    "eslint7": "git://github.com/tienlx97/eslint7.git"
+    "eslint7": "git://github.com/tienlx97/eslint7.git",
+    "retext-smartypants": "6.2.0",
+    "retext": "9.0.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.0",

@@ -4,7 +4,7 @@ import { Children, lazy, memo, Suspense } from 'react';
 
 import { AppJSPath, createFileMap } from './create-file-map';
 
-const SandpackRoot = lazy(() => import('./sandpack-root'));
+const SandpackRoot = lazy(() => import('./sandpack-root'), { ssr: false });
 
 const SandpackGlimmer = ({ code }) => (
   <div className="sandpack sandpack--playground my-8">
@@ -44,8 +44,6 @@ const SandpackGlimmer = ({ code }) => (
 
 export default memo((props) => {
   const codeSnippet = createFileMap(Children.toArray(props.children));
-
-  console.log({ props: props.children });
 
   // To set the active file in the fallback we have to find the active file first.
   // If there are no active files we fallback to App.js as default.

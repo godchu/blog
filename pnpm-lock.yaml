@@ -125,6 +125,12 @@ importers:
       remark-smartypants:
         specifier: 3.0.2
         version: 3.0.2
+      retext:
+        specifier: 9.0.0
+        version: 9.0.0
+      retext-smartypants:
+        specifier: 6.2.0
+        version: 6.2.0
       unist-util-visit:
         specifier: 5.0.0
         version: 5.0.0

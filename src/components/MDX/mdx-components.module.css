@@ -1,45 +1,102 @@
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- */
-
-/* Stop purging. */
 .markdown p {
-  @apply mb-4 leading-7 whitespace-pre-wrap text-gray-70;
+  margin-bottom: 1rem;
+  /* mb-4 */
+  line-height: 1.75rem;
+  /* leading-7 */
+  white-space: pre-wrap;
+  color: #4B5563;
+  /* text-gray-700 */
 }
 
 .markdown ol {
-  @apply mb-4 ms-8 list-decimal;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  /* ms-8 */
+  list-style-type: decimal;
 }
 
 .markdown ul {
-  @apply mb-4 ms-8 list-disc;
+  margin-bottom: 1rem;
+  margin-left: 2rem;
+  list-style-type: disc;
 }
 
 .markdown h1 {
-  @apply mb-6 text-4xl font-extrabold tracking-tight;
+  margin-bottom: 1.5rem;
+  font-size: 2.25rem;
+  /* text-4xl */
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .markdown h2 {
-  @apply mt-12 mb-4 text-3xl font-extrabold tracking-tight;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+  font-size: 1.875rem;
+  /* text-3xl */
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .markdown h3 {
-  @apply mt-8 mb-3 text-2xl font-extrabold tracking-tight;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.5rem;
+  /* text-2xl */
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .markdown h4 {
-  @apply mt-8 mb-3 text-xl font-extrabold tracking-tight;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+  /* text-xl */
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 .markdown code {
-  @apply text-gray-70 bg-card dark:bg-card-dark p-1 rounded-lg no-underline;
+  color: #4B5563;
+  /* text-gray-700 */
+  background-color: var(--card-bg);
+  padding: 0.25rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
   font-size: 90%;
 }
 
 .markdown li {
-  @apply mb-2;
+  margin-bottom: 0.5rem;
 }
 
 .markdown a {
-  @apply inline text-link dark:text-link-dark break-normal border-b border-link border-opacity-0 hover:border-opacity-100 duration-100 ease-in transition leading-normal;
+  display: inline;
+  color: var(--link-color);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-opacity 0.1s ease-in;
+}
+
+.markdown a:hover {
+  border-bottom: 1px solid var(--link-color);
+}
+
+
+.cm-line:empty::before {
+  content: ' ';
+  display: inline-block;
+}
+
+.cm-line:empty {
+  line-height: 0;
+  /* collapse */
+  min-height: 1em;
+  /* still keeps code alignment */
+}
+
+
+.cm-line-empty {
+  line-height: 0;
+  min-height: 1em;
 }

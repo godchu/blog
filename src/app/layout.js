@@ -29,28 +29,36 @@ export default async function RootLayout({ children }) {
       <meta name="msapplication-TileColor" content="#2b5797" />
       <meta name="theme-color" content="#23272f" />
       {/* Google Analytics */}
-      <Script
-        id="gtag-loader"
-        strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.Gtag}`}
-      />
-      <Script
-        id="gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
+      {process.env.NODE_ENV === 'production' && (
+        <>
+          <Script
+            id="gtag-loader"
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.Gtag}`}
+          />
+          <Script
+            id="gtag-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${siteConfig.Gtag}', { send_page_view: false });
             `,
-        }}
-      />
+            }}
+          />
+        </>
+      )}
 
       <body className="font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base">
         <ThemeScript />
-        <Analytics />
-        <UnloadEvent />
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <Analytics />
+            <UnloadEvent />
+          </>
+        )}
         <TopNavV2 />
         {children}
       </body>

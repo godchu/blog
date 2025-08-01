@@ -1,6 +1,4 @@
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- */
+'use client';
 
 import React, { Children } from 'react';
 import { SandpackLogLevel } from '@codesandbox/sandpack-client';
@@ -90,7 +88,8 @@ function SandpackRoot(props) {
           autorun,
           initMode: 'user-visible',
           initModeObserverOptions: { rootMargin: '1400px 0px' },
-          bundlerURL: 'https://786946de.sandpack-bundler-4bw.pages.dev',
+          // bundlerURL: 'https://786946de.sandpack-bundler-4bw.pages.dev',
+          bundlerURL: 'https://sandpack-bundler.codesandbox.io',
           logLevel: SandpackLogLevel.None,
         }}
       >

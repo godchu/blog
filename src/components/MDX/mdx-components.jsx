@@ -13,8 +13,9 @@ import { Spotify } from './embed/spotify';
 import { YouTubeIframe } from './embed/youtube-iframe';
 import { ZingIframe } from './embed/zing-iframe';
 import BlogCard from './blog-card';
-import { Challenges, Hint, Solution } from './challenges';
+// import { Challenges, Hint, Solution } from './challenges';
 import CodeBlock from './code-block';
+import { CodeDiagram } from './code-diagram';
 import { ConsoleBlock, ConsoleBlockMulti, ConsoleLogLine } from './console-block';
 import Diagram from './diagram';
 import DiagramGroup from './diagram-group';
@@ -186,10 +187,10 @@ function YouWillLearn({ children, isChapter }) {
   return <SimpleCallout title={title}>{children}</SimpleCallout>;
 }
 
-// TODO: typing.
-function Recipes(props) {
-  return <Challenges {...props} isRecipes={true} />;
-}
+// // TODO: typing.
+// function Recipes(props) {
+//   return <Challenges {...props} isRecipes={true} />;
+// }
 
 function LanguageList({ progress }) {
   const allLanguages = React.useContext(LanguagesContext) ?? [];
@@ -239,7 +240,7 @@ export const MDXComponents = {
   BlogCard,
   code: InlineCode,
   pre: CodeBlock,
-  // CodeDiagram,
+  CodeDiagram,
   ConsoleBlock,
   ConsoleBlockMulti,
   ConsoleLogLine,
@@ -278,16 +279,16 @@ export const MDXComponents = {
   PackageImport,
   ReadBlogPost,
   Recap,
-  Recipes,
+  // Recipes,
   Sandpack,
   SandpackWithHTMLOutput,
   TeamMember,
   TerminalBlock,
   YouWillLearn,
   YouWillLearnCard,
-  Challenges,
-  Hint,
-  Solution,
+  // Challenges,
+  // Hint,
+  // Solution,
   CodeStep,
   YouTubeIframe,
   ErrorDecoder,

@@ -55,13 +55,13 @@ export function Preview({ isExpanded, className, lintErrors }) {
     }
   }, [lintErrors]);
 
-  if (rawError === undefined || rawError.title === 'Runtime Exception') {
+  if (rawError === undefined || rawError?.title === 'Runtime Exception') {
     if (firstLintError !== null) {
       rawError = firstLintError;
     }
   }
 
-  if (rawError !== undefined && rawError.title === 'Runtime Exception') {
+  if (rawError !== undefined && rawError?.title === 'Runtime Exception') {
     // eslint-disable-next-line react-compiler/react-compiler
     rawError.title = 'Runtime Error';
   }

@@ -1,6 +1,4 @@
-/*
- * Copyright (c) Facebook, Inc. and its affiliates.
- */
+'use client';
 
 import * as React from 'react';
 
