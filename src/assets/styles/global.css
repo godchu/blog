@@ -2,3 +2,10 @@
 @import "./algolia.css";
 @import "./sandpack.css";
 @import "./style.css";
+
+
+html {
+  /* Mọi lần cuộn tới #id trong tài liệu sẽ chừa ra 4 rem ở trên */
+  scroll-padding-top: 64px;
+  /* Tailwind: scroll-pt-16 */
+}

@@ -12,6 +12,7 @@ export default {
       betterhover: { raw: '(hover: hover)' },
       xs: '374px',
       '3xl': '1919px',
+      1328: '1328px',
     },
     boxShadow: {
       sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',

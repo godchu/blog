@@ -22,20 +22,24 @@ const variantMap = {
     name: 'Deprecated',
     classes: 'bg-red-40 text-white',
   },
+
+  //  for meta
+  EN: {
+    name: 'EN',
+    classes: 'bg-green-40 text-white',
+  },
+
+  JP: {
+    name: 'JP',
+    classes: 'bg-purple-40 text-white',
+  },
 };
 
-function Tag({text, variant, className}) {
-  const {name, classes} = variantMap[variant];
+function Tag({ text, variant, className }) {
+  const { name, classes } = variantMap[variant];
   return (
     <span className={cn('me-2', className)}>
-      <span
-        className={cn(
-          'inline font-bold text-sm uppercase py-1 px-2 rounded',
-          classes,
-        )}
-      >
-        {text || name}
-      </span>
+      <span className={cn('inline font-bold text-sm uppercase py-1 px-2 rounded', classes)}>{text || name}</span>
     </span>
   );
 }

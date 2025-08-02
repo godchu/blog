@@ -38,7 +38,7 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
     hasColumns = false;
     showSidebar = false;
     showToc = false;
-  } else if (section === 'nikki') {
+  } else if (section === 'nikki' || section === 'novel') {
     showToc = false;
   }
 
@@ -83,7 +83,7 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
                     title={title}
                     version={version}
                     description={description}
-                    tags={route?.tags}
+                    tags={route?.tags ?? meta?.tags}
                     breadcrumbs={breadcrumbs}
                   />
                 </div>

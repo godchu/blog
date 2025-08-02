@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import sidebarBlog from '../configs/sidebarBlog.json';
 import sidebarFun from '../configs/sidebarFunny.json';
 import sidebarNikki from '../configs/sidebarNikki.json';
+import sidebarNovel from '../configs/sidebarNovel.json';
 
 export function useActiveSection() {
   const pathname = usePathname();
@@ -23,6 +24,8 @@ export function useActiveSection() {
     section = 'nikki';
   } else if (sectionPath.startsWith('/blog')) {
     section = 'blog';
+  } else if (sectionPath.startsWith('/novel')) {
+    section = 'novel';
   } else {
     section = 'unknown';
   }
@@ -32,6 +35,9 @@ export function useActiveSection() {
     case 'home':
     case 'unknown':
       routeTree = sidebarNikki;
+      break;
+    case 'novel':
+      routeTree = sidebarNovel;
       break;
     case 'nikki':
       routeTree = sidebarNikki;

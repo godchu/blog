@@ -1,0 +1,24 @@
+{
+  "title": "Novel",
+  "path": "/docs/novel",
+  "routes": [
+    {
+      "hasSectionHeader": true,
+      "sectionHeader": "Mizu Zokusei no Mahoutsukai"
+    },
+    {
+      "title": "Tóm tắt",
+      "path": "/docs/novel/mizu-zokusei-no-mahoutsukai"
+    },
+    {
+      "title": "Vol 1",
+      "path": "/docs/novel/mizu-zokusei-no-mahoutsukai/1",
+      "routes": [
+        {
+          "title": "Chap 1: Cuộc sống chậm rãi",
+          "path": "/docs/novel/mizu-zokusei-no-mahoutsukai/1/cuoc-song-cham-rai"
+        }
+      ]
+    }
+  ]
+}

@@ -12,6 +12,7 @@ import { NCTIframe } from './embed/nct-iframe';
 import { Spotify } from './embed/spotify';
 import { YouTubeIframe } from './embed/youtube-iframe';
 import { ZingIframe } from './embed/zing-iframe';
+import { Novel } from './novel/novel';
 import BlogCard from './blog-card';
 // import { Challenges, Hint, Solution } from './challenges';
 import CodeBlock from './code-block';
@@ -297,6 +298,9 @@ export const MDXComponents = {
   Spotify,
   ZingIframe,
   NCTIframe,
+
+  // novel
+  Novel,
 };
 
 for (let key in MDXComponents) {
