@@ -3,6 +3,7 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import { cookies } from 'next/headers';
 
 import TopNavV2 from '@/components/layout/top-nav/top-nav.v2';
+import SocialBanner from '@/components/social-banner';
 import { siteConfig } from '@/configs/site-config';
 import { customMetaDataGenerator } from '@/lib/custom-meta-data-generator';
 
@@ -30,6 +31,7 @@ export default async function RootLayout({ children }) {
       <body className="font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base">
         <ThemeScript />
         {process.env.NODE_ENV === 'production' && <GoogleAnalytics gaId={siteConfig.Gtag} />}
+        <SocialBanner />
         <TopNavV2 />
         {children}
       </body>

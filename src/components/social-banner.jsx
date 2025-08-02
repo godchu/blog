@@ -1,12 +1,13 @@
+'use client';
 
-import React, {useEffect,useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import cn from 'classnames';
 
-import {ExternalLink} from './MDX/external-link';
+import { ExternalLink } from './MDX/external-link';
 
-const bannerText = 'Join us for React Conf on Oct 7-8.';
-const bannerLink = 'https://conf.react.dev/';
-const bannerLinkText = 'Learn more.';
+const bannerText = 'New Light novel "To Haru"';
+const bannerLink = 'https://tienlx97.io.vn/docs/novel/to-haru';
+const bannerLinkText = 'Read more.';
 
 export default function SocialBanner() {
   const ref = useRef(null);
@@ -31,13 +32,12 @@ export default function SocialBanner() {
   return (
     <div
       ref={ref}
-      className={cn('h-[40px] hidden lg:flex w-full bg-gray-100 dark:bg-gray-700 text-base md:text-lg py-2 sm:py-0 items-center justify-center flex-col sm:flex-row z-[100]')}
+      className={cn(
+        'h-[40px] hidden lg:flex w-full bg-gray-100 dark:bg-gray-700 text-base md:text-lg py-2 sm:py-0 items-center justify-center flex-col sm:flex-row z-[100]',
+      )}
     >
       <div className="hidden sm:block">{bannerText}</div>
-      <ExternalLink
-        className="ms-0 sm:ms-1 text-link dark:text-link-dark hover:underline"
-        href={bannerLink}
-      >
+      <ExternalLink className="ms-0 sm:ms-1 text-link dark:text-link-dark hover:underline" href={bannerLink}>
         {bannerLinkText}
       </ExternalLink>
     </div>
