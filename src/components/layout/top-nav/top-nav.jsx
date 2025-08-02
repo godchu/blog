@@ -242,7 +242,7 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                 <NavItem isActive={section === 'blog'} url="/docs/blog">
                   Blog
                 </NavItem>
-                <NavItem isActive={section === 'novel'} url="/docs/novel/mizu-zokusei-no-mahoutsukai">
+                <NavItem isActive={section === 'novel'} url="/docs/novel/to-haru">
                   Novel
                 </NavItem>
                 <NavItem isActive={section === 'fun'} url="/docs/fun">
@@ -315,7 +315,7 @@ export default function TopNav({ routeTree, breadcrumbs, section }) {
                     <NavItem isActive={section === 'blog'} url="/docs/blog">
                       Blog
                     </NavItem>
-                    <NavItem isActive={section === 'novel'} url="/docs/novel/mizu-zokusei-no-mahoutsukai">
+                    <NavItem isActive={section === 'novel'} url="/docs/novel/to-haru">
                       Novel
                     </NavItem>
                     <NavItem isActive={section === 'fun'} url="/docs/fun">

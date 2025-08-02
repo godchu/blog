@@ -4,6 +4,22 @@
   "routes": [
     {
       "hasSectionHeader": true,
+      "sectionHeader": "To Haru"
+    },
+    {
+      "title": "Tóm tắt",
+      "path": "/docs/novel/to-haru"
+    },
+    {
+      "title": "Lời mở đầu",
+      "path": "/docs/novel/to-haru/loi-mo-dau"
+    },
+    {
+      "title": "Chap 1: Chàng trai vô duyên với may mắn và cô gái hợp với mưa",
+      "path": "/docs/novel/to-haru/chang-trai-vo-duyen-voi-may-man-va-co-gai-hop-voi-mua"
+    },
+    {
+      "hasSectionHeader": true,
       "sectionHeader": "Mizu Zokusei no Mahoutsukai"
     },
     {
