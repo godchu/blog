@@ -96,7 +96,6 @@ export function Tag({ children, step }) {
         'bg-opacity-10 dark:bg-opacity-20 relative rounded-lg px-[10px] py-px border-b border-opacity-60 whitespace-nowrap text-sm',
         {
           'bg-blue-40 border-blue-40 text-blue-60 dark:text-blue-30': step === 1,
-          'bg-yellow-40 border-yellow-40 text-yellow-60 dark:text-yellow-30': step === 2,
           'bg-purple-40 border-purple-40 text-purple-60 dark:text-purple-30': step === 3,
           'bg-green-40 border-green-40 text-green-60 dark:text-green-30': step === 4,
         },
