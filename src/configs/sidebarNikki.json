@@ -8,6 +8,10 @@
       "skipBreadcrumb": true,
       "routes": [
         {
+          "title": "Aug 06, 2025: Jump smash",
+          "path": "/docs/nikki/06-08-2025"
+        },
+        {
           "title": "Aug 03, 2025: English",
           "path": "/docs/nikki/03-08-2025"
         },
