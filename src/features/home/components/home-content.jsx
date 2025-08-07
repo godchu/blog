@@ -1,4 +1,4 @@
-import { Animated } from '@/components/common/animated/animated';
+// import { Animated } from '@/components/common/animated/animated';
 import NikkiCard from '@/components/common/comment/nikki-card';
 import Link from '@/components/MDX/link';
 import { LI } from '@/components/MDX/list';
@@ -23,7 +23,7 @@ export function HomeContent() {
 
   return (
     <div className="ps-0">
-      <Animated name="hibi" type="capybara" />
+      {/* <Animated name="hibi" type="capybara" /> */}
       {/* Intro Section */}
       <div className="mx-auto flex flex-col w-full max-w-7xl">
         <div className="flex-col gap-2 flex grow w-full my-20 lg:my-32 mx-auto items-center">
