@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { cookies } from 'next/headers';
 
 import TopNavV2 from '@/components/layout/top-nav/top-nav.v2';
@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
 
       <body className="font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base">
         <ThemeScript />
-        {process.env.NODE_ENV === 'production' && <GoogleAnalytics gaId={siteConfig.Gtag} />}
+        {process.env.NODE_ENV === 'production' && <GoogleTagManager gaId={siteConfig.Gtag} />}
         <SocialBanner />
         <TopNavV2 />
         {children}
@@ -38,3 +38,16 @@ export default async function RootLayout({ children }) {
     </html>
   );
 }
+
+// <!-- Google Tag Manager -->
+// <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+// new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+// j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+// 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+// })(window,document,'script','dataLayer','GTM-PPFNKPVX');</script>
+// <!-- End Google Tag Manager -->
+
+// <!-- Google Tag Manager (noscript) -->
+// <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PPFNKPVX"
+// height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+// <!-- End Google Tag Manager (noscript) -->

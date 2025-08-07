@@ -13,7 +13,7 @@ export const siteConfig = {
     apiKey: '842ef6e0c139ffcf7ff63702c41efefe',
     indexName: 'beta-blog',
   },
-  Gtag: 'G-VKZ14GJNT2',
+  Gtag: 'GTM-PPFNKPVX',
 
   Giscus: {
     repo: 'godchu/blog',
