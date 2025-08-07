@@ -104,18 +104,14 @@ export function HomeContent() {
       <Section background="left-card">
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
-            <Header>My Nikki</Header>
+            <Header>Blog</Header>
             <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-              A personal log of thoughts, progress, and life updates. This is where I share milestones, reflections, and
-              moments that matter.
+              This blog is the official source for the updates from the tienlx97. Anything important, including release
+              notes or deprecation notices, will be posted here first.
             </p>
           </div>
 
-          <div className="mx-auto gap-4 flex flex-col max-w-4xl px-5 py-5 lg:px-0">
-            {latestNikkiRoutes.map((entry) => (
-              <NikkiCard key={entry.path} title={entry.title} url={entry.path} />
-            ))}
-          </div>
+          <div className="mx-auto gap-4 flex flex-col max-w-4xl px-5 py-5 lg:px-0">{/*  */}</div>
         </div>
       </Section>
     </div>
