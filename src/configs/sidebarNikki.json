@@ -8,8 +8,12 @@
       "skipBreadcrumb": true,
       "routes": [
         {
-          "title": "July 31, 2025: Reset",
-          "path": "/docs/nikki/31-07-2025"
+          "title": "Aug 03, 2025: English",
+          "path": "/docs/nikki/03-08-2025"
+        },
+        {
+          "title": "Aug 01, 2025: Parler avec toi est amusant",
+          "path": "/docs/nikki/01-08-2025"
         },
         {
           "title": "July 30, 2025: Muziccc",
@@ -22,10 +26,6 @@
         {
           "title": "July 28, 2025: Personal Milestone",
           "path": "/docs/nikki/28-07-2025"
-        },
-        {
-          "title": "July 27, 2025: Heavy Day",
-          "path": "/docs/nikki/27-07-2025"
         }
       ]
     }

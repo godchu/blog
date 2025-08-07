@@ -1,14 +1,20 @@
 {
-  "title": "Something Fun",
   "path": "/docs/fun",
+  "skipBreadcrumb": true,
   "routes": [
     {
       "hasSectionHeader": true,
-      "sectionHeader": "react@{{version}}"
+      "sectionHeader": "365 ngày học Tiếng Anh"
     },
     {
-      "hasSectionHeader": true,
-      "sectionHeader": "html"
+      "title": "Lời mở đầu",
+      "path": "/docs/fun/365-ngay-tieng-anh/loi-mo-dau",
+      "routes": [
+        {
+          "title": "Ngày 1: IPA",
+          "path": "/docs/novel/365-ngay-tieng-anh/ipa"
+        }
+      ]
     }
   ]
 }

@@ -1,6 +1,10 @@
+import { Animated } from '@/components/common/animated/animated';
+import NikkiCard from '@/components/common/comment/nikki-card';
 import Link from '@/components/MDX/link';
 import { LI } from '@/components/MDX/list';
 import { communityMedia } from '@/configs/home';
+
+import nikkiJson from '../../../configs/sidebarNikki.json';
 
 import { CommunityGallery } from './community-gallery';
 import { Header } from './header';
@@ -9,8 +13,17 @@ import { Section } from './section';
 const skills = ['JavaScript', 'TypeScript', 'Node.js', 'Golang', 'React', 'React Native'];
 
 export function HomeContent() {
+  const latestNikkiRoutes = [...nikkiJson.routes[0].routes]
+    .sort(
+      (a, b) =>
+        new Date(b.path.split('/').pop().split('-').reverse().join('-')) -
+        new Date(a.path.split('/').pop().split('-').reverse().join('-')),
+    )
+    .slice(0, 5);
+
   return (
     <div className="ps-0">
+      <Animated name="hibi" type="capybara" />
       {/* Intro Section */}
       <div className="mx-auto flex flex-col w-full max-w-7xl">
         <div className="flex-col gap-2 flex grow w-full my-20 lg:my-32 mx-auto items-center">
@@ -28,6 +41,7 @@ export function HomeContent() {
               I’m a <b>Full‑stack</b> developer and <b>import–export</b> documentation specialist at{' '}
               <Link href="https://dainghiasteel.com/">Dai Nghia Steel</Link>, where I create accessible digital products
               and handle customs paperwork for the company’s shipments.
+              <span className="block text-sm mt-2 opacity-70">(also quietly operating as capybara boy 🐾)</span>
             </p>
           </div>
         </div>
@@ -66,6 +80,41 @@ export function HomeContent() {
                 <LI key={i}>{skill}</LI>
               ))}
             </ul>
+          </div>
+        </div>
+      </Section>
+
+      <Section background="right-card">
+        <div className="w-full">
+          <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
+            <Header>My Nikki</Header>
+            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+              A personal log of thoughts, progress, and life updates. This is where I share milestones, reflections, and
+              moments that matter.
+            </p>
+          </div>
+
+          <div className="mx-auto gap-4 flex flex-col max-w-4xl px-5 py-5 lg:px-0">
+            {latestNikkiRoutes.map((entry) => (
+              <NikkiCard key={entry.path} title={entry.title} url={entry.path} />
+            ))}
+          </div>
+        </div>
+      </Section>
+      <Section background="left-card">
+        <div className="w-full">
+          <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
+            <Header>My Nikki</Header>
+            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+              A personal log of thoughts, progress, and life updates. This is where I share milestones, reflections, and
+              moments that matter.
+            </p>
+          </div>
+
+          <div className="mx-auto gap-4 flex flex-col max-w-4xl px-5 py-5 lg:px-0">
+            {latestNikkiRoutes.map((entry) => (
+              <NikkiCard key={entry.path} title={entry.title} url={entry.path} />
+            ))}
           </div>
         </div>
       </Section>
