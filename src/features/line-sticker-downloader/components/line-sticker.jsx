@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 import { parseAPNG } from '../utils';
-import { bufferToArrayBuffer, fetchBuffer } from '../utils/line-download';
+import { fetchArrayBuffer } from '../utils/line-download';
 
 export const LineSticker = ({
   url,
@@ -21,8 +21,9 @@ export const LineSticker = ({
   useEffect(() => {
     let cancelled = false;
     (async () => {
-      const buf = await fetchBuffer(url);
-      const ab = bufferToArrayBuffer(buf);
+      const ab = await fetchArrayBuffer(url);
+
+      // const ab = bufferToArrayBuffer(buf);
       const apng = parseAPNG(ab);
       if (apng instanceof Error) return;
 

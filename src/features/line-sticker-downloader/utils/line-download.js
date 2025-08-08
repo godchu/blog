@@ -131,28 +131,56 @@ export async function getStickerInfo(storeUrl) {
 
 // ==============================================
 
-/** Fetch URL -> ArrayBuffer (Node 18+ has global fetch) */
+// /** Fetch URL -> ArrayBuffer (Node 18+ has global fetch) */
+// export async function fetchArrayBuffer(url) {
+//   const res = await fetch(url, {
+//     headers: {
+//       'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome Safari',
+//     },
+//     cache: 'force-cache',
+//   });
+//   if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+//   return res.arrayBuffer();
+// }
+
+// /** If you specifically need a Node Buffer */
+// export async function fetchBuffer(url) {
+//   const ab = await fetchArrayBuffer(url);
+
+//   return Buffer.from(ab);
+// }
+
+// /** Buffer -> ArrayBuffer (handles offset correctly) */
+// export function bufferToArrayBuffer(buf) {
+//   return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+// }
+
+// // =============================================
+
+/** Fetch URL -> ArrayBuffer (browser + Node 18+) */
 export async function fetchArrayBuffer(url) {
-  const res = await fetch(url, {
-    headers: {
-      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome Safari',
-    },
+  const isBrowser = typeof window !== 'undefined';
+  const init = {
     cache: 'force-cache',
-  });
+    ...(isBrowser ? {} : { headers: { 'user-agent': 'Mozilla/5.0 Chrome Safari' } }),
+  };
+  const res = await fetch(url, init);
   if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
   return res.arrayBuffer();
 }
 
-/** If you specifically need a Node Buffer */
-export async function fetchBuffer(url) {
-  const ab = await fetchArrayBuffer(url);
-
-  return Buffer.from(ab);
+/** No-op helper kept for API symmetry */
+export async function fetchBuffer(_url) {
+  throw new Error('fetchBuffer not available on web. Use fetchArrayBuffer(url) instead.');
 }
 
-/** Buffer -> ArrayBuffer (handles offset correctly) */
-export function bufferToArrayBuffer(buf) {
-  return buf.buffer.slice(buf.byteOffset, buf.byteOffset + buf.byteLength);
+/** Robust: works for ArrayBuffer / TypedArray / Buffer */
+export function toArrayBuffer(buf) {
+  if (buf instanceof ArrayBuffer) return buf;
+  if (ArrayBuffer.isView(buf)) {
+    return buf.buffer.slice(buf.byteOffset, buf.byteLength + buf.byteOffset);
+  }
+  // Last resort: copy
+  const u8 = new Uint8Array(buf);
+  return u8.buffer.slice(u8.byteOffset, u8.byteLength + u8.byteOffset);
 }
-
-// =============================================

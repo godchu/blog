@@ -39,6 +39,7 @@ export function HomeContent() {
                 url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/67c9092bcd372c3107c54c32/023.png"
               />
             </div>
+
             {/* <div>
               <LineSticker
                 loop
@@ -49,19 +50,32 @@ export function HomeContent() {
               Lê Xuân Tiến.
             </h2>
             <h3 className="font-sans font-semibold text-[clamp(40px,8vw,80px)] mt-[5px] leading-[0.9]">
-              I build software and handle exports.
+              I build things for fun.
             </h3>
             <p className="mt-5 max-w-[540px]">
-              I’m a <b>Full‑stack</b> developer and <b>import–export</b> documentation specialist at{' '}
-              <Link href="https://dainghiasteel.com/">Dai Nghia Steel</Link>, where I create accessible digital products
-              and handle customs paperwork for the company’s shipments.
+              I’m a <b>Full‑stack</b> developer at <Link href="https://dainghiasteel.com/">Dai Nghia Steel</Link>, where
+              I design and build easy-to-use digital products from start to finish — from the interface you see to the
+              systems running behind the scenes.
               <span className="block text-sm mt-2 opacity-70">(also quietly operating as capybara boy 🐾)</span>
             </p>
           </div>
         </div>
       </div>
       {/* About Section */}
-      <Section background="left-card">
+      <Section
+        background="left-card"
+        style={{
+          '--s-i-top': '-60px',
+        }}
+        iconPosition="right"
+        icon={
+          <LineSticker
+            loop
+            scale={0.6}
+            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/6808583169d7650139d3175a/005.png"
+          />
+        }
+      >
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <Header>About Me</Header>
@@ -101,12 +115,12 @@ export function HomeContent() {
           '--s-i-top': '-60px',
         }}
         background="right-card"
-        iconPosition="right"
+        iconPosition="left"
         icon={
           <LineSticker
             loop
             scale={0.6}
-            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/6808583169d7650139d3175a/004.png"
+            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/66d164f4ef749a3b57850c5c/031.png"
           />
         }
       >
@@ -132,12 +146,12 @@ export function HomeContent() {
         style={{
           '--s-i-top': '-60px',
         }}
-        iconPosition="left"
+        iconPosition="right"
         icon={
           <LineSticker
             loop
             scale={0.6}
-            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/66d164f4ef749a3b57850c5c/031.png"
+            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/6808583169d7650139d3175a/004.png"
           />
         }
       >
