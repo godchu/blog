@@ -32,9 +32,11 @@
     "@next/third-parties": "^15.4.5",
     "@radix-ui/react-context-menu": "^2.1.5",
     "body-scroll-lock": "4.0.0-beta.0",
+    "cheerio": "1.1.2",
     "classnames": "2.5.1",
     "debounce": "2.2.0",
     "eslint4b": "7.32.0",
+    "eslint7": "git://github.com/tienlx97/eslint7.git",
     "esquery": "1.6.0",
     "github-slugger": "2.0.0",
     "js-cookie": "3.0.5",
@@ -52,10 +54,10 @@
     "remark-gfm": "4.0.1",
     "remark-images": "4.1.0",
     "remark-smartypants": "3.0.2",
-    "unist-util-visit": "5.0.0",
-    "eslint7": "git://github.com/tienlx97/eslint7.git",
+    "retext": "9.0.0",
     "retext-smartypants": "6.2.0",
-    "retext": "9.0.0"
+    "unist-util-visit": "5.0.0",
+    "upng-js": "^2.1.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.0",

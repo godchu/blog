@@ -3,6 +3,7 @@ import NikkiCard from '@/components/common/comment/nikki-card';
 import Link from '@/components/MDX/link';
 import { LI } from '@/components/MDX/list';
 import { communityMedia } from '@/configs/home';
+import { LineSticker } from '@/features/line-sticker-downloader/components/line-sticker';
 
 import nikkiJson from '../../../configs/sidebarNikki.json';
 
@@ -27,10 +28,23 @@ export function HomeContent() {
       {/* Intro Section */}
       <div className="mx-auto flex flex-col w-full max-w-7xl">
         <div className="flex-col gap-2 flex grow w-full my-20 lg:my-32 mx-auto items-center">
-          <div className="px-5 lg:px-0 w-full h-auto max-w-4xl">
-            <h1 className="font-display text-[clamp(14px,5vw,16px)] text-link dark:text-link-dark mb-[15px] md:mb-[30px] leading-normal">
+          <div className="px-5 lg:px-0 w-full h-auto max-w-4xl relative">
+            {/* <h1 className="font-display text-[clamp(14px,5vw,16px)] text-link dark:text-link-dark mb-[15px] md:mb-[30px] leading-normal">
               Hi, my name is
-            </h1>
+            </h1> */}
+            <div className="absolute top-[-65px]">
+              <LineSticker
+                loop
+                scale={0.4}
+                url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/67c9092bcd372c3107c54c32/023.png"
+              />
+            </div>
+            {/* <div>
+              <LineSticker
+                loop
+                url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/67c9092bcd372c3107c54c32/023.png"
+              />
+            </div> */}
             <h2 className="font-sans text-primary dark:text-primary-dark font-semibold text-[clamp(40px,8vw,80px)] leading-[1.1]">
               Lê Xuân Tiến.
             </h2>
@@ -46,7 +60,6 @@ export function HomeContent() {
           </div>
         </div>
       </div>
-
       {/* About Section */}
       <Section background="left-card">
         <div className="w-full">
@@ -83,8 +96,20 @@ export function HomeContent() {
           </div>
         </div>
       </Section>
-
-      <Section background="right-card">
+      <Section
+        style={{
+          '--s-i-top': '-60px',
+        }}
+        background="right-card"
+        iconPosition="right"
+        icon={
+          <LineSticker
+            loop
+            scale={0.6}
+            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/6808583169d7650139d3175a/004.png"
+          />
+        }
+      >
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <Header>My Nikki</Header>
@@ -101,7 +126,21 @@ export function HomeContent() {
           </div>
         </div>
       </Section>
-      <Section background="left-card">
+      {/*  */}
+      <Section
+        background="left-card"
+        style={{
+          '--s-i-top': '-60px',
+        }}
+        iconPosition="left"
+        icon={
+          <LineSticker
+            loop
+            scale={0.6}
+            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/66d164f4ef749a3b57850c5c/031.png"
+          />
+        }
+      >
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <Header>Blog</Header>

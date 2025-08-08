@@ -26,6 +26,7 @@ import ExpandableExample from './expandable-example';
 import { H1, H2, H3, H4, H5 } from './heading';
 import { Illustration, IllustrationBlock } from './illustration';
 import InlineCode from './inline-code';
+import { ImageGallery } from './inline-gallery';
 import { InlineToc } from './inline-toc';
 import Intro from './intro';
 import { LanguagesContext } from './languages-context';
@@ -301,6 +302,9 @@ export const MDXComponents = {
 
   // novel
   Novel,
+
+  //
+  ImageGallery,
 };
 
 for (let key in MDXComponents) {
