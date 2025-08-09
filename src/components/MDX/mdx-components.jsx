@@ -2,6 +2,7 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { LineSticker } from '@/features/line-sticker-downloader';
 import { finishedTranslations } from '@/utils/finished-translations';
 
 import ButtonLink from '../button-link';
@@ -305,6 +306,7 @@ export const MDXComponents = {
 
   //
   ImageGallery,
+  LineSticker,
 };
 
 for (let key in MDXComponents) {

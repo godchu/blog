@@ -55,8 +55,8 @@ export function HiSticker({ animated = true, pick = 'visit' }) {
       <LineSticker
         loop
         autoplay
-        withOverlay
-        overlayClassName="bg-white dark:bg-neutral-900"
+        withOverlay={false}
+        // overlayClassName="bg-white dark:bg-neutral-900"
         className="inline-block w-[28px] h-[28px] sm:w-[40px] sm:h-[40px] align-text-bottom"
         style={{ transform: `translateY(6px)` }}
         url={url}
