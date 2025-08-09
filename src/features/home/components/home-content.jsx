@@ -34,18 +34,13 @@ export function HomeContent() {
             </h1> */}
             <div className="absolute top-[-65px]">
               <LineSticker
+                autoplay
                 loop
-                scale={0.4}
-                url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/67c9092bcd372c3107c54c32/023.png"
+                className="w-[90px] h-[90px]"
+                url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/67c9092bcd372c3107c54c32/023/023_animation/023_animation.png"
               />
             </div>
 
-            {/* <div>
-              <LineSticker
-                loop
-                url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/67c9092bcd372c3107c54c32/023.png"
-              />
-            </div> */}
             <h2 className="font-sans text-primary dark:text-primary-dark font-semibold text-[clamp(40px,8vw,80px)] leading-[1.1]">
               Lê Xuân Tiến.
             </h2>
@@ -64,17 +59,16 @@ export function HomeContent() {
       {/* About Section */}
       <Section
         background="left-card"
-        style={{
-          '--s-i-top': '-60px',
-        }}
+        // style={{
+        //   '--s-i-top': '-60px',
+        // }}
         iconPosition="right"
-        icon={
-          <LineSticker
-            loop
-            scale={0.6}
-            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/6808583169d7650139d3175a/005.png"
-          />
-        }
+        // icon={
+        //   <LineSticker
+        //     loop={false}
+        //     url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/6808583169d7650139d3175a/013/013_animation/013_animation.png"
+        //   />
+        // }
       >
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
@@ -116,13 +110,13 @@ export function HomeContent() {
         }}
         background="right-card"
         iconPosition="left"
-        icon={
-          <LineSticker
-            loop
-            scale={0.6}
-            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/66d164f4ef749a3b57850c5c/031.png"
-          />
-        }
+        // icon={
+        //   <LineSticker
+        //     loop
+        //     scale={0.6}
+        //     url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/6808583169d7650139d3175a/002/002_animation/002_animation.png"
+        //   />
+        // }
       >
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
@@ -147,13 +141,13 @@ export function HomeContent() {
           '--s-i-top': '-60px',
         }}
         iconPosition="right"
-        icon={
-          <LineSticker
-            loop
-            scale={0.6}
-            url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs/6808583169d7650139d3175a/004.png"
-          />
-        }
+        // icon={
+        //   <LineSticker
+        //     loop
+        //     scale={0.6}
+        //     url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/6808583169d7650139d3175a/004/004_animation/004_animation.png"
+        //   />
+        // }
       >
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
