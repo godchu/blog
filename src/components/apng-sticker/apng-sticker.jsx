@@ -164,41 +164,45 @@ export const ApngSticker = forwardRef(
           playerRef.current = player;
           player.playbackRate = rate;
 
-          // player.on('end', () => {
-          //   if (loop && isPlayRef.current) {
-          //     // Ensure we actually rewind before replaying
-          //     player.stop();
-          //     // replay on next frame to avoid tight loops in some impls
-          //     requestAnimationFrame(() => {
-          //       if (isPlayRef.current) player.play();
-          //     });
-          //   } else {
-          //     isPlayRef.current = false;
-          //   }
-          // });
+          if (loop) {
+            apng.numPlays = 0;
+          }
 
           player.on('end', () => {
-            if (!loop) {
-              isPlayRef.current = false;
-              return;
-            }
-            if (!isPlayRef.current) return;
-
-            // hard reset to frame 0 for iOS
-            try {
+            if (loop && isPlayRef.current) {
+              // Ensure we actually rewind before replaying
               player.stop();
-              // if the player exposes seek/reset, call it (many apng players do)
-              player.seekToFrame?.(0);
-            } catch {}
-
-            // double rAF is more reliable than single rAF on iOS
-            requestAnimationFrame(() => {
-              // eslint-disable-next-line max-nested-callbacks
+              // replay on next frame to avoid tight loops in some impls
               requestAnimationFrame(() => {
                 if (isPlayRef.current) player.play();
               });
-            });
+            } else {
+              isPlayRef.current = false;
+            }
           });
+
+          // player.on('end', () => {
+          //   if (!loop) {
+          //     isPlayRef.current = false;
+          //     return;
+          //   }
+          //   if (!isPlayRef.current) return;
+
+          //   // hard reset to frame 0 for iOS
+          //   try {
+          //     player.stop();
+          //     // if the player exposes seek/reset, call it (many apng players do)
+          //     player.seekToFrame?.(0);
+          //   } catch {}
+
+          //   // double rAF is more reliable than single rAF on iOS
+          //   requestAnimationFrame(() => {
+          //     // eslint-disable-next-line max-nested-callbacks
+          //     requestAnimationFrame(() => {
+          //       if (isPlayRef.current) player.play();
+          //     });
+          //   });
+          // });
 
           if (autoPlay) {
             player.play();
@@ -223,20 +227,20 @@ export const ApngSticker = forwardRef(
       };
     }, [src, autoPlay, rate, loop, stop]);
 
-    useEffect(() => {
-      const resume = () => {
-        if (document.visibilityState === 'visible' && loop && isPlayRef.current && playerRef.current?.paused) {
-          // small timeout helps some iOS versions
-          setTimeout(() => playerRef.current?.play(), 16);
-        }
-      };
-      document.addEventListener('visibilitychange', resume);
-      window.addEventListener('pageshow', resume); // iOS bfcache
-      return () => {
-        document.removeEventListener('visibilitychange', resume);
-        window.removeEventListener('pageshow', resume);
-      };
-    }, [loop]);
+    // useEffect(() => {
+    //   const resume = () => {
+    //     if (document.visibilityState === 'visible' && loop && isPlayRef.current && playerRef.current?.paused) {
+    //       // small timeout helps some iOS versions
+    //       setTimeout(() => playerRef.current?.play(), 16);
+    //     }
+    //   };
+    //   document.addEventListener('visibilitychange', resume);
+    //   window.addEventListener('pageshow', resume); // iOS bfcache
+    //   return () => {
+    //     document.removeEventListener('visibilitychange', resume);
+    //     window.removeEventListener('pageshow', resume);
+    //   };
+    // }, [loop]);
 
     // Wrapper sizing (CSS). size wins, else width/height.
     const wrapperStyle = {
