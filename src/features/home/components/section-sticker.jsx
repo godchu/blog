@@ -29,7 +29,7 @@ const maxList = [40, 40, 40, 40];
 export function SectionSticker({
   animated = true,
   pick = 'visit',
-  className = 'w-[34px] h-[34px] sm:w-[70px] sm:h-[70px]',
+  className = 'w-[40px] h-[40px] sm:w-[70px] sm:h-[70px]',
 }) {
   const [url, setUrl] = useState(null);
 

@@ -43,8 +43,7 @@ export function HomeContent() {
             </h3>
             <p className="mt-5 max-w-[540px]">
               I’m a <b>Full‑stack</b> developer at <Link href="https://dainghiasteel.com/">Dai Nghia Steel</Link>, where
-              I design and build easy-to-use digital products from start to finish — from the interface you see to the
-              systems running behind the scenes.
+              I build easy-to-use digital products from frontend to backend.
               <span className="block text-sm mt-2 opacity-70">(also quietly operating as capybara boy 🐾)</span>
             </p>
           </div>
@@ -54,7 +53,7 @@ export function HomeContent() {
       {/* About Section */}
       <Section
         background="left-card"
-        className="[--s-i-top:-22px] sm:[--s-i-top:-40px]"
+        className="[--s-i-top:-25px] sm:[--s-i-top:-40px]"
         iconPosition="right"
         icon={<SectionSticker />}
       >
@@ -94,7 +93,7 @@ export function HomeContent() {
       </Section>
       <Section
         background="right-card"
-        className="[--s-i-top:-22px] sm:[--s-i-top:-40px]"
+        className="[--s-i-top:-25px] sm:[--s-i-top:-40px]"
         iconPosition="left"
         icon={<SectionSticker />}
       >
@@ -123,7 +122,7 @@ export function HomeContent() {
       {/*  */}
       <Section
         background="left-card"
-        className="[--s-i-top:-22px] sm:[--s-i-top:-40px]"
+        className="[--s-i-top:-25px] sm:[--s-i-top:-40px]"
         iconPosition="right"
         icon={<SectionSticker />}
       >
