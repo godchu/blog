@@ -1,8 +1,9 @@
+// StickerClient.tsx (CLIENT)
 'use client';
 
 import { useEffect, useState } from 'react';
 
-import { LineSticker } from '@/features/line-sticker-downloader/components';
+import { ApngSticker } from '@/components/apng-sticker/apng-sticker';
 
 const BASE = 'https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2';
 
@@ -11,7 +12,6 @@ function buildStickerUrl(packId, index, { animated = true, ext = 'png' } = {}) {
   const name = animated ? `${n}/${n}_animation/${n}_animation.${ext}` : `${n}/${n}.${ext}`;
   return `${BASE}/${packId}/${name}`;
 }
-
 function hash(s) {
   let h = 0;
   for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
@@ -26,44 +26,31 @@ const packIds = [
 ];
 const maxList = [40, 40, 40, 40];
 
-export function HiSticker({ animated = true, pick = 'visit' }) {
+export default function StickerClient({ animated, pick }) {
   const [url, setUrl] = useState(null);
 
   useEffect(() => {
-    if (!packIds.length || !maxList.length) return;
-
     const len = packIds.length;
+    if (!len) return;
     const packIdx =
       pick === 'daily' ? hash(new Date().toISOString().slice(0, 10)) % len : Math.floor(Math.random() * len);
-
     const packId = packIds[packIdx];
     const max = Math.max(1, Number(maxList[packIdx] ?? maxList[0] ?? 1));
-
     const idx =
       pick === 'daily'
         ? (hash(new Date().toISOString().slice(0, 10) + packId) % max) + 1
         : Math.floor(Math.random() * max) + 1;
-
     setUrl(buildStickerUrl(packId, idx, { animated }));
   }, [animated, pick]);
 
-  // Reserve space to avoid layout shift while URL is chosen
-  if (!url) return <span className="inline-block w-[28px] h-[28px] sm:w-[40px] sm:h-[40px]" aria-hidden="true" />;
+  // SAME BOX always, swaps content inside (skeleton → canvas)
+  const boxClass = 'inline-block w-[28px] h-[28px] sm:w-[40px] sm:h-[40px] align-text-bottom';
+
+  if (!url) {
+    return <span className={boxClass} aria-hidden="true" />; // identical to server fallback
+  }
 
   return (
-    <span className="inline-flex items-baseline gap-2 align-baseline  mb-[15px] md:mb-[30px]">
-      <LineSticker
-        loop
-        autoplay
-        withOverlay={false}
-        // overlayClassName="bg-white dark:bg-neutral-900"
-        className="inline-block w-[28px] h-[28px] sm:w-[40px] sm:h-[40px] align-text-bottom"
-        style={{ transform: `translateY(6px)` }}
-        url={url}
-      />
-      <span className="font-display text-[clamp(14px,5vw,16px)] text-link dark:text-link-dark leading-normal">
-        My name is
-      </span>
-    </span>
+    <ApngSticker className={boxClass} autoPlay loop src={url} showSkeleton style={{ transform: 'translateY(6px)' }} />
   );
 }

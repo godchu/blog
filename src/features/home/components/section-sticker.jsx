@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { LineSticker } from '@/features/line-sticker-downloader';
+import { ApngSticker } from '@/components/apng-sticker/apng-sticker';
 
 const BASE = 'https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2';
 
@@ -51,5 +51,5 @@ export function SectionSticker({
     setUrl(buildStickerUrl(packId, idx, { animated }));
   }, [animated, pick]);
 
-  return <LineSticker loop autoplay withOverlay={false} className={className} url={url} />;
+  return <ApngSticker loop autoPlay showSkeleton={false} className={className} src={url} />;
 }

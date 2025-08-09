@@ -1,4 +1,3 @@
-// import { Animated } from '@/components/common/animated/animated';
 import NikkiCard from '@/components/common/comment/nikki-card';
 import Link from '@/components/MDX/link';
 import { LI } from '@/components/MDX/list';
@@ -8,7 +7,7 @@ import nikkiJson from '../../../configs/sidebarNikki.json';
 
 import { CommunityGallery } from './community-gallery';
 import { Header } from './header';
-import { HiSticker } from './hi-sticker';
+import { HiStickerV2 } from './hi-sticker.v2';
 import { Section } from './section';
 import { SectionSticker } from './section-sticker';
 
@@ -34,7 +33,7 @@ export function HomeContent() {
               Hi, my name is
             </h1> */}
 
-            <HiSticker />
+            <HiStickerV2 animated />
 
             <h2 className="font-sans text-primary dark:text-primary-dark font-semibold text-[clamp(40px,8vw,80px)] leading-[1.1]">
               Lê Xuân Tiến.

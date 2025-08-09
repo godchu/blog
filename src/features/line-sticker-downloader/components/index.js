@@ -1,1 +1,1 @@
-export { LineSticker } from './line-sticker';
+export * from './line-sticker';
