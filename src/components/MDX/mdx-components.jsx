@@ -4,6 +4,7 @@ import cn from 'classnames';
 
 import { finishedTranslations } from '@/utils/finished-translations';
 
+import { ApngSticker } from '../apng-sticker/apng-sticker';
 import ButtonLink from '../button-link';
 import { IconCanary } from '../icon/icon-canary';
 import { IconNavArrow } from '../icon/icon-nav-arrow';
@@ -224,8 +225,28 @@ function Image(props) {
   return <img alt={alt} className="max-w-[calc(min(700px,100%))]" {...rest} />;
 }
 
+const InlinePSticker = ({ url, children, ...rest }) => {
+  return (
+    <div className="inline-flex font-text whitespace-pre-wrap gap-2" {...rest}>
+      {children}
+      <ApngSticker
+        className="inline-block w-[30px] h-[30px]"
+        skeletonClassName="inline-block w-[30px] h-[30px]"
+        autoPlay
+        loop
+        src={url}
+        showSkeleton
+        style={{ transform: 'translateY(-6px)' }}
+      />
+    </div>
+  );
+};
+
 export const MDXComponents = {
   p: P,
+
+  InlinePSticker,
+
   strong: Strong,
   blockquote: Blockquote,
   ol: OL,
@@ -305,6 +326,8 @@ export const MDXComponents = {
 
   //
   ImageGallery,
+
+  ApngSticker,
 };
 
 for (let key in MDXComponents) {

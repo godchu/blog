@@ -44,13 +44,21 @@ export default function StickerClient({ animated, pick }) {
   }, [animated, pick]);
 
   // SAME BOX always, swaps content inside (skeleton → canvas)
-  const boxClass = 'inline-block w-[28px] h-[28px] sm:w-[40px] sm:h-[40px] align-text-bottom';
+  const boxClass =
+    'inline-block w-[28px] h-[28px] translate-y-[6px] sm:translate-y-[10px] sm:w-[50px] sm:h-[50px] align-text-bottom';
 
   if (!url) {
     return <span className={boxClass} aria-hidden="true" />; // identical to server fallback
   }
 
   return (
-    <ApngSticker className={boxClass} autoPlay loop src={url} showSkeleton style={{ transform: 'translateY(6px)' }} />
+    <ApngSticker
+      className={boxClass}
+      autoPlay
+      loop
+      src={url}
+      showSkeleton
+      // style={{ transform: 'translateY(6px)' }}
+    />
   );
 }

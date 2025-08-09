@@ -62,9 +62,9 @@ export function HomeContent() {
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <Header>About Me</Header>
             <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-              Hello! My name is Tiến and I build things for the web. My interest in web development started when I began
-              experimenting with small projects — and over time, that curiosity grew into building scalable,
-              user‑friendly web applications.
+              Yo, I’m Tiến. I make web stuff for fun. Started with random little projects, now I’m out here building
+              apps that (hopefully) don’t break. Big fan of capybaras — the chillest creatures alive. Basically just
+              trying to code like a capybara vibes.
             </p>
           </div>
 
@@ -111,6 +111,12 @@ export function HomeContent() {
             {latestNikkiRoutes.map((entry) => (
               <NikkiCard key={entry.path} title={entry.title} url={entry.path} />
             ))}
+
+            <div className="text-center">
+              <Link className="underline" href="/docs/nikki">
+                Read more
+              </Link>
+            </div>
           </div>
         </div>
       </Section>
