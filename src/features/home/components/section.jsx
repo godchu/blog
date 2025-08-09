@@ -1,6 +1,6 @@
 import cn from 'classnames';
 
-export function Section({ children, background = null, icon = undefined, iconPosition = undefined, style }) {
+export function Section({ children, className, background = null, icon = undefined, iconPosition = undefined, style }) {
   return (
     <div
       style={{ ...style }}
@@ -11,6 +11,7 @@ export function Section({ children, background = null, icon = undefined, iconPos
           'bg-gradient-left dark:bg-gradient-left-dark border-t border-primary/10 dark:border-primary-dark/10',
         background === 'right-card' &&
           'bg-gradient-right dark:bg-gradient-right-dark border-t border-primary/5 dark:border-primary-dark/5',
+        className,
       )}
       // style={{ contain: 'content' }}
     >
@@ -20,7 +21,7 @@ export function Section({ children, background = null, icon = undefined, iconPos
             <div
               className={cn('absolute', {
                 'top-[var(--s-i-top)]': iconPosition === 'left',
-                'right-0 top-[var(--s-i-top)]': iconPosition === 'right',
+                'right-5 top-[var(--s-i-top)]': iconPosition === 'right',
               })}
             >
               {icon}

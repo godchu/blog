@@ -3,13 +3,14 @@ import NikkiCard from '@/components/common/comment/nikki-card';
 import Link from '@/components/MDX/link';
 import { LI } from '@/components/MDX/list';
 import { communityMedia } from '@/configs/home';
-import { LineSticker } from '@/features/line-sticker-downloader/components/line-sticker';
 
 import nikkiJson from '../../../configs/sidebarNikki.json';
 
 import { CommunityGallery } from './community-gallery';
 import { Header } from './header';
+import { HiSticker } from './hi-sticker';
 import { Section } from './section';
+import { SectionSticker } from './section-sticker';
 
 const skills = ['JavaScript', 'TypeScript', 'Node.js', 'Golang', 'React', 'React Native'];
 
@@ -32,14 +33,8 @@ export function HomeContent() {
             {/* <h1 className="font-display text-[clamp(14px,5vw,16px)] text-link dark:text-link-dark mb-[15px] md:mb-[30px] leading-normal">
               Hi, my name is
             </h1> */}
-            <div className="absolute top-[-65px]">
-              <LineSticker
-                autoplay
-                loop
-                className="w-[90px] h-[90px]"
-                url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/67c9092bcd372c3107c54c32/023/023_animation/023_animation.png"
-              />
-            </div>
+
+            <HiSticker />
 
             <h2 className="font-sans text-primary dark:text-primary-dark font-semibold text-[clamp(40px,8vw,80px)] leading-[1.1]">
               Lê Xuân Tiến.
@@ -56,19 +51,13 @@ export function HomeContent() {
           </div>
         </div>
       </div>
+
       {/* About Section */}
       <Section
         background="left-card"
-        // style={{
-        //   '--s-i-top': '-60px',
-        // }}
+        className="[--s-i-top:-22px] sm:[--s-i-top:-40px]"
         iconPosition="right"
-        // icon={
-        //   <LineSticker
-        //     loop={false}
-        //     url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/6808583169d7650139d3175a/013/013_animation/013_animation.png"
-        //   />
-        // }
+        icon={<SectionSticker />}
       >
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
@@ -105,18 +94,10 @@ export function HomeContent() {
         </div>
       </Section>
       <Section
-        style={{
-          '--s-i-top': '-60px',
-        }}
         background="right-card"
+        className="[--s-i-top:-22px] sm:[--s-i-top:-40px]"
         iconPosition="left"
-        // icon={
-        //   <LineSticker
-        //     loop
-        //     scale={0.6}
-        //     url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/6808583169d7650139d3175a/002/002_animation/002_animation.png"
-        //   />
-        // }
+        icon={<SectionSticker />}
       >
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
@@ -137,17 +118,9 @@ export function HomeContent() {
       {/*  */}
       <Section
         background="left-card"
-        style={{
-          '--s-i-top': '-60px',
-        }}
+        className="[--s-i-top:-22px] sm:[--s-i-top:-40px]"
         iconPosition="right"
-        // icon={
-        //   <LineSticker
-        //     loop
-        //     scale={0.6}
-        //     url="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/6808583169d7650139d3175a/004/004_animation/004_animation.png"
-        //   />
-        // }
+        icon={<SectionSticker />}
       >
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">

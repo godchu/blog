@@ -57,7 +57,9 @@
     "retext": "9.0.0",
     "retext-smartypants": "6.2.0",
     "unist-util-visit": "5.0.0",
-    "upng-js": "^2.1.0"
+    "upng-js": "^2.1.0",
+    "fbjs": "3.0.5",
+    "scheduler": "0.26.0"
   },
   "devDependencies": {
     "@babel/eslint-parser": "7.28.0",
