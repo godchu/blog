@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { ApngSticker } from '@/components/apng-sticker/apng-sticker';
+import { ApngCanvas } from '@/features/line-sticker-downloader/components/apng-canvas';
 
 const BASE = 'https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2';
 
@@ -51,5 +51,17 @@ export function SectionSticker({
     setUrl(buildStickerUrl(packId, idx, { animated }));
   }, [animated, pick]);
 
-  return <ApngSticker loop autoPlay showSkeleton={false} className={className} src={url} />;
+  // return <ApngSticker loop autoPlay showSkeleton={false} className={className} src={url} />;
+
+  return (
+    <ApngCanvas
+      className={className}
+      autoPlay
+      loop
+      src={url}
+      showSkeleton={false}
+      runWhenHover
+      // style={{ transform: 'translateY(6px)' }}
+    />
+  );
 }

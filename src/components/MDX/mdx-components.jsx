@@ -2,9 +2,9 @@
 import React from 'react';
 import cn from 'classnames';
 
+import { ApngCanvas } from '@/features/line-sticker-downloader/components/apng-canvas';
 import { finishedTranslations } from '@/utils/finished-translations';
 
-import { ApngSticker } from '../apng-sticker/apng-sticker';
 import ButtonLink from '../button-link';
 import { IconCanary } from '../icon/icon-canary';
 import { IconNavArrow } from '../icon/icon-nav-arrow';
@@ -229,7 +229,7 @@ const InlinePSticker = ({ url, children, ...rest }) => {
   return (
     <div className="inline-flex font-text whitespace-pre-wrap gap-2" {...rest}>
       {children}
-      <ApngSticker
+      <ApngCanvas
         className="inline-block w-[30px] h-[30px]"
         skeletonClassName="inline-block w-[30px] h-[30px]"
         autoPlay
@@ -327,7 +327,7 @@ export const MDXComponents = {
   //
   ImageGallery,
 
-  ApngSticker,
+  ApngCanvas,
 };
 
 for (let key in MDXComponents) {

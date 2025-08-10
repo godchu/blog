@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { ApngSticker } from '@/components/apng-sticker/apng-sticker';
+import { ApngCanvas } from '@/features/line-sticker-downloader/components/apng-canvas';
 
 const BASE = 'https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2';
 
@@ -52,12 +52,22 @@ export default function StickerClient({ animated, pick }) {
   }
 
   return (
-    <ApngSticker
+    // <ApngSticker
+    //   className={boxClass}
+    //   autoPlay
+    //   loop
+    //   src={url}
+    //   showSkeleton
+    //   // style={{ transform: 'translateY(6px)' }}
+    // />
+
+    <ApngCanvas
       className={boxClass}
       autoPlay
       loop
       src={url}
       showSkeleton
+      runWhenHover
       // style={{ transform: 'translateY(6px)' }}
     />
   );
