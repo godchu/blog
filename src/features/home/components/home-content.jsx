@@ -7,7 +7,6 @@ import { IconInstagramRectangle } from '@/components/icon/icon-instagram-rectang
 import IconLocket from '@/components/icon/icon-locket';
 import { IconYoutube } from '@/components/icon/icon-youtube';
 import { ExternalLink } from '@/components/MDX/external-link';
-import { IllustrationBlock } from '@/components/MDX/illustration';
 import Link from '@/components/MDX/link';
 import { LI } from '@/components/MDX/list';
 import { communityMedia } from '@/configs/home';
