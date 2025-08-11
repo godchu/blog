@@ -4,8 +4,10 @@ import NikkiCard from '@/components/common/comment/nikki-card';
 import { IconFacebookRectangle } from '@/components/icon/icon-facebook-rectangle';
 import { IconGithubRectangle } from '@/components/icon/icon-github-rectangle';
 import { IconInstagramRectangle } from '@/components/icon/icon-instagram-rectangle';
+import IconLocket from '@/components/icon/icon-locket';
 import { IconYoutube } from '@/components/icon/icon-youtube';
 import { ExternalLink } from '@/components/MDX/external-link';
+import { IllustrationBlock } from '@/components/MDX/illustration';
 import Link from '@/components/MDX/link';
 import { LI } from '@/components/MDX/list';
 import { communityMedia } from '@/configs/home';
@@ -86,6 +88,13 @@ export function HomeContent() {
               >
                 <IconYoutube width="32px" height="32px" />
               </ExternalLink>
+              <ExternalLink
+                aria-label="Le Xuan Tien on Locket"
+                href={siteConfig.Social.Locket}
+                className={socialLinkClasses}
+              >
+                <IconLocket />
+              </ExternalLink>
             </div>
           </div>
         </div>
@@ -102,7 +111,7 @@ export function HomeContent() {
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <Header>About Me</Header>
 
-            <div className="max-w-[300px] w-full  aspect-[4/4] relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white/40 dark:bg-white/5 transition-transform duration-500 ease-out ">
+            <div className="max-w-[300px] w-full mx-auto md:mx-0 aspect-[4/4] relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white/40 dark:bg-white/5 transition-transform duration-500 ease-out ">
               <Image src="/images/og-home-4-4.jpg" alt="Lê Xuân Tiến" fill priority className="object-cover" />
             </div>
           </div>
@@ -111,20 +120,37 @@ export function HomeContent() {
 
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <p className="max-w-4xl text-lg lg:text-xl my-5 text-secondary dark:text-secondary-dark leading-normal">
-              Yo, I’m Tiến. I make web stuff for fun. Started with random little projects, now I’m out here building
-              apps that (hopefully) don’t break. Big fan of capybaras — the chillest creatures alive. Basically just
-              trying to code like a capybara vibes.
+              Hi, I’m Tiến — born in 1997, Scorpio, and proud graduate of <Link href="https://uit.edu.vn/">UIT</Link>.
+              I’ve always enjoyed making web stuff for fun, starting from tiny side projects to building apps that
+              (hopefully) don’t break.
             </p>
 
             <p className="max-w-4xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-              Fast‑forward to today, my main focus is building scalable, accessible, and user‑friendly web applications
-              as a full‑stack developer. Over the years, I’ve explored various aspects of development, from front‑end
-              frameworks to back‑end systems, constantly improving my skills.
+              Big fan of <Link href="/capybara-gif">capybaras</Link> — the chillest creatures alive — and I like to keep
+              that same calm energy in my work. Outside the screen, you’ll often find me on a{' '}
+              <Link href="https://www.youtube.com/playlist?list=PLVKjMj1m6Uneyx2xDPfC6gtzQUzxglk5Q">
+                badminton court
+              </Link>{' '}
+              chasing the perfect jump smash, or lost in a <Link href="/my-reading-book">good book</Link> to recharge my
+              brain.
             </p>
+
+            <div className="max-w-[300px] w-full mx-auto md:mx-0 aspect-[4/4] relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white/40 dark:bg-white/5 transition-transform duration-500 ease-out mt-5">
+              <Image
+                src="/images/home/badminton.png"
+                alt="Lê Xuân Tiến on badminton"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
+
             <p className="max-w-4xl text-lg lg:text-xl text-secondary dark:text-secondary-dark mt-5 leading-normal">
-              In my spare time, I enjoy <b className="text-link dark:text-link-dark">reverse engineering</b> Facebook’s
-              UI as a personal challenge and a way to explore modern front‑end architecture.
+              Today, I focus on building scalable, accessible, and user-friendly web apps as a full-stack developer.
+              I’ve worked across the stack — from front-end frameworks to back-end systems — always learning, improving,
+              and staying curious.
             </p>
+
             <p className="max-w-4xl text-lg lg:text-xl text-secondary dark:text-secondary-dark mt-5 leading-normal">
               Here are a few technologies I’ve been working with recently:
             </p>
