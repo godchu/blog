@@ -1,0 +1,415 @@
+---
+title: 'How I built my website'
+date: 2025-08-11
+---
+
+Aug 11, 2025
+
+---
+
+<Intro>
+  This is my first post. I’ll start simple: how I put this site together, and a few notes for anyone who likes peeking
+  under the hood.
+</Intro>
+
+---
+
+Stack at a glance
+
+- Next.js (App Router)
+- Tailwind CSS
+- MDX v3 for posts and docs
+
+I bootstrapped the project from the open-source react.dev site because I’ve been a React fan since 2015 and I like its UI/UX choices. It’s a solid base to iterate on.
+
+## What I changed
+
+**Pages Router → App Router**. Moved to the App Router for nested layouts, streaming, and better data boundaries.
+
+**MDX 3 upgrade**. Switched the content pipeline to MDX v3.
+
+**Custom MDX components**. Reworked components so they play nicely with the App Router: `InlineCode`, `CodeBlock`, `CodeDiagram`
+
+Most changes were about server/client boundaries and keeping the components lightweight.
+
+### SSR-friendly theming with cookies
+
+I wanted dark mode without the “flash of wrong theme.” The fix was simple: store the theme in a cookie so the server can read it during SSR and render the correct class on the very first paint.
+
+Here’s the tiny setup I’m using.
+
+Why a cookie ?
+
+- SSR-aware: `cookies()` is available on the server, so `<html>` gets the right class before hydration.
+
+- No FOUC: no waiting for client JS to run before the page looks correct.
+
+- Still simple: you can mirror to localStorage for fast client-side toggles if you want.
+
+#### 1) Read the cookie on the server
+
+```javascript
+// app/layout.tsx
+import React from 'react';
+import { cookies } from 'next/headers';
+
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const theme = (await cookies()).get('theme')?.value ?? 'dark';
+
+  return (
+    <html lang="en" className={theme}>
+      <meta name="color-scheme" content="light dark" />
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+#### 2) Apply theme ASAP on the client
+
+A tiny inline script runs beforeInteractive. It:
+
+- Picks an initial theme (cookie → localStorage → system),
+- Applies it to `<html>`
+- Exposes a setter for your toggle,
+- Writes back to the `cookie` (and optionally `localStorage`) so SSR stays in sync.
+
+```javascript
+// app/theme-script.tsx
+'use client';
+import Script from 'next/script';
+
+export function ThemeScript() {
+  return (
+    <Script
+      id="theme-init"
+      strategy="beforeInteractive"
+      dangerouslySetInnerHTML={{
+        __html: `
+(function () {
+  var KEY = 'theme'; // 'light' | 'dark'
+  function getCookie(n){var m=document.cookie.match(new RegExp('(?:^|; )'+n.replace(/([.$?*|{}()\\[\\]\\\\\\/\\+^])/g,'\\\\$1')+'=([^;]*)'));return m?decodeURIComponent(m[1]):null}
+  function setCookie(n,v){var secure=location.protocol==='https:'?'; Secure':'';document.cookie=n+'='+encodeURIComponent(v)+'; Path=/; Max-Age='+(60*60*24*365)+'; SameSite=Lax'+secure}
+  function apply(t){var html=document.documentElement;html.classList.remove('light','dark');html.classList.add(t);window.__theme=t}
+
+  var cookie = getCookie(KEY);
+  var ls = null; try { ls = localStorage.getItem(KEY) } catch(e){}
+  var system = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  var initial = cookie || ls || system;
+
+  apply(initial);
+  if (cookie !== initial) setCookie(KEY, initial);
+  try { if (ls !== initial) localStorage.setItem(KEY, initial) } catch(e){}
+
+  window.__setPreferredTheme = function(next){
+    if (next !== 'light' && next !== 'dark') return;
+    apply(next);
+    setCookie(KEY, next);
+    try { localStorage.setItem(KEY, next) } catch(e){}
+  };
+})();
+        `,
+      }}
+    />
+  );
+}
+```
+
+Drop `<ThemeScript />` at the top of `<body>` in your layout.
+
+#### 3) Hook up a toggle
+
+```javascript
+<div>
+  <div className="flex dark:hidden">
+    <button
+      type="button"
+      aria-label="Use Dark Mode"
+      onClick={() => {
+        window.__setPreferredTheme('dark');
+      }}
+      className="..."
+    >
+      {darkIcon}
+    </button>
+  </div>
+  <div className="hidden dark:flex">
+    <button
+      type="button"
+      aria-label="Use Light Mode"
+      onClick={() => {
+        window.__setPreferredTheme('light');
+      }}
+      className="..."
+    >
+      {lightIcon}
+    </button>
+  </div>
+</div>
+```
+
+<Note>
+
+- Prefer the cookie as source of truth (SSR depends on it). Mirror to `localStorage` only for UX.
+
+- Set cookie attributes: `Path=/`, `Max-Age=31536000`, `SameSite=Lax`, and `Secure` on HTTPS.
+
+- Add `<meta name="color-scheme" content="light dark" />` so form controls match the theme.
+
+- If you use comment widgets (e.g., Giscus), post a message on theme change to keep them in sync.
+
+</Note>
+
+## Comment
+
+I use **Giscus** for the comment widget—it’s fast to set up and works well with MDX. The only tricky bit is **keeping its theme in sync** when the site theme toggles. Giscus reads a `data-theme` at load time, but for live switches you need to send it a `postMessage` from your theme script.
+
+Here’s the tiny helper I drop into `ThemeScript`:
+
+```javascript
+<script>
+  function setGiscusTheme(theme) {
+    var iframe = document.querySelector('iframe.giscus-frame');
+    if (!iframe || !iframe.contentWindow) return;
+
+    iframe.contentWindow.postMessage(
+      {
+        giscus: {
+          setConfig: {
+            // Use your own theme files or a built-in Giscus theme name
+            theme: theme === 'dark' ? '/themes/dark_dimmed.css' : '/themes/light.css'
+          }
+        }
+      },
+      'https://giscus.app'
+    );
+  }
+
+  // Call after you apply the site theme:
+  // applyTheme(nextTheme); setGiscusTheme(nextTheme);
+</script>
+
+```
+
+## Fun bit: capybara stickers on the homepage
+
+You’ll see a few capybara stickers on the front page. They’re from the [LINE Store](https://store.line.me/search/en?q=capybara+). LINE ships animated stickers as **APNG** files, so the rendering approach is:
+
+1. Fetch the APNG.
+2. Decode frames.
+3. Paint frames to a `<canvas>` on a timer.
+
+```javascript
+'use client';
+
+import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import cn from 'classnames';
+
+import { parseAPNG } from '@/features/line-sticker/utils';
+
+// Note: now accepts AbortSignal
+async function getImgBuffer(url, signal) {
+  const res = await fetch(url, {
+    headers: {
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome Safari',
+    },
+    cache: 'no-store',
+    signal,
+  });
+  if (!res.ok) throw new Error(`Fetch failed: ${res.status}`);
+  return res.arrayBuffer();
+}
+
+export const LineEmojiCanvas25 = forwardRef(
+  (
+    {
+      className,
+      style,
+      canvasClassName,
+      src = '',
+      rate = 1.0,
+      autoPlay = false,
+      loop = true,
+      runWhenHover = false,
+      onClick,
+      onError,
+      size,
+      width,
+      height,
+      showSkeleton = true,
+      skeletonClassName,
+      ...rest
+    },
+    ref,
+  ) => {
+    const wrapperRef = useRef(null);
+    const canvasRef = useRef(null);
+    const apngRef = useRef(null);
+    const playerRef = useRef(null);
+
+    const [ready, setReady] = useState(false);
+    const [staticImg, setStaticImg] = useState(null);
+    const [loading, setLoading] = useState(false);
+
+    // Imperative controls
+    const play = useCallback(() => {
+      playerRef.current?.play?.();
+    }, []);
+    const pause = useCallback(() => {
+      playerRef.current?.pause?.();
+    }, []);
+    const stop = useCallback(() => {
+      playerRef.current?.stop?.();
+    }, []);
+
+    // Play once by temporarily setting numPlays=1 and restarting from frame 0
+    const playOnce = useCallback(() => {
+      // ...
+    }, []);
+
+    // (Re)load APNG when src/rate/loop/autoplay changes
+    useEffect(() => {
+      let cancelled = false;
+      let detachEnd = null;
+
+      let guardRAF = 0;
+      let lastFrameIdx = -1;
+      let lastT = 0;
+
+      const controller = new AbortController();
+
+      // eslint-disable-next-line complexity
+      async function load() {
+        // Cleanup prior player
+        try {
+          playerRef.current?.stop?.();
+        } catch {}
+        apngRef.current = null;
+        playerRef.current = null;
+
+        const canvas = canvasRef.current;
+        if (!canvas || !src) {
+          setLoading(false);
+          return;
+        }
+
+        try {
+          const buf = await getImgBuffer(src, controller.signal);
+          const apng = parseAPNG(buf);
+          if (apng instanceof Error) throw apng;
+
+          await apng.createImages();
+          if (cancelled) return;
+
+          // Canvas sizing with DPR for crisp rendering
+          const dpr = Math.max(1, window.devicePixelRatio || 1);
+
+          // If you want to respect external sizing, we still size the backing store high-DPI
+          const logicalW = apng.width;
+          const logicalH = apng.height;
+
+          // Keep CSS size at logical pixels (overridden by wrapper styles if provided)
+          canvas.style.width = `${logicalW}`;
+          canvas.style.height = `${logicalH}`;
+
+          // Backing store scaled by DPR
+          canvas.width = Math.round(logicalW * dpr);
+          canvas.height = Math.round(logicalH * dpr);
+
+          const ctx = canvas.getContext('2d');
+          if (!ctx) throw new Error('2D context not available');
+          // Map logical coordinates to high-DPI backing store
+          ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+          const player = await apng.getPlayer(ctx);
+
+          apngRef.current = apng;
+          playerRef.current = player;
+
+          // Configure playback
+          player.playbackRate = Math.max(rate, 0.001);
+          apng.numPlays = loop ? 0 : 1; // 0=infinite
+
+          setLoading(false);
+        } catch (err) {
+          // ...
+        }
+      }
+
+      load();
+
+      return () => {
+        // ...
+      };
+    }, [src, rate, loop, autoPlay, onError]);
+
+    return (
+      <div
+        ref={wrapperRef}
+        className={className}
+        style={wrapperStyle}
+        // Desktop/iPad (mouse/trackpad) hover
+        onPointerEnter={handleEnter}
+        onPointerLeave={handleLeave}
+        // Touch start (iOS phones)
+        onTouchStart={handleEnter}
+        {...rest}
+      >
+        {showSkeleton && loading && (
+          <div
+            aria-hidden="true"
+            className={cn(
+              'absolute inset-0 animate-pulse rounded-md',
+              'bg-[linear-gradient(90deg,rgba(0,0,0,0.08),rgba(0,0,0,0.16),rgba(0,0,0,0.08))] bg-[length:200%_100%]',
+              skeletonClassName,
+            )}
+            style={{ backgroundPosition: '200% 0%' }}
+          />
+        )}
+
+        {staticImg ? (
+          <img
+            src={staticImg}
+            onClick={onClick}
+            alt="apng-fallback"
+            draggable={false}
+            className="w-full h-full"
+            style={{ visibility: loading ? 'hidden' : 'visible' }}
+          />
+        ) : (
+          <canvas
+            ref={canvasRef}
+            className={cn('w-full h-full', canvasClassName)}
+            onClick={onClick}
+            style={{ visibility: loading ? 'hidden' : 'visible' }}
+          />
+        )}
+      </div>
+    );
+  },
+);
+```
+
+It’s a tiny player with no runtime dependencies and works well on desktop and Android.
+
+<LineEmojiCanvas25
+  className="inline-block w-[100px] h-[100px]"
+  skeletonClassName="inline-block w-[100px] h-[100px]"
+  autoPlay
+  loop
+  src="https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/6808583169d7650139d3175a/011/011_animation/011_animation.png"
+  showSkeleton
+  width={80}
+  height={80}
+/>
+
+### Known issue (iOS)
+
+Right now there’s a bug where some APNGs **don’t loop on iOS**. Until I find a reliable fix, I’m considering switching those animations to a spritesheet approach (think Facebook’s CSS/canvas sprites): deterministic timing, fewer decoding surprises.
+
+## What’s next
+
+- Fix the iOS APNG loop issue or ship the spritesheet fallback.
+- Keep tightening the MDX components and polishing the content flow.
+
+That’s it for v1. If you spot something odd—or have a neat APNG trick—ping me.

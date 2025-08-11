@@ -12,6 +12,7 @@ import { LI } from '@/components/MDX/list';
 import { communityMedia } from '@/configs/home';
 import { siteConfig } from '@/configs/site-config';
 
+import blogJson from '../../../configs/sidebarBlog.json';
 import nikkiJson from '../../../configs/sidebarNikki.json';
 
 import { CommunityGallery } from './community-gallery';
@@ -30,6 +31,8 @@ export function HomeContent() {
         new Date(a.path.split('/').pop().split('-').reverse().join('-')),
     )
     .slice(0, 5);
+
+  const latestBlogRoutes = [...blogJson.routes[0].routes].slice(0, 5);
 
   const socialLinkClasses = 'hover:text-primary dark:text-primary-dark';
 
@@ -119,9 +122,9 @@ export function HomeContent() {
 
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <p className="max-w-4xl text-lg lg:text-xl my-5 text-secondary dark:text-secondary-dark leading-normal">
-              Hi, I’m Tiến — born in 1997, Scorpio, and proud graduate of <Link href="https://uit.edu.vn/">UIT</Link>.
-              I’ve always enjoyed making web stuff for fun, starting from tiny side projects to building apps that
-              (hopefully) don’t break.
+              Hi, I’m Tiến — born in 1997, Scorpio, lowkeyyy and proud graduate of{' '}
+              <Link href="https://uit.edu.vn/">UIT</Link>. I’ve always enjoyed making web stuff for fun, starting from
+              tiny side projects to building apps that (hopefully) don’t break.
             </p>
 
             <p className="max-w-4xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
@@ -206,7 +209,16 @@ export function HomeContent() {
             </p>
           </div>
 
-          <div className="mx-auto gap-4 flex flex-col max-w-4xl px-5 py-5 lg:px-0">{/*  */}</div>
+          <div className="mx-auto gap-4 flex flex-col max-w-4xl px-5 py-5 lg:px-0">
+            {latestBlogRoutes.map((entry) => (
+              <NikkiCard key={entry.path} title={entry.title} url={entry.path} />
+            ))}
+            <div className="text-center">
+              <Link className="underline" href="/docs/blog">
+                Read more
+              </Link>
+            </div>
+          </div>
         </div>
       </Section>
       <Section

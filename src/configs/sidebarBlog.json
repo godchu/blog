@@ -3,14 +3,15 @@
   "path": "/docs/blog",
   "routes": [
     {
-      "hasSectionHeader": true,
-      "sectionHeader": "STAY INFORMED"
-    },
-    {
       "title": "Blog",
       "path": "/docs/blog",
       "skipBreadcrumb": true,
-      "routes": []
+      "routes": [
+        {
+          "title": "How I built my website",
+          "path": "/docs/blog/how-i-built-my-website"
+        }
+      ]
     }
   ]
 }
