@@ -43,10 +43,6 @@ export function HomeContent() {
       <div className="mx-auto flex flex-col w-full max-w-7xl">
         <div className="flex-col gap-2 flex grow w-full my-20 lg:my-32 mx-auto items-center">
           <div className="px-5 lg:px-0 w-full h-auto max-w-4xl relative">
-            {/* <h1 className="font-display text-[clamp(14px,5vw,16px)] text-link dark:text-link-dark mb-[15px] md:mb-[30px] leading-normal">
-              Hi, my name is
-            </h1> */}
-
             <HiStickerV2 animated />
 
             <h2 className="font-sans text-primary dark:text-primary-dark font-semibold text-[clamp(40px,8vw,80px)] leading-[1.1]">
@@ -204,8 +200,7 @@ export function HomeContent() {
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <Header>Blog</Header>
             <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
-              This blog is the official source for the updates from the tienlx97. Anything important, including release
-              notes or deprecation notices, will be posted here first.
+              Anything important, including release notes or deprecation notices, will be posted here first.
             </p>
           </div>
 
@@ -230,6 +225,10 @@ export function HomeContent() {
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <Header>Photos</Header>
+            <p className="max-w-4xl text-lg lg:text-xl my-5 text-secondary dark:text-secondary-dark leading-normal">
+              A journey in snapshots — from the first giggles, through curious adventures, to the person I’ve grown into
+              now.
+            </p>
           </div>
 
           <CommunityGallery communityMedia={communityMedia} />

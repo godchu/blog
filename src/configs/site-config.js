@@ -39,6 +39,6 @@ export const siteConfig = {
     Instagram: 'https://www.instagram.com/capy.bara.boy/',
     Github: 'https://github.com/tienlx97',
     Youtube: 'https://youtube.com/@tienlx97',
-    Locket: 'https://locket.cam/@yugi0h',
+    Locket: 'https://locket.camera/links/YaMAvtC9iUSbTnCM9',
   },
 };
