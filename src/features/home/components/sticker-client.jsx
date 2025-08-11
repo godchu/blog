@@ -3,7 +3,8 @@
 
 import { useEffect, useState } from 'react';
 
-import { ApngCanvas } from '@/features/line-sticker-downloader/components/apng-canvas';
+import { LineEmojiCanvas25 } from '@/features/line-sticker/components/line-emoji-25';
+import { maxList, packIds } from '@/features/line-sticker/constant/packid';
 
 const BASE = 'https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2';
 
@@ -17,14 +18,6 @@ function hash(s) {
   for (let i = 0; i < s.length; i++) h = ((h << 5) - h + s.charCodeAt(i)) | 0;
   return Math.abs(h);
 }
-
-const packIds = [
-  '63ca068085d52f7ff12596d5',
-  '64e80b97092abe5833a87320',
-  '67c9092bcd372c3107c54c32',
-  '6808583169d7650139d3175a',
-];
-const maxList = [40, 40, 40, 40];
 
 export default function StickerClient({ animated, pick }) {
   const [url, setUrl] = useState(null);
@@ -61,7 +54,7 @@ export default function StickerClient({ animated, pick }) {
     //   // style={{ transform: 'translateY(6px)' }}
     // />
 
-    <ApngCanvas
+    <LineEmojiCanvas25
       className={boxClass}
       autoPlay
       loop

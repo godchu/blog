@@ -36,6 +36,7 @@ export const siteConfig = {
 
   Social: {
     Facebook: 'https://www.facebook.com/tienlx97',
+    Instagram: 'https://www.instagram.com/capy.bara.boy/',
     Github: 'https://github.com/tienlx97',
     Youtube: 'https://youtube.com/@tienlx97',
   },

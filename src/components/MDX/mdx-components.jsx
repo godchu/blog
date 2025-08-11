@@ -2,7 +2,7 @@
 import React from 'react';
 import cn from 'classnames';
 
-import { ApngCanvas } from '@/features/line-sticker-downloader/components/apng-canvas';
+import { LineEmojiCanvas25 } from '@/features/line-sticker/components/line-emoji-25';
 import { finishedTranslations } from '@/utils/finished-translations';
 
 import ButtonLink from '../button-link';
@@ -229,7 +229,7 @@ const InlinePSticker = ({ url, children, ...rest }) => {
   return (
     <div className="inline-flex font-text whitespace-pre-wrap gap-2" {...rest}>
       {children}
-      <ApngCanvas
+      <LineEmojiCanvas25
         className="inline-block w-[30px] h-[30px]"
         skeletonClassName="inline-block w-[30px] h-[30px]"
         autoPlay
@@ -327,7 +327,7 @@ export const MDXComponents = {
   //
   ImageGallery,
 
-  ApngCanvas,
+  LineEmojiCanvas25,
 };
 
 for (let key in MDXComponents) {

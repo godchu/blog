@@ -4,12 +4,12 @@
 
 import { memo } from 'react';
 
-export const IconGitHub = memo((props) => {
+export const IconGitHub = memo(({ width, height, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="1.5em"
-      height="1.5em"
+      width={width ?? '1.5em'}
+      height={height ?? '1.5em'}
       viewBox="0 -2 24 24"
       fill="currentColor"
       {...props}

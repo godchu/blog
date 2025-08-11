@@ -1,7 +1,15 @@
+import Image from 'next/image';
+
 import NikkiCard from '@/components/common/comment/nikki-card';
+import { IconFacebookRectangle } from '@/components/icon/icon-facebook-rectangle';
+import { IconGithubRectangle } from '@/components/icon/icon-github-rectangle';
+import { IconInstagramRectangle } from '@/components/icon/icon-instagram-rectangle';
+import { IconYoutube } from '@/components/icon/icon-youtube';
+import { ExternalLink } from '@/components/MDX/external-link';
 import Link from '@/components/MDX/link';
 import { LI } from '@/components/MDX/list';
 import { communityMedia } from '@/configs/home';
+import { siteConfig } from '@/configs/site-config';
 
 import nikkiJson from '../../../configs/sidebarNikki.json';
 
@@ -21,6 +29,8 @@ export function HomeContent() {
         new Date(a.path.split('/').pop().split('-').reverse().join('-')),
     )
     .slice(0, 5);
+
+  const socialLinkClasses = 'hover:text-primary dark:text-primary-dark';
 
   return (
     <div className="ps-0">
@@ -46,6 +56,37 @@ export function HomeContent() {
               I build easy-to-use digital products from frontend to backend.
               <span className="block text-sm mt-2 opacity-70">(also quietly operating as capybara boy 🐾)</span>
             </p>
+
+            <div className="flex flex-row items-center gap-x-3 mt-5">
+              <ExternalLink
+                aria-label="Le Xuan Tien on Github"
+                href={siteConfig.Social.Github}
+                className={socialLinkClasses}
+              >
+                <IconGithubRectangle width="32px" height="32px" />
+              </ExternalLink>
+              <ExternalLink
+                aria-label="Le Xuan Tien on Instagram"
+                href={siteConfig.Social.Instagram}
+                className={socialLinkClasses}
+              >
+                <IconInstagramRectangle width="32px" height="32px" />
+              </ExternalLink>
+              <ExternalLink
+                aria-label="Le Xuan Tien on Facebook"
+                href={siteConfig.Social.Facebook}
+                className={socialLinkClasses}
+              >
+                <IconFacebookRectangle width="32px" height="32px" />
+              </ExternalLink>
+              <ExternalLink
+                aria-label="Le Xuan Tien on Youtube"
+                href={siteConfig.Social.Youtube}
+                className={socialLinkClasses}
+              >
+                <IconYoutube width="32px" height="32px" />
+              </ExternalLink>
+            </div>
           </div>
         </div>
       </div>
@@ -60,26 +101,31 @@ export function HomeContent() {
         <div className="w-full">
           <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
             <Header>About Me</Header>
-            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+
+            <div className="max-w-[300px] w-full  aspect-[4/4] relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white/40 dark:bg-white/5 transition-transform duration-500 ease-out ">
+              <Image src="/images/og-home-4-4.jpg" alt="Lê Xuân Tiến" fill priority className="object-cover" />
+            </div>
+          </div>
+
+          {/* Single responsive photo */}
+
+          <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
+            <p className="max-w-4xl text-lg lg:text-xl my-5 text-secondary dark:text-secondary-dark leading-normal">
               Yo, I’m Tiến. I make web stuff for fun. Started with random little projects, now I’m out here building
               apps that (hopefully) don’t break. Big fan of capybaras — the chillest creatures alive. Basically just
               trying to code like a capybara vibes.
             </p>
-          </div>
 
-          <CommunityGallery communityMedia={communityMedia} />
-
-          <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
-            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+            <p className="max-w-4xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
               Fast‑forward to today, my main focus is building scalable, accessible, and user‑friendly web applications
               as a full‑stack developer. Over the years, I’ve explored various aspects of development, from front‑end
               frameworks to back‑end systems, constantly improving my skills.
             </p>
-            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark mt-5 leading-normal">
+            <p className="max-w-4xl text-lg lg:text-xl text-secondary dark:text-secondary-dark mt-5 leading-normal">
               In my spare time, I enjoy <b className="text-link dark:text-link-dark">reverse engineering</b> Facebook’s
               UI as a personal challenge and a way to explore modern front‑end architecture.
             </p>
-            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark mt-5 leading-normal">
+            <p className="max-w-4xl text-lg lg:text-xl text-secondary dark:text-secondary-dark mt-5 leading-normal">
               Here are a few technologies I’ve been working with recently:
             </p>
             <ul className="ms-6 my-3 grid grid-cols-2 gap-x-[10px] px-2 mt-5 max-w-[400px] list-disc">
@@ -136,6 +182,20 @@ export function HomeContent() {
           </div>
 
           <div className="mx-auto gap-4 flex flex-col max-w-4xl px-5 py-5 lg:px-0">{/*  */}</div>
+        </div>
+      </Section>
+      <Section
+        background="right-card"
+        className="[--s-i-top:-25px] sm:[--s-i-top:-40px]"
+        iconPosition="left"
+        icon={<SectionSticker />}
+      >
+        <div className="w-full">
+          <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
+            <Header>Photos</Header>
+          </div>
+
+          <CommunityGallery communityMedia={communityMedia} />
         </div>
       </Section>
     </div>

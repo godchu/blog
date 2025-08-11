@@ -3,7 +3,7 @@
 import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { parseAPNG } from '@/features/line-sticker-downloader/utils';
+import { parseAPNG } from '@/features/line-sticker/utils';
 
 async function getImgBuffer(url) {
   const res = await fetch(url, {

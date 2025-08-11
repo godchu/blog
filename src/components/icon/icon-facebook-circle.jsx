@@ -4,13 +4,13 @@
 
 import { memo } from 'react';
 
-export const IconFacebookCircle = memo((props) => {
+export const IconFacebookCircle = memo(({ width, height, ...props }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"
-      width="1.4em"
-      height="1.4em"
+      width={width ?? '1.4em'}
+      height={height ?? '1.4em'}
       fill="currentcolor"
       strokeWidth={0}
       {...props}

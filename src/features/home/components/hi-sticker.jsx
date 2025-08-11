@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from 'react';
 
-import { LineSticker } from '@/features/line-sticker-downloader/components';
+import { LineSticker } from '@/features/line-sticker/components';
 
 const BASE = 'https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2';
 

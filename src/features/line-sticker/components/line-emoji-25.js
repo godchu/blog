@@ -3,7 +3,7 @@
 import React, { forwardRef, useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
 import cn from 'classnames';
 
-import { parseAPNG } from '@/features/line-sticker-downloader/utils';
+import { parseAPNG } from '@/features/line-sticker/utils';
 
 // Note: now accepts AbortSignal
 async function getImgBuffer(url, signal) {
@@ -18,7 +18,7 @@ async function getImgBuffer(url, signal) {
   return res.arrayBuffer();
 }
 
-export const ApngCanvas = forwardRef(
+export const LineEmojiCanvas25 = forwardRef(
   (
     {
       className,
@@ -60,6 +60,21 @@ export const ApngCanvas = forwardRef(
       playerRef.current?.stop?.();
     }, []);
 
+    function restartPlayer(player) {
+      try {
+        player.stop?.();
+        player.seekToFrame?.(0);
+      } catch {}
+      // double-rAF to settle canvas before replay (iOS quirk)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          try {
+            player.play?.();
+          } catch {}
+        });
+      });
+    }
+
     // Play once by temporarily setting numPlays=1 and restarting from frame 0
     const playOnce = useCallback(() => {
       const apng = apngRef.current;
@@ -100,6 +115,11 @@ export const ApngCanvas = forwardRef(
     useEffect(() => {
       let cancelled = false;
       let detachEnd = null;
+
+      let guardRAF = 0;
+      let lastFrameIdx = -1;
+      let lastT = 0;
+
       const controller = new AbortController();
 
       // eslint-disable-next-line complexity
@@ -170,24 +190,53 @@ export const ApngCanvas = forwardRef(
           // Robust manual looping for iOS Safari (and as a backstop)
           if (loop) {
             const restart = () => {
-              try {
-                player.stop?.();
-                player.seekToFrame?.(0);
-              } catch {}
-              // Double-rAF to fully settle canvas state before replay
-              requestAnimationFrame(() => {
-                requestAnimationFrame(() => {
-                  if (!cancelled && playerRef.current === player) {
-                    try {
-                      player.play?.();
-                    } catch {}
-                  }
-                });
-              });
+              // try {
+              //   player.stop?.();
+              //   player.seekToFrame?.(0);
+              // } catch {}
+              // // Double-rAF to fully settle canvas state before replay
+              // requestAnimationFrame(() => {
+              //   requestAnimationFrame(() => {
+              //     if (!cancelled && playerRef.current === player) {
+              //       try {
+              //         player.play?.();
+              //       } catch {}
+              //     }
+              //   });
+              // });
+
+              restartPlayer(player);
             };
             player.on?.('end', restart);
             detachEnd = () => player.off?.('end', restart);
           }
+
+          // iOS loop guard: if we stall at last frame or paused unexpectedly, restart
+          const guard = (t) => {
+            if (cancelled || playerRef.current !== player) return;
+            // Throttle checks ~2/sec
+            if (t - lastT > 500) {
+              lastT = t;
+              const atEnd =
+                typeof player.currentFrameNumber === 'number'
+                  ? player.currentFrameNumber >= (apng.frames?.length ?? 1) - 1
+                  : false;
+              // If paused but should loop, or stuck at end, kick it
+              if ((loop && player.paused) || atEnd) {
+                restartPlayer(player);
+              } else {
+                // also detect “no progress” for 2+ seconds
+                const cur = player.currentFrameNumber ?? -1;
+                if (cur === lastFrameIdx) {
+                  restartPlayer(player);
+                }
+                lastFrameIdx = cur;
+              }
+            }
+            guardRAF = requestAnimationFrame(guard);
+          };
+
+          guardRAF = requestAnimationFrame(guard);
 
           setReady(true);
 
@@ -216,6 +265,7 @@ export const ApngCanvas = forwardRef(
           playerRef.current?.stop?.();
         } catch {}
         detachEnd?.();
+        if (guardRAF) cancelAnimationFrame(guardRAF);
         apngRef.current = null;
         playerRef.current = null;
       };
@@ -236,10 +286,9 @@ export const ApngCanvas = forwardRef(
         const p = playerRef.current;
         if (!p) return;
         requestAnimationFrame(() => {
-          if (playerRef.current === p && p.paused) {
-            try {
-              p.play?.();
-            } catch {}
+          if (playerRef.current !== p) return;
+          if (p.paused) {
+            restartPlayer(p);
           }
         });
       };
@@ -274,6 +323,21 @@ export const ApngCanvas = forwardRef(
 
       io.observe(el);
       return () => io.disconnect();
+    }, [autoPlay]);
+
+    useEffect(() => {
+      if (!autoPlay) return;
+      const onFirstTouch = () => {
+        const p = playerRef.current;
+        if (p) {
+          try {
+            p.play?.();
+          } catch {}
+        }
+        window.removeEventListener('touchstart', onFirstTouch, { capture: true });
+      };
+      window.addEventListener('touchstart', onFirstTouch, { capture: true });
+      return () => window.removeEventListener('touchstart', onFirstTouch, { capture: true });
     }, [autoPlay]);
 
     // Wrapper sizing: only apply when not nullish
