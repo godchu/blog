@@ -9,3 +9,24 @@ html {
   scroll-padding-top: 64px;
   /* Tailwind: scroll-pt-16 */
 }
+
+
+
+/* animationDelay: '0s',
+animationFillMode: 'forwards',
+animationIterationCount: 'infinite',
+animationPlayState: 'running',
+animationTimingFunction: 'steps(1)',
+left: '0',
+right: null,
+position: 'absolute',
+top: '0', */
+.sprite {
+  animation-delay: 0s;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+  animation-timing-function: steps(1);
+  left: 0;
+  top: 0;
+  position: absolute;
+}

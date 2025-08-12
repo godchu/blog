@@ -57,7 +57,6 @@ export default function StickerClient({ animated, pick }) {
     <LineEmojiCanvas25
       className={boxClass}
       autoPlay
-      loop
       src={url}
       showSkeleton
       runWhenHover

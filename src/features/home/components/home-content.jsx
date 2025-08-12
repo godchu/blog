@@ -219,6 +219,26 @@ export function HomeContent() {
       <Section
         background="right-card"
         className="[--s-i-top:-25px] sm:[--s-i-top:-40px]"
+        iconPosition="right"
+        icon={<SectionSticker />}
+      >
+        <div className="w-full">
+          <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
+            <Header>Novel</Header>
+            <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
+              In my spare time, I translate light novels into Vietnamese
+            </p>
+          </div>
+
+          <div className="mx-auto gap-4 flex flex-col max-w-4xl px-5 py-5 lg:px-0">
+            <NikkiCard title="To haru" url="/docs/novel/to-haru" />
+            <NikkiCard title="Mizu Zokusei no Mahoutsukai" url="/docs/novel/mizu-zokusei-no-mahoutsukai" />
+          </div>
+        </div>
+      </Section>
+      <Section
+        background="right-card"
+        className="[--s-i-top:-25px] sm:[--s-i-top:-40px]"
         iconPosition="left"
         icon={<SectionSticker />}
       >

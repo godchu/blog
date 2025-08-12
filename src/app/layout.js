@@ -1,5 +1,5 @@
 import React from 'react';
-import { GoogleTagManager } from '@next/third-parties/google';
+import { GoogleAnalytics } from '@next/third-parties/google';
 import { cookies } from 'next/headers';
 
 import TopNavV2 from '@/components/layout/top-nav/top-nav.v2';
@@ -30,7 +30,7 @@ export default async function RootLayout({ children }) {
 
       <body className="font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base">
         <ThemeScript />
-        {process.env.NODE_ENV === 'production' && <GoogleTagManager gaId={siteConfig.Gtag} />}
+        {process.env.NODE_ENV === 'production' && <GoogleAnalytics gaId={siteConfig.Gtag} />}
         {/* <SocialBanner /> */}
         <TopNavV2 />
         {children}

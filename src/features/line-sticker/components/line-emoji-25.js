@@ -49,6 +49,9 @@ export const LineEmojiCanvas25 = forwardRef(
     const [staticImg, setStaticImg] = useState(null);
     const [loading, setLoading] = useState(false);
 
+    //
+    const [ended, setEnded] = useState(false);
+
     // Imperative controls
     const play = useCallback(() => {
       playerRef.current?.play?.();
@@ -127,6 +130,7 @@ export const LineEmojiCanvas25 = forwardRef(
         setLoading(true);
         setReady(false);
         setStaticImg(null);
+        setEnded(false); // NEW: fresh play session
 
         // Cleanup prior player
         try {
@@ -188,55 +192,86 @@ export const LineEmojiCanvas25 = forwardRef(
           apng.numPlays = loop ? 0 : 1; // 0=infinite
 
           // Robust manual looping for iOS Safari (and as a backstop)
-          if (loop) {
-            const restart = () => {
-              // try {
-              //   player.stop?.();
-              //   player.seekToFrame?.(0);
-              // } catch {}
-              // // Double-rAF to fully settle canvas state before replay
-              // requestAnimationFrame(() => {
-              //   requestAnimationFrame(() => {
-              //     if (!cancelled && playerRef.current === player) {
-              //       try {
-              //         player.play?.();
-              //       } catch {}
-              //     }
-              //   });
-              // });
+          // if (loop) {
+          //   const restart = () => {
+          //     // try {
+          //     //   player.stop?.();
+          //     //   player.seekToFrame?.(0);
+          //     // } catch {}
+          //     // // Double-rAF to fully settle canvas state before replay
+          //     // requestAnimationFrame(() => {
+          //     //   requestAnimationFrame(() => {
+          //     //     if (!cancelled && playerRef.current === player) {
+          //     //       try {
+          //     //         player.play?.();
+          //     //       } catch {}
+          //     //     }
+          //     //   });
+          //     // });
 
-              restartPlayer(player);
-            };
+          //     restartPlayer(player);
+          //   };
+          //   player.on?.('end', restart);
+          //   detachEnd = () => player.off?.('end', restart);
+          // }
+
+          if (loop) {
+            const restart = () => restartPlayer(player);
             player.on?.('end', restart);
             detachEnd = () => player.off?.('end', restart);
+          } else {
+            const onEnd = () => setEnded(true);
+            player.on?.('end', onEnd);
+            detachEnd = () => player.off?.('end', onEnd);
           }
 
           // iOS loop guard: if we stall at last frame or paused unexpectedly, restart
-          const guard = (t) => {
-            if (cancelled || playerRef.current !== player) return;
-            // Throttle checks ~2/sec
-            if (t - lastT > 500) {
-              lastT = t;
-              const atEnd =
-                typeof player.currentFrameNumber === 'number'
-                  ? player.currentFrameNumber >= (apng.frames?.length ?? 1) - 1
-                  : false;
-              // If paused but should loop, or stuck at end, kick it
-              if ((loop && player.paused) || atEnd) {
-                restartPlayer(player);
-              } else {
-                // also detect “no progress” for 2+ seconds
+          // const guard = (t) => {
+          //   if (cancelled || playerRef.current !== player) return;
+          //   // Throttle checks ~2/sec
+          //   if (t - lastT > 500) {
+          //     lastT = t;
+          //     const atEnd =
+          //       typeof player.currentFrameNumber === 'number'
+          //         ? player.currentFrameNumber >= (apng.frames?.length ?? 1) - 1
+          //         : false;
+          //     // If paused but should loop, or stuck at end, kick it
+          //     if ((loop && player.paused) || atEnd) {
+          //       restartPlayer(player);
+          //     } else {
+          //       // also detect “no progress” for 2+ seconds
+          //       const cur = player.currentFrameNumber ?? -1;
+          //       if (cur === lastFrameIdx) {
+          //         restartPlayer(player);
+          //       }
+          //       lastFrameIdx = cur;
+          //     }
+          //   }
+          //   guardRAF = requestAnimationFrame(guard);
+          // };
+
+          // guardRAF = requestAnimationFrame(guard);
+
+          // Only guard/restart when looping
+          if (loop) {
+            const guard = (t) => {
+              if (cancelled || playerRef.current !== player) return;
+              if (t - lastT > 500) {
+                lastT = t;
+                const total = apng.frames?.length ?? 1;
                 const cur = player.currentFrameNumber ?? -1;
-                if (cur === lastFrameIdx) {
+                const atEnd = cur >= total - 1;
+
+                // For loop=true: kick if paused/stalled or at end
+                if (player.paused || atEnd || cur === lastFrameIdx) {
                   restartPlayer(player);
                 }
                 lastFrameIdx = cur;
               }
-            }
+              guardRAF = requestAnimationFrame(guard);
+            };
             guardRAF = requestAnimationFrame(guard);
-          };
-
-          guardRAF = requestAnimationFrame(guard);
+          }
 
           setReady(true);
 
@@ -307,6 +342,22 @@ export const LineEmojiCanvas25 = forwardRef(
 
     // Optional: Intersection-based autoplay/pause (saves work when offscreen)
     useEffect(() => {
+      // if (!autoPlay) return;
+      // const el = wrapperRef.current;
+      // if (!el) return;
+
+      // const io = new IntersectionObserver(
+      //   ([entry]) => {
+      //     const p = playerRef.current;
+      //     if (!p) return;
+      //     if (entry.isIntersecting) p.play?.();
+      //     else p.pause?.();
+      //   },
+      //   { threshold: 0.1 },
+      // );
+
+      // io.observe(el);
+      // return () => io.disconnect();
       if (!autoPlay) return;
       const el = wrapperRef.current;
       if (!el) return;
@@ -315,15 +366,20 @@ export const LineEmojiCanvas25 = forwardRef(
         ([entry]) => {
           const p = playerRef.current;
           if (!p) return;
-          if (entry.isIntersecting) p.play?.();
-          else p.pause?.();
+
+          if (entry.isIntersecting) {
+            if (!loop && ended) return; // NEW: don't replay after finished
+            if (autoPlay) p.play?.();
+          } else {
+            p.pause?.();
+          }
         },
         { threshold: 0.1 },
       );
 
       io.observe(el);
       return () => io.disconnect();
-    }, [autoPlay]);
+    }, [autoPlay, loop, ended]);
 
     useEffect(() => {
       if (!autoPlay) return;
@@ -352,10 +408,16 @@ export const LineEmojiCanvas25 = forwardRef(
     };
 
     // Hover/touch handlers for cross-platform “run when hover”
+    // const handleEnter = useCallback(() => {
+    //   if (!runWhenHover || !ready) return;
+    //   playerRef.current?.play?.();
+    // }, [runWhenHover, ready]);
+
     const handleEnter = useCallback(() => {
       if (!runWhenHover || !ready) return;
+      if (!loop && ended) return; // NEW: don't restart on hover after finished
       playerRef.current?.play?.();
-    }, [runWhenHover, ready]);
+    }, [runWhenHover, ready, loop, ended]);
 
     const handleLeave = useCallback(() => {
       if (!runWhenHover) return;
@@ -372,7 +434,7 @@ export const LineEmojiCanvas25 = forwardRef(
         style={wrapperStyle}
         // Desktop/iPad (mouse/trackpad) hover
         onPointerEnter={handleEnter}
-        onPointerLeave={handleLeave}
+        // onPointerLeave={handleLeave}
         // Touch start (iOS phones)
         onTouchStart={handleEnter}
         {...rest}
