@@ -11,8 +11,8 @@
       "path": "/docs/fun/365-ngay-tieng-anh/loi-mo-dau",
       "routes": [
         {
-          "title": "Ngày 1: IPA",
-          "path": "/docs/fun/365-ngay-tieng-anh/ipa"
+          "title": "001: IPA",
+          "path": "/docs/fun/365-ngay-tieng-anh/001-ipa-phan-1"
         }
       ]
     }
