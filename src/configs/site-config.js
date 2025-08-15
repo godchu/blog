@@ -41,4 +41,7 @@ export const siteConfig = {
     Youtube: 'https://youtube.com/@tienlx97',
     Locket: 'https://locket.camera/links/YaMAvtC9iUSbTnCM9',
   },
+
+  site: 'https://tienlx97.io.vn',
+  siteName: 'Capybara Boy',
 };

@@ -41,6 +41,7 @@
     "esquery": "1.6.0",
     "fbjs": "3.0.5",
     "github-slugger": "2.0.0",
+    "gray-matter": "^4.0.3",
     "js-cookie": "3.0.5",
     "mdast-util-to-string": "4.0.0",
     "mdx-embed": "1.1.2",

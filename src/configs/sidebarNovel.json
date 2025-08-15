@@ -8,7 +8,8 @@
     },
     {
       "title": "Tóm tắt",
-      "path": "/docs/novel/to-haru"
+      "path": "/docs/novel/to-haru",
+      "skipTitle": true
     },
     {
       "title": "Lời mở đầu",

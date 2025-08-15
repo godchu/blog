@@ -6,13 +6,13 @@ import { H1 } from './MDX/heading';
 import Breadcrumbs from './breadcrumbs';
 import Tag from './tag';
 
-function PageHeading({ title, status, version, tags = [], breadcrumbs }) {
+function PageHeading({ title, status, version, tags = [], breadcrumbs, skipTitle }) {
   return (
     <div className="px-5 sm:px-12 pt-3.5">
       <div className="max-w-4xl ms-0 2xl:mx-auto">
-        {breadcrumbs ? <Breadcrumbs breadcrumbs={breadcrumbs} /> : undefined}
+        {breadcrumbs && <Breadcrumbs breadcrumbs={breadcrumbs} />}
         <H1 className="mt-0 text-primary dark:text-primary-dark -mx-.5 break-words">
-          {title}
+          {!skipTitle && title}
           {version === 'canary' && (
             <IconCanary
               title=" - This feature is available in the latest Canary version of React"

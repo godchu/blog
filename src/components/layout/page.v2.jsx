@@ -85,6 +85,7 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
                     description={description}
                     tags={route?.tags ?? meta?.tags}
                     breadcrumbs={breadcrumbs}
+                    skipTitle={route.skipTitle}
                   />
                 </div>
                 <div className="px-5 sm:px-12">
@@ -98,9 +99,6 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
                     <DocsPageFooter route={route} nextRoute={nextRoute} prevRoute={prevRoute} />
                   )}
 
-                  {/* <div className="py-4 mx-auto max-w-4xl ms-0 2xl:mx-auto">
-                    <Giscus />
-                  </div> */}
                   <div className={cn('max-w-7xl mx-auto', section === 'blog' && 'lg:flex lg:flex-col lg:items-center')}>
                     <Giscus />
                   </div>

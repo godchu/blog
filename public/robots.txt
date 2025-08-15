@@ -1,2 +1,4 @@
+# app/robots.txt
 User-agent: *
-Disallow:
+Allow: /
+Sitemap: https://tienlx97.io.vn/sitemap.xml
