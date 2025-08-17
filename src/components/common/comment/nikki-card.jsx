@@ -13,7 +13,6 @@ function NikkiCard({ title, url }) {
           <h2 className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
             {title}
           </h2>
-          {/* <div className="text-link text-base dark:text-link-dark hover:underline mt-4">Read more</div> */}
         </div>
       </div>
     </Link>

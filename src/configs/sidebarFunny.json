@@ -11,12 +11,12 @@
       "path": "/docs/fun/365-ngay-tieng-anh/loi-mo-dau",
       "routes": [
         {
-          "title": "001: IPA",
-          "path": "/docs/fun/365-ngay-tieng-anh/001-ipa-phan-1"
+          "title": "001",
+          "path": "/docs/fun/365-ngay-tieng-anh/001"
         },
         {
-          "title": "002: IPA âm /ɪ/",
-          "path": "/docs/fun/365-ngay-tieng-anh/002-ipa-am-ɪ"
+          "title": "002",
+          "path": "/docs/fun/365-ngay-tieng-anh/002"
         }
       ]
     }

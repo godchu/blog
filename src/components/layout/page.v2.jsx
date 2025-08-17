@@ -85,7 +85,7 @@ function PageV2({ children, toc, routeTree, meta, section, languages }) {
                     description={description}
                     tags={route?.tags ?? meta?.tags}
                     breadcrumbs={breadcrumbs}
-                    skipTitle={route.skipTitle}
+                    skipTitle={route?.skipTitle}
                   />
                 </div>
                 <div className="px-5 sm:px-12">

@@ -9,7 +9,10 @@
       "routes": [
         {
           "title": "How I built my website",
-          "path": "/docs/blog/how-i-built-my-website"
+          "path": "/docs/blog/how-i-built-my-website",
+          "image": "/images/og-home.jpg",
+          "date": "August 11, 2025",
+          "description": "This is my first post. I’ll start simple: how I put this site together, and a few notes for anyone who likes peeking under the hood."
         }
       ]
     }

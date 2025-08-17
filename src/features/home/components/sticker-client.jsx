@@ -45,15 +45,6 @@ export default function StickerClient({ animated, pick }) {
   }
 
   return (
-    // <ApngSticker
-    //   className={boxClass}
-    //   autoPlay
-    //   loop
-    //   src={url}
-    //   showSkeleton
-    //   // style={{ transform: 'translateY(6px)' }}
-    // />
-
     <LineEmojiCanvas25
       className={boxClass}
       autoPlay

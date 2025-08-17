@@ -1,17 +1,9 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
 
 import { LineEmojiCanvas25 } from '@/features/line-sticker/components/line-emoji-25';
 import { BASE, maxList, packIds } from '@/features/line-sticker/constant/packid';
-
-const SpriteAnimatorLAzy = dynamic(
-  () => import('@/features/line-sticker/components/sprite-animator/sprite-animator').then((r) => r.SpriteAnimator),
-  {
-    ssr: false,
-  },
-);
 
 function buildStickerUrl(packId, index, { animated = true, ext = 'png' } = {}) {
   const n = String(index).padStart(3, '0');
@@ -52,23 +44,6 @@ export function SectionSticker({
 
   // return <ApngSticker loop autoPlay showSkeleton={false} className={className} src={url} />;
 
-  const data = {
-    frame_count: 7,
-    frame_rate: 143, // see note below
-    frames_per_row: 7, // ← one row, seven columns (left→right)
-    frames_per_column: 1, // ← single row
-    label: 'Betakuma clapping',
-    pack: { name: "Betakkuma's Sports Frenzy" },
-    sprite_image: {
-      uri: 'https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/653c693f3a007919c0167e64/003/003_animation/spritesheet.png',
-    },
-    image: {
-      uri: 'https://raw.githubusercontent.com/godchu/blog-assets/refs/heads/main/line-packs-v2/653c693f3a007919c0167e64/003/003/003.png',
-      width: 180, // make sure these are numbers
-      height: 180, // not strings
-    },
-  };
-
   return (
     <LineEmojiCanvas25
       className={className}
@@ -79,13 +54,5 @@ export function SectionSticker({
       runWhenHover
       // style={{ transform: 'translateY(6px)' }}
     />
-
-    // <SpriteAnimatorLAzy
-    //   data={data}
-    //   autoPlay
-    //   loop
-    //   // playbackRate={1} // optional: change speed at runtime
-    //   className="rounded-xl"
-    // />
   );
 }
