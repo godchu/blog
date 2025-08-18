@@ -1,5 +1,13 @@
+import React from 'react';
 import Image from 'next/image';
 
+// import { IconGolang } from '@/components/icon/icon-golang';
+// import { IconJavascript } from '@/components/icon/icon-javascript';
+// import { IconNodejs } from '@/components/icon/icon-nodejs';
+// import { IconReact } from '@/components/icon/icon-react';
+// import { IconReactNative } from '@/components/icon/icon-react-native';
+// import { IconTypescript } from '@/components/icon/icon-typescript';
+// import { ExternalLink } from '@/components/MDX/external-link';
 import Link from '@/components/MDX/link';
 import { LI } from '@/components/MDX/list';
 
@@ -8,6 +16,17 @@ import { Section } from './section';
 import { SectionSticker } from './section-sticker';
 
 const skills = ['JavaScript', 'TypeScript', 'Node.js', 'Golang', 'React', 'React Native'];
+
+// const skills = [
+//   <IconJavascript width="36px" height="36px" />,
+//   <IconTypescript width="32px" height="32px" />,
+//   <IconNodejs width="32px" height="32px" />,
+//   <IconGolang width="32px" height="32px" />,
+//   <IconReact width="32px" height="32px" />,
+//   <IconReactNative width="32px" height="32px" />,
+// ];
+
+// const socialLinkClasses = 'hover:text-primary dark:text-primary-dark';
 
 export const AboutSection = () => {
   return (
@@ -19,7 +38,7 @@ export const AboutSection = () => {
     >
       <div className="w-full">
         <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
-          <Header>About Me</Header>
+          <Header num="01">About Me</Header>
 
           <div className="max-w-[300px] w-full mx-auto md:mx-0 aspect-[4/4] relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white/40 dark:bg-white/5 transition-transform duration-500 ease-out ">
             <Image src="/images/og-home-4-4.jpg" alt="Lê Xuân Tiến" fill priority className="object-cover" />
@@ -68,6 +87,12 @@ export const AboutSection = () => {
               <LI key={i}>{skill}</LI>
             ))}
           </ul>
+
+          {/* <div className="flex flex-row items-center gap-x-3 mt-5">
+            {skills.map((skill, i) => (
+              <React.Fragment key={i}>{skill}</React.Fragment>
+            ))}
+          </div> */}
         </div>
       </div>
     </Section>

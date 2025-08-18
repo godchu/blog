@@ -28,7 +28,7 @@ export const NikkiSection = () => {
     >
       <div className="w-full">
         <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
-          <Header>{title}</Header>
+          <Header num="02">{title}</Header>
           <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
             {description}
           </p>

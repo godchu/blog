@@ -11,10 +11,10 @@ import { HiSticker } from './hi-sticker';
 
 const socialLinkClasses = 'hover:text-primary dark:text-primary-dark';
 
-export const MainSection = () => {
+export const HeroSection = () => {
   return (
-    <div className="mx-auto flex flex-col w-full max-w-7xl">
-      <div className="flex-col gap-2 flex grow w-full my-20 lg:my-32 mx-auto items-center">
+    <section className="mx-auto flex flex-col w-full max-w-7xl lg:min-h-screen lg:h-screen">
+      <div className="flex-col gap-2 flex grow w-full my-20 lg:mb-0 lg:mt-[-96px] lg:justify-center mx-auto items-center">
         <div className="px-5 lg:px-0 w-full h-auto max-w-4xl relative">
           <HiSticker animated />
 
@@ -25,8 +25,11 @@ export const MainSection = () => {
             I build things for fun.
           </h3>
           <p className="mt-5 max-w-[540px]">
-            I’m a <b>Full‑stack</b> developer at <Link href="https://dainghiasteel.com/">Dai Nghia Steel</Link>, where I
-            build easy-to-use digital products from frontend to backend.
+            {/* I’m a <b>Full‑stack</b> developer at <Link href="https://dainghiasteel.com/">Dai Nghia Steel</Link>, where I
+            build easy-to-use digital products from frontend to backend. */}
+            I’m a <b>Full‑stack</b> developer and <b>import–export</b> documentation specialist at{' '}
+            <Link href="https://dainghiasteel.com/">Dai Nghia Steel</Link>, where I create accessible digital products
+            and handle customs paperwork for the company’s shipments.
             <span className="block text-sm mt-2 opacity-70">(also quietly operating as capybara boy 🐾)</span>
           </p>
 
@@ -67,8 +70,12 @@ export const MainSection = () => {
               <IconLocket />
             </ExternalLink>
           </div>
+
+          <button className="font-medium mt-12 px-7 py-2 border-solid border-[1px] border-brand dark:border-brand-dark text-brand dark:text-brand-dark rounded-md pointer text-base transition-opacity betterhover:hover:bg-highlight-dark betterhover:hover:bg-highlight betterhover:hover:border-[1.5px]">
+            Check out my blog
+          </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
