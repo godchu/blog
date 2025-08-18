@@ -1,3 +1,5 @@
+import NLink from 'next/link';
+
 import { IconFacebookRectangle } from '@/components/icon/icon-facebook-rectangle';
 import { IconGithubRectangle } from '@/components/icon/icon-github-rectangle';
 import { IconInstagramRectangle } from '@/components/icon/icon-instagram-rectangle';
@@ -11,6 +13,9 @@ import { HiSticker } from './hi-sticker';
 
 const socialLinkClasses = 'hover:text-primary dark:text-primary-dark';
 
+const name = 'Lê Xuân Tiến.';
+const checkBlog = 'Check out my blog';
+
 export const HeroSection = () => {
   return (
     <section className="mx-auto flex flex-col w-full max-w-7xl lg:min-h-screen lg:h-screen">
@@ -19,7 +24,7 @@ export const HeroSection = () => {
           <HiSticker animated />
 
           <h2 className="font-sans text-primary dark:text-primary-dark font-semibold text-[clamp(40px,8vw,80px)] leading-[1.1]">
-            Lê Xuân Tiến.
+            {name}
           </h2>
           <h3 className="font-sans font-semibold text-[clamp(40px,8vw,80px)] mt-[5px] leading-[0.9]">
             I build things for fun.
@@ -71,9 +76,14 @@ export const HeroSection = () => {
             </ExternalLink>
           </div>
 
-          <button className="font-medium mt-12 px-7 py-2 border-solid border-[1px] border-brand dark:border-brand-dark text-brand dark:text-brand-dark rounded-md pointer text-base transition-opacity betterhover:hover:bg-highlight-dark betterhover:hover:bg-highlight betterhover:hover:border-[1.5px]">
-            Check out my blog
-          </button>
+          <div className="mt-8">
+            <NLink
+              href="/docs/blog"
+              className="border-[1px] border-brand dark:border-brand-dark border-solid! font-medium px-7 py-3  text-brand dark:text-brand-dark rounded-md pointer text-base transition-opacity betterhover:hover:bg-highlight-dark betterhover:hover:bg-highlight betterhover:hover:border-[1.5px]"
+            >
+              {checkBlog}
+            </NLink>
+          </div>
         </div>
       </div>
     </section>
