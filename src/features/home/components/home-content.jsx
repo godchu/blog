@@ -18,7 +18,6 @@ export function HomeContent() {
 
       <NovelSection />
 
-      {/* hidden now */}
       <CommunityGallerySection />
     </div>
   );

@@ -28,6 +28,7 @@ export default async function RootLayout({ children }) {
       {/* <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#404756" /> */}
       <meta name="msapplication-TileColor" content="#2b5797" />
       <meta name="theme-color" content="#23272f" />
+      <meta name="algolia-site-verification" content="E1EAFDD7A1FB6AFC" />
 
       <body className="font-text font-medium antialiased text-lg bg-wash dark:bg-wash-dark text-secondary dark:text-secondary-dark leading-base">
         <ThemeScript />
