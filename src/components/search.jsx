@@ -19,6 +19,7 @@ function isEditingContent(event) {
   let tagName = element.tagName;
   return element.isContentEditable || tagName === 'INPUT' || tagName === 'SELECT' || tagName === 'TEXTAREA';
 }
+
 function useDocSearchKeyboardEvents({ isOpen, onOpen, onClose }) {
   useEffect(() => {
     function onKeyDown(event) {
