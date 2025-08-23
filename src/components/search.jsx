@@ -3,7 +3,7 @@ import * as React from 'react';
 import { createPortal } from 'react-dom';
 import Head from 'next/head';
 import Link from 'next/link';
-import Router from 'next/router';
+import { useRouter } from 'next/navigation';
 
 import { siteConfig } from '@/configs/site-config';
 
@@ -80,6 +80,8 @@ export function Search({
     ],
   },
 }) {
+  const router = useRouter();
+
   useDocSearchKeyboardEvents({ isOpen, onOpen, onClose });
   return (
     <>
@@ -94,7 +96,7 @@ export function Search({
             onClose={onClose}
             navigator={{
               navigate({ itemUrl }) {
-                Router.push(itemUrl);
+                router.push(itemUrl);
               },
             }}
             transformItems={(items) => {
