@@ -28,7 +28,7 @@ const skills = ['JavaScript', 'TypeScript', 'Node.js', 'Golang', 'React', 'React
 
 // const socialLinkClasses = 'hover:text-primary dark:text-primary-dark';
 
-export const AboutSection = () => {
+export const AboutSection = ({ num }) => {
   return (
     <Section
       background="left-card"
@@ -38,7 +38,7 @@ export const AboutSection = () => {
     >
       <div className="w-full">
         <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
-          <Header num="01">About Me</Header>
+          <Header num={num}>About Me</Header>
 
           <div className="max-w-[300px] w-full mx-auto md:mx-0 aspect-[4/4] relative overflow-hidden rounded-2xl shadow-sm ring-1 ring-black/5 bg-white/40 dark:bg-white/5 transition-transform duration-500 ease-out ">
             <Image src="/images/og-home-4-4.jpg" alt="Lê Xuân Tiến" fill priority className="object-cover" />

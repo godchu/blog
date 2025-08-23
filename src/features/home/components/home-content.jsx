@@ -10,15 +10,15 @@ export function HomeContent() {
     <div className="ps-0">
       <HeroSection />
 
-      <AboutSection />
+      <AboutSection num="01" />
 
-      <NikkiSection />
+      <NikkiSection num="02" />
 
-      <BlogSection />
+      <BlogSection num="03" />
 
-      <NovelSection />
+      <NovelSection num="04" />
 
-      <CommunityGallerySection />
+      <CommunityGallerySection num="05" />
     </div>
   );
 }

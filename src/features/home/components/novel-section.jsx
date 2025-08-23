@@ -7,7 +7,7 @@ import { SectionSticker } from './section-sticker';
 const title = 'Novel';
 const description = ' In my spare time, I translate light novels into Vietnamese';
 
-export const NovelSection = () => {
+export const NovelSection = ({ num }) => {
   return (
     <Section
       background="right-card"
@@ -17,7 +17,7 @@ export const NovelSection = () => {
     >
       <div className="w-full">
         <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
-          <Header num="04">{title}</Header>
+          <Header num={num}>{title}</Header>
           <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
             {description}
           </p>

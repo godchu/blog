@@ -10,7 +10,7 @@ const title = 'My Nikki';
 const description =
   'A personal log of thoughts, progress, and life updates. This is where I share milestones, reflections, and moments that matter.';
 
-export const NikkiSection = () => {
+export const NikkiSection = ({ num }) => {
   const latestNikkiRoutes = [...nikkiJson.routes[0].routes]
     .sort(
       (a, b) =>
@@ -28,7 +28,7 @@ export const NikkiSection = () => {
     >
       <div className="w-full">
         <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
-          <Header num="01">{title}</Header>
+          <Header num={num}>{title}</Header>
           <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
             {description}
           </p>

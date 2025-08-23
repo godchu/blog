@@ -10,7 +10,7 @@ import { SectionSticker } from './section-sticker';
 const title = 'Blog';
 const description = 'Anything important, including release notes or deprecation notices, will be posted here first.';
 
-export const BlogSection = () => {
+export const BlogSection = ({ num }) => {
   const latestBlogRoutes = [...blogJson.routes[0].routes].slice(0, 5);
 
   return (
@@ -22,7 +22,7 @@ export const BlogSection = () => {
     >
       <div className="w-full">
         <div className="mx-auto flex flex-col max-w-4xl px-5 lg:px-0">
-          <Header num="03">{title}</Header>
+          <Header num={num}>{title}</Header>
           <p className="max-w-3xl text-lg lg:text-xl text-secondary dark:text-secondary-dark leading-normal">
             {description}
           </p>

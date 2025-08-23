@@ -9,9 +9,9 @@ export const siteConfig = {
   copyright: `Copyright © ${new Date().getFullYear()}`,
   repoUrl: 'https://github.com/godchu/blog',
   algolia: {
-    appId: '5YX659QBL4',
-    apiKey: '842ef6e0c139ffcf7ff63702c41efefe',
-    indexName: 'beta-blog',
+    appId: 'LOYILEZTLM',
+    apiKey: 'dea2ce8adc8a06081b96a2cd75baf416',
+    indexName: 'Personal website',
   },
   Gtag: 'G-VKZ14GJNT2',
 
