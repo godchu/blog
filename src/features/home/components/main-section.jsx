@@ -14,7 +14,7 @@ import { HiSticker } from './hi-sticker';
 const socialLinkClasses = 'hover:text-primary dark:text-primary-dark';
 
 const name = 'Lê Xuân Tiến.';
-const checkBlog = 'Check out my blog';
+const checkBlog = 'Check out my blog !';
 
 export const HeroSection = () => {
   return (
@@ -26,7 +26,7 @@ export const HeroSection = () => {
           <h2 className="font-sans text-primary dark:text-primary-dark font-semibold text-[clamp(40px,8vw,80px)] leading-[1.1]">
             {name}
           </h2>
-          <h3 className="font-sans font-semibold text-[clamp(40px,8vw,80px)] mt-[5px] leading-[0.9]">
+          <h3 className="font-sans font-semibold text-[clamp(40px,8vw,80px)] dark:text-[#ccd6f6] mt-[5px] leading-[0.9]">
             I build things for fun.
           </h3>
           <p className="mt-5 max-w-[540px]">
@@ -35,7 +35,7 @@ export const HeroSection = () => {
             I’m a <b>Full‑stack</b> developer and <b>import–export</b> documentation specialist at{' '}
             <Link href="https://dainghiasteel.com/">Dai Nghia Steel</Link>, where I create accessible digital products
             and handle customs paperwork for the company’s shipments.
-            <span className="block text-sm mt-2 opacity-70">(also quietly operating as capybara boy 🐾)</span>
+            <span className="block text-sm mt-2 opacity-70">(Reload page to see something 🐾)</span>
           </p>
 
           <div className="flex flex-row items-center gap-x-3 mt-5">
@@ -76,10 +76,10 @@ export const HeroSection = () => {
             </ExternalLink>
           </div>
 
-          <div className="mt-8">
+          <div className="mt-12">
             <NLink
               href="/docs/blog"
-              className="border-[1px] border-brand dark:border-brand-dark border-solid! font-medium px-7 py-3  text-brand dark:text-brand-dark rounded-md pointer text-base transition-opacity betterhover:hover:bg-highlight-dark betterhover:hover:bg-highlight betterhover:hover:border-[1.5px]"
+              className="border-[1px] border-brand dark:border-brand-dark border-solid! font-medium px-8 py-5  text-brand dark:text-brand-dark rounded-md pointer text-base transition-opacity betterhover:hover:bg-highlight-dark betterhover:hover:bg-highlight betterhover:hover:border-[1.5px]"
             >
               {checkBlog}
             </NLink>
